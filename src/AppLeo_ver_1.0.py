@@ -89,8 +89,7 @@ with contextlib.closing(wave.open(fname,'r')) as g:
     tipo = int(PPM)   #Convertimos las PPM a tipo entero. 
 
 
-#Validar las recomendaciones, (Recordar que esta validado niños entre 5-10 años que estan 
-# en la primaria).
+#Validar las recomendaciones, (Recordar que esta validando niños entre 5-10 años que estan en la primaria).
 
 try:
     print('\n')
@@ -119,5 +118,3 @@ try:
 
 except Exception as e:      
     print(e)   
-
-
