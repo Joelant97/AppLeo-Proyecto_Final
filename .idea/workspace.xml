@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2af68542-2f0a-4732-842c-f45c8ffc129e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppLeo_ver_1.0.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppLeo_ver_1.0.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppLeo_ver_1.0.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppLeo_ver_1.2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/records/grabacion.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/records/grabacion.wav" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,25 +15,35 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/AppLeo$AppLeo_ver_1_0.coverage" NAME="AppLeo_ver_1.0 Coverage Results" MODIFIED="1536125792152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/AppLeo$AppLeo_ver_1_0.coverage" NAME="AppLeo_ver_1.0 Coverage Results" MODIFIED="1536566592648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/AppLeo$AppLeo_ver_1_2.coverage" NAME="AppLeo_ver_1.2 Coverage Results" MODIFIED="1536567798030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AppLeo_ver_1.0.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/AppLeo_ver_1.0.py">
+      <file leaf-file-name="AppLeo_ver_1.2.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppLeo_ver_1.2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
+            <state relative-caret-position="-820">
+              <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#29#40#0" expanded="true" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/__init__.py">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -73,7 +84,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/pocketsphinx.py" />
         <option value="$PROJECT_DIR$/src/AppLeo_ver_1.0.py" />
+        <option value="$PROJECT_DIR$/src/AppLeo_ver_1.2.py" />
       </list>
     </option>
   </component>
@@ -92,7 +105,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1300" />
@@ -104,7 +117,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -122,7 +135,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -153,7 +166,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.AppLeo_ver_1.2">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -186,7 +199,26 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/AppLeo_ver_1.0.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\ANTONIO\Documents\WorkSpace Web\App_Leo\src\AppLeo_ver_1.2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="AppLeo_ver_1.2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="AppLeo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/AppLeo_ver_1.2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -214,8 +246,13 @@
       <properties />
       <listeners />
     </configuration>
+    <list>
+      <item itemvalue="Python.AppLeo_ver_1.0" />
+      <item itemvalue="Python.AppLeo_ver_1.2" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.AppLeo_ver_1.2" />
         <item itemvalue="Python.AppLeo_ver_1.0" />
       </list>
     </recent_temporary>
@@ -231,12 +268,13 @@
       <option name="presentableId" value="Default" />
       <updated>1536097124329</updated>
       <workItem from="1536097139897" duration="698000" />
-      <workItem from="1536125289762" duration="1799000" />
+      <workItem from="1536125289762" duration="2179000" />
+      <workItem from="1536560356149" duration="3482000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2497000" />
+    <option name="totallyTimeSpent" value="6359000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -261,12 +299,11 @@
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.3286385" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3286385" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3286385" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3286385" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49921754" visible="true" weight="0.27427185" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3286385" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49921754" visible="true" weight="0.19417475" />
+      <window_info anchor="right" id="Database" order="7" weight="0.32928804" />
       <window_info anchor="right" id="SciView" order="11" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -285,6 +322,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.3286385" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286385" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,11 +358,21 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/AppLeo_ver_1.0.py">
+    <entry file="file://$PROJECT_DIR$/src/AppLeo_ver_1.2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="120" selection-start-line="120" selection-end-line="120" />
+          <folding>
+            <element signature="e#29#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppLeo_ver_1.2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#29#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -332,12 +380,15 @@
     <entry file="file://$PROJECT_DIR$/src/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppLeo_ver_1.0.py">
+    <entry file="file://$PROJECT_DIR$/src/pocketsphinx.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppLeo_ver_1.2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
+        <state relative-caret-position="-820">
+          <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#29#40#0" expanded="true" />
           </folding>
         </state>
       </provider>

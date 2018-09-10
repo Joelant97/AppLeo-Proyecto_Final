@@ -6,15 +6,15 @@ import tkinter
 
 #Main Viewer (TK): 
 window = tkinter.Tk()
-window.title("AppLeo ver.1.1")
+window.title("AppLeo ver.1.2")
 window.configure(background = "black")
 
 #Crear un Label
-tkinter.Label(window, text="Bienvenido a su AppLeo_ver_1.1", bg="yellow", fg="black", font="none 12 bold").pack()
+tkinter.Label(window, text="Bienvenido a su AppLeo_ver_1.2", bg="yellow", fg="black", font="none 12 bold").pack()
 tkinter.Label(window, text='\n\n', bg="black", fg="black", font="none 12 bold").pack()
 
 tkinter.Label(window, text="Mensaje a Leer: ", bg="yellow", fg="black", font="none 12 bold").pack()
-tkinter.Label(window, text="Pedro preparo algo muy especial para la familia esta noche", bg="yellow", fg="black", font="none 12 bold").pack()
+tkinter.Label(window, text="Hola cómo estás", bg="yellow", fg="black", font="none 12 bold").pack()
 tkinter.Label(window, text='\n\n', bg="black", fg="black", font="none 12 bold").pack()
 
 def die():
@@ -41,8 +41,10 @@ with sr.Microphone() as source:
     contar = float (str(len(salida.split(" "))))
 
     #Salida en minusculas + guardar lo que se leera en la variable aux
-    comparar = salida.lower()
-    aux = 'pedro preparo algo muy especial para la familia esta noche'   
+    #comparar = salida.lower()
+    comparar = salida
+    aux = 'Hola cómo estás'
+
 
 try:
     
