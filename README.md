@@ -6,4 +6,7 @@ Librerias de Python utilizadas por la aplicacion AppLeo:
 -PyAudio. 
 -Wave. 
 -contextlib. 
--tkinter. --> Interfaz Gráfica. 
+-tkinter. --> Interfaz Gráfica. (Front_end --> Django)
+
+Base de Datos: 
+-Sqllite 3
