@@ -1,10 +1,7 @@
-# Create your views here.
+from django.http import HttpResponse
 
-# howdy/views.py
-from django.shortcuts import render
-from django.views.generic import TemplateView
 
-# Create your views here.
-class HomePageView(TemplateView):
-    def get(self, request, **kwargs):
-        return render(request, 'index.html', context=None)
+def index(request):
+    return HttpResponse("<h1>Esta es la Home-Pages de las Evaluaciones")
+
+
