@@ -10,18 +10,18 @@ window.title("AppLeo ver.1.2")
 window.configure(background = "black")
 
 #Crear un Label
-tkinter.Label(window, text="Bienvenido a su AppLeo_ver_1.2", bg="yellow", fg="black", font="none 12 bold").pack()
+tkinter.Label(window, text="Bienvenido a su AppLeo_ver_1.2", bg="green", fg="black", font="none 12 bold").pack()
 tkinter.Label(window, text='\n\n', bg="black", fg="black", font="none 12 bold").pack()
 
-tkinter.Label(window, text="Mensaje a Leer: ", bg="yellow", fg="black", font="none 12 bold").pack()
-tkinter.Label(window, text="Hola cómo estás", bg="yellow", fg="black", font="none 12 bold").pack()
+tkinter.Label(window, text="Mensaje a Leer: ", bg="green", fg="black", font="none 12 bold").pack()
+tkinter.Label(window, text="María conoce un niño con muy mal carácter en su escuela", bg="green", fg="black", font="none 12 bold").pack()
 tkinter.Label(window, text='\n\n', bg="black", fg="black", font="none 12 bold").pack()
 
 def die():
     window.destroy()
 
 #Crear un Button: 
-tkinter.Button(window, text="Iniciar Prueba de Fluidez", bg="yellow", fg="black", font="none 12 bold",command=die).pack()
+tkinter.Button(window, text="Iniciar Prueba de Fluidez", bg="green", fg="black", font="none 12 bold",command=die).pack()
 
 
 #Correr el Main loop
@@ -43,7 +43,7 @@ with sr.Microphone() as source:
     #Salida en minusculas + guardar lo que se leera en la variable aux
     #comparar = salida.lower()
     comparar = salida
-    aux = 'Hola cómo estás'
+    aux = 'María conoce un niño con muy mal carácter en su escuela'
 
 
 try:
