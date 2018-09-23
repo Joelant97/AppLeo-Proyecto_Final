@@ -1,0 +1,9 @@
+{% if all_evaluaciones %}
+    <ul>
+        {% for evaluacion in all_evaluaciones %}
+        <li><a href="/evaluar/{{ evaluacion.evaluacion_id }}/">{{ evaluacion.evaluacion_tipo }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h3>No tienes evaluaciones registradas</h3>
+{% endif %}
