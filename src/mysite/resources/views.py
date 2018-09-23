@@ -1,20 +1,24 @@
-from django.http import HttpResponse
-from django.template import loader
+from django.http import Http404
+from django.shortcuts import render
 from .models import Evaluacion
 
 
 def index(request):
     all_evaluaciones = Evaluacion.objects.all()
-    template = loader.get_template('resources/index.html')
-    context = {
-        'all_evaluaciones': all_evaluaciones,
-    }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'resources/index.html', {'all_evaluaciones': all_evaluaciones})
 
 
 #Los request conectan las WebPages, Imagenes o lo que sea.
 def detalles(request, evaluacion_id):
-    return HttpResponse("<h2>Detalles por Evaluaciones ID: " + str(evaluacion_id) + "</h2>")
+    try:
+        evaluacion = Evaluacion.objects.get(pk=evaluacion_id)
+    except Evaluacion.DoesNotExist:
+        raise Http404("La evaluacion no existe o no ha sido encontrada por el Servidor.")
+    return render(request, 'resources/detalles.html', {'evaluacion': evaluacion})
+
+
+
+
 
 
 
