@@ -1,21 +1,69 @@
 <!-- Carga la ruta a tus archivos estáticos -->
 {% load staticfiles %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="{% static 'resources/style.css' %}" />
+<link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="{% static 'resources/style.css' %}"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
     <div class="container-fluid">
 
-        <!-- Logo -->
+        <!-- Header -->
         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             <a class="navbar-brand" href="{% url 'index' %}">AppLeo</a>
         </div>
+
+        <!-- Items -->
+        <div class="collapse navbar-collapse" id="topNavBar">
+
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="#">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp; Estudiantes
+                    </a>
+                </li>
+                <li class="">
+                    <a href="{% url 'index' %}">
+                        <span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp; Realizar Evaluacion
+                    </a>
+                </li>
+            </ul>
+
+            <form class="navbar-form navbar-left" role="search" method="get" action="#">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="q" value="">
+                </div>
+                <button type="submit" class="btn btn-default">Buscar</button>
+            </form>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                    <a href="#">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp; Agregar Estudiante
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Cerrar Sesion
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
 
     </div>
 </nav>
 
 {% if all_evaluaciones %}
-    <h3>Aquí estan todas las Evaluaciones:</h3>
+    <h3>Aqui estan todas las Evaluaciones:</h3>
     <ul>
         {% for evaluacion in all_evaluaciones %}
         <li><a href="{% url 'resources:detalles' evaluacion.evaluacion_id %}">{{ evaluacion.evaluacion_tipo }}</a></li>
