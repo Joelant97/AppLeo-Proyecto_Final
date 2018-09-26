@@ -1,15 +1,14 @@
 {% extends 'resources/base.html' %}
 
 {% block body %}
-    {% if all_evaluaciones %}
-        <h3>Aqui estan todas las Evaluaciones:</h3>
+    {% if all_estudiantes %}
+        <h3>Listado de Estudiantes:</h3>
         <ul>
-            {% for evaluacion in all_evaluaciones %}
-            <!-- Puedes probar con 'detalles' y con evaluacion.id-->
-            <li><a href="{% url 'resources:detalles' evaluacion.evaluacion_id %}">{{ evaluacion.evaluacion_tipo }}</a></li>
+            {% for estudiante in all_estudiantes %}
+            <li><a href="{% url 'resources:detalles' estudiante.estudiante_id %}">{{ estudiante.estudiante_nombre }}</a></li>
             {% endfor %}
         </ul>
     {% else %}
-        <h3>No tienes evaluaciones registradas</h3>
+        <h3>No tienes estudiantes registrados</h3>
     {% endif %}
 {% endblock %}

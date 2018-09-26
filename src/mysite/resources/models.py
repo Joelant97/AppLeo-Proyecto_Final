@@ -3,6 +3,7 @@ from django.db import models
 # Crea tus Modelos aqui.
 
 class Profesor(models.Model):
+    profesor_id = models.CharField(max_length=5, default='SOME STRING')
     profesor_nombre = models.CharField(max_length=250)
     profesor_apellido = models.CharField(max_length=250)
     profesor_email = models.EmailField(max_length=250)
@@ -14,6 +15,7 @@ class Profesor(models.Model):
 
 class Estudiante(models.Model):
     profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE)
+    estudiante_id = models.CharField(max_length=5, default='SOME STRING')
     estudiante_nombre = models.CharField(max_length=250)
     estudiante_apellido = models.CharField(max_length=250)
     estudiante_genero = models.CharField(max_length=10)
