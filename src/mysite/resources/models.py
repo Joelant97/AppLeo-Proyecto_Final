@@ -1,9 +1,10 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 
 # Crea tus Modelos aqui.
 
 class Profesor(models.Model):
-    profesor_id = models.CharField(max_length=5, default='SOME STRING')
+    profesor_id = models.CharField(max_length=5, default='Introduzca el ID')
     profesor_nombre = models.CharField(max_length=250)
     profesor_apellido = models.CharField(max_length=250)
     profesor_email = models.EmailField(max_length=250)
@@ -15,12 +16,19 @@ class Profesor(models.Model):
 
 class Estudiante(models.Model):
     profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE)
-    estudiante_id = models.CharField(max_length=5, default='SOME STRING')
+    estudiante_id = models.CharField(max_length=5, default='Introduzca el ID')
     estudiante_nombre = models.CharField(max_length=250)
     estudiante_apellido = models.CharField(max_length=250)
     estudiante_genero = models.CharField(max_length=10)
     nacimiento = models.DateField(max_length=10)
     edad = models.CharField(max_length=8)
+    estudiante_logo = models.CharField(max_length=1000, default='LINK de la Imagen')
+
+    def get_absolute_url(self):
+        return reverse('resources:detalles', kwargs={'pk': self.pk})
+
+    def __str__(self):
+        return self.estudiante_nombre + ' - ' + self.estudiante_apellido
 
 
 class Evaluacion(models.Model):
