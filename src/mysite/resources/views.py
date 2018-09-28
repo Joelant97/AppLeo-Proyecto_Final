@@ -1,5 +1,6 @@
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy
 from .models import Estudiante
 
 
@@ -18,6 +19,21 @@ class DetailView(generic.DetailView):
 
 class CrearEstudiante(CreateView):
     model = Estudiante
-    fields = ['estudiante_id', 'estudiante_nombre', 'estudiante_apellido', 'estudiante_genero', 'nacimiento', 'edad', 'estudiante_logo']
+    fields = ['estudiante_id', 'nombres', 'apellidos', 'genero', 'edad', 'foto']
+
+
+class UpdateEstudiante(UpdateView):
+    model = Estudiante
+    fields = ['estudiante_id', 'nombres', 'apellidos', 'genero', 'edad', 'foto']
+
+
+class DeleteEstudiante(DeleteView):
+    model = Estudiante
+    success_url = reverse_lazy('resources:index')
+
+
+
+
+
 
 

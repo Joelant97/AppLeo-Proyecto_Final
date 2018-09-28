@@ -1,6 +1,83 @@
 {% extends 'resources/base.html' %}
 {% block title %}Detalles del Estudiante{% endblock %}
+{% block estudiantes_active %}active{% endblock %}
 
 {% block body %}
-    {{ estudiante }}
+<div class="container-fluid songs-container">
+
+    <div class="row">
+
+        <!-- Izquierda Estudiante Info -->
+        <div class="col-sm-4 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <a href="{% url 'resources:detalles' estudiante.estudiante_id %}">
+                        {% if estudiante.foto %}
+                        <img src="{{ estudiante.foto }}" class="img-responsive">
+                        {% else %}
+                        <h3>No hay imagen para mostrar</h3>
+                        {% endif %}
+                    </a>
+                    <h1>{{ estudiante.nombres }} <small>{{ estudiante.estudiante_id }}</small></h1>
+                    <h2>{{ estudiante.apellidos }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Derecha Evaluacion Info -->
+        <div class="col-sm-8 col-md-9">
+
+            <ul class="nav nav-pills" style="margin-bottom: 10px;">
+                <li role="presentation" class="active"><a href="{% url 'resources:detalles' estudiante.estudiante_id %}">Ver todo</a></li>
+                <li role="presentation"><a href="#">Agregar nueva Evaluacion</a></li>
+            </ul>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <h3>Todas las Evaluaciones</h3>
+
+                    {% if error_message %}
+                    <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>ID Evaluacion</th>
+                            <th>Favorito</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for evaluacion in estudiante.evaluacion_set.all %}
+                        <tr>
+                            <td>{{ evaluacion.evaluacion_id }}</td>
+                            <td>
+                                <a href="#" class="btn-favorite"><span class="glyphicon glyphicon-star {% if evaluacion.es_favorito %}active{% endif %}"></span></a>
+                            </td>
+                            <td>
+                                <form action="#" method="post" style="display: inline;">
+                                    {% csrf_token %}
+                                    <!-- Si da error usa name evaluacio_id y evaluacion.id o pruebas con varios casos-->
+                                    <input type="hidden" name="evaluacion_id" value="{{ evaluacion.evaluacion_id }}" />
+                                    <button type="submit" class="btn btn-danger btn-xs">
+                                        <span class="glyphicon glyphicon-remove"></span>&nbsp; Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
 {% endblock %}

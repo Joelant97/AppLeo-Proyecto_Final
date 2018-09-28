@@ -17,25 +17,30 @@ class Profesor(models.Model):
 class Estudiante(models.Model):
     profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE)
     estudiante_id = models.CharField(max_length=5, default='Introduzca el ID')
-    estudiante_nombre = models.CharField(max_length=250)
-    estudiante_apellido = models.CharField(max_length=250)
-    estudiante_genero = models.CharField(max_length=10)
-    nacimiento = models.DateField(max_length=10)
+    nombres = models.CharField(max_length=250)
+    apellidos = models.CharField(max_length=250)
+    genero = models.CharField(max_length=10)
     edad = models.CharField(max_length=8)
-    estudiante_logo = models.CharField(max_length=1000, default='LINK de la Imagen')
+    foto = models.CharField(max_length=1000, default='LINK de la FOTO')
 
     def get_absolute_url(self):
         return reverse('resources:detalles', kwargs={'pk': self.pk})
 
     def __str__(self):
-        return self.estudiante_nombre + ' - ' + self.estudiante_apellido
+        return self.nombres + ' - ' + self.apellidos
 
 
 class Evaluacion(models.Model):
     estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)
     evaluacion_id = models.CharField(max_length=5)
     evaluacion_tipo = models.CharField(max_length=15)   #Los tipos de evaluacion son de Comprension o Fluidez Lectora.
+    es_favorito = models.BooleanField(default=False)
 
+    def get_absolute_url(self):
+        return reverse('resources:favorito', kwargs={'pk': self.pk})
+
+    def __str__(self):
+        return self.evaluacion_id + ' - ' + self.evaluacion_tipo
 
 class Fluidez(models.Model):
     evaluacion = models.ForeignKey(Evaluacion, on_delete=models.CASCADE)
@@ -47,5 +52,7 @@ class Fluidez(models.Model):
 class Comprension(models.Model):
     evaluacion = models.ForeignKey(Evaluacion, on_delete=models.CASCADE)
     comprension_porcentaje = models.CharField(max_length=4)
+
+
 
 

@@ -13,5 +13,11 @@ urlpatterns = [
 
     # /resources/estudiante/add/
     url(r'estudiante/add/$', views.CrearEstudiante.as_view(), name='estudiante-add'),
+
+    # /resources/estudiante/2/
+    url(r'estudiante/(?P<pk>[0-9]+)/$', views.UpdateEstudiante.as_view(), name='estudiante-update'),
+
+    # /resources/estudiante/2/delete
+    url(r'estudiante/(?P<pk>[0-9]+)/delete/$', views.DeleteEstudiante.as_view(), name='estudiante-delete'),
 ]
 
