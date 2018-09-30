@@ -16,9 +16,12 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from resources.views import (login_view, registro_view, logout_view)
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^login/', login_view, name='login'),
     url(r'^', include('resources.urls', namespace='resources')),
 
 ]
