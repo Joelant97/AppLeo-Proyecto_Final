@@ -30,10 +30,3 @@ class UpdateEstudiante(UpdateView):
 class DeleteEstudiante(DeleteView):
     model = Estudiante
     success_url = reverse_lazy('resources:index')
-
-
-
-
-
-
-

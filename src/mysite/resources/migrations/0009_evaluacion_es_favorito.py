@@ -5,7 +5,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('resources', '0008_remove_estudiante_fecha_de_nacimiento'),
     ]

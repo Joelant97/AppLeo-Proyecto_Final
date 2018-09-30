@@ -1,21 +1,21 @@
 var AlbumsListPage = {
-    init: function() {
+    init: function () {
         this.$container = $('.albums-container');
         this.render();
         this.bindEvents();
     },
 
-    render: function() {
+    render: function () {
 
     },
 
-    bindEvents: function() {
-        $('.btn-favorite', this.$container).on('click', function(e) {
+    bindEvents: function () {
+        $('.btn-favorite', this.$container).on('click', function (e) {
             e.preventDefault();
 
             var self = $(this);
             var url = $(this).attr('href');
-            $.getJSON(url, function(result) {
+            $.getJSON(url, function (result) {
                 if (result.success) {
                     $('.glyphicon-star', self).toggleClass('active');
                 }
@@ -27,23 +27,23 @@ var AlbumsListPage = {
 };
 
 var SongsListPage = {
-    init: function() {
+    init: function () {
         this.$container = $('.songs-container');
         this.render();
         this.bindEvents();
     },
 
-    render: function() {
+    render: function () {
 
     },
 
-    bindEvents: function() {
-        $('.btn-favorite', this.$container).on('click', function(e) {
+    bindEvents: function () {
+        $('.btn-favorite', this.$container).on('click', function (e) {
             e.preventDefault();
 
             var self = $(this);
             var url = $(this).attr('href');
-            $.getJSON(url, function(result) {
+            $.getJSON(url, function (result) {
                 if (result.success) {
                     $('.glyphicon-star', self).toggleClass('active');
                 }
@@ -54,7 +54,7 @@ var SongsListPage = {
     }
 };
 
-$(document).ready(function() {
+$(document).ready(function () {
     AlbumsListPage.init();
     SongsListPage.init();
 });

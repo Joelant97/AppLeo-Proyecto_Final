@@ -5,7 +5,6 @@ from .models import Evaluacion
 from .models import Fluidez
 from .models import Comprension
 
-
 # Registre los Modelos aqui.
 
 admin.site.register(Profesor)

@@ -5,14 +5,15 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
+
     dependencies = [
-        ('resources', '0003_auto_20180926_1809'),
+        ('resources', '0009_evaluacion_es_favorito'),
     ]
 
     operations = [
-        migrations.AddField(
+        migrations.AlterField(
             model_name='estudiante',
-            name='estudiante_logo',
-            field=models.CharField(default='SOME STRING', max_length=1000),
+            name='foto',
+            field=models.FileField(upload_to=''),
         ),
     ]
