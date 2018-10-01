@@ -4,33 +4,7 @@ from django.core.urlresolvers import reverse_lazy
 from .models import Estudiante
 
 
-from django.contrib.auth import(
-    authenticate,
-    get_user_model,
-    login,
-    logout,
-
-    )
-from django.shortcuts import render
-
-from .forms import UserLoginForm
-
 #Crea tus Vistas aqui
-
-def login_view(request):
-    title = "Login"
-    form = UserLoginForm(request.POST or None)
-    if form.is_valid():
-        usuario = form.cleaned_data.get("usuario")
-        contraseña = form.cleaned_data.get('contraseña')
-
-    return render(request, 'resources/form.html', {"form": form, "title": title})
-
-def registro_view(request):
-    return render(request, 'form.html', {})
-
-def logout_view(request):
-    return render(request, 'form.html', {})
 
 
 class IndexView(generic.ListView):

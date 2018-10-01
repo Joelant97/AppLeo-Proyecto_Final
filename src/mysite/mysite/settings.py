@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.core.urlresolvers import reverse_lazy
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -101,3 +102,6 @@ STATIC_URL = '/static/'
 # Creamos esta variable global para la ruta de la MEDIA(DATA), como son las imagenes de los estudiantes.
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+LOGIN_REDIRECT_URL = reverse_lazy('resources:index')

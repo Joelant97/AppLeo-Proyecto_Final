@@ -1,5 +1,5 @@
 {% load crispy_forms_tags %}
-<!DOCTYPE html>
+<!--<!DOCTYPE html> -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,26 +20,24 @@
 
         <!-- Header -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{% url 'resources:index' %}">Login</a>
+            <a class="navbar-brand" href="#">AppLeo</a>
         </div>
 
     </div>
 
 </nav>
 
-<div class="col-sm-6 col-sm-offset-3">
-    <h1>{{title}}</h1>
+<div class='col-sm-6 col-sm-offset-3'>
+<h1>Login</h1>
     <hr/>
 
-    <form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
-        {% crispy form %}
-        <input type="submit" class="btn btn-default" value="{{ title }}" />
-    </form>
+<form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+    <!-- {% crispy form %}  -->
+    {% include 'resources/form-template.html' %}
+    <a href="#">Olvidé mi contraseña</a><br/>
+    <button type="submit" class="btn btn-default">Login</button>
+    <!-- <input type="submit" class="btn btn-default" value="{{ title }}"/> -->
+</form>
 </div>
 
 </body>
