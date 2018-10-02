@@ -1,5 +1,3 @@
-<!--{% load crispy_forms_tags %}-->
-<!--<!DOCTYPE html> -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,17 +26,15 @@
 </nav>
 
 <div class='col-sm-6 col-sm-offset-3'>
-<h1>Login</h1>
+    <h1>Registro de Profesores</h1>
     <hr/>
 
-<form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
-    <!-- {% crispy form %}  -->
-    {% include 'resources/form-template.html' %}
-    <a href="#">Olvidé mi contraseña</a><br/>
-    <a href="{% url 'registrar' %}" class="btn btn-default">Registrarse</a>
-    <button type="submit" class="btn btn-default">Login</button>
-    <!-- <input type="submit" class="btn btn-default" value="{{ title }}"/> -->
-</form>
+    <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+        {% include 'resources/form-template.html' %}
+        <button type="submit" class="btn btn-default">Registrar</button>
+
+    </form>
 </div>
 
 </body>

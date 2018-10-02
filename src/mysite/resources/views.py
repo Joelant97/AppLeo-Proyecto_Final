@@ -3,8 +3,17 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from .models import Estudiante
 
+from django.contrib.auth.models import User
+from .forms import RegistroForm
+
 
 #Crea tus Vistas aqui
+
+class RegistroUsuario(CreateView):
+    model = User
+    template_name = "resources/registrar.html"
+    form_class = RegistroForm
+    success_url = reverse_lazy('login')
 
 
 class IndexView(generic.ListView):
