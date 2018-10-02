@@ -4,18 +4,8 @@ from django.core.urlresolvers import reverse
 
 # Crea tus Modelos aqui.
 
-class Profesor(models.Model):
-    profesor_id = models.CharField(max_length=5, default='Introduzca el ID')
-    profesor_nombre = models.CharField(max_length=250)
-    profesor_apellido = models.CharField(max_length=250)
-    profesor_email = models.EmailField(max_length=250)
-    profesor_telefono = models.CharField(max_length=15)
-    profesor_genero = models.CharField(max_length=10)
-    institucion = models.CharField(max_length=250)
-
 
 class Estudiante(models.Model):
-    profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE)
     estudiante_id = models.CharField(max_length=5, default='Introduzca el ID')
     nombres = models.CharField(max_length=250)
     apellidos = models.CharField(max_length=250)
