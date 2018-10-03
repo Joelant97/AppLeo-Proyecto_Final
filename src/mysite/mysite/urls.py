@@ -18,16 +18,23 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import login
 from resources.views import RegistroUsuario
-
+from rest_framework.urlpatterns import format_suffix_patterns
+from resources.views import EstudianteList
+from resources.views import EvaluacionList
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('resources.urls', namespace='resources')),
     url(r'^$', login, {'template_name': 'resources/login_form.html'}, name='login'),
-    url(r'^registrar', RegistroUsuario.as_view(), name='registrar')
+    url(r'^registrar', RegistroUsuario.as_view(), name='registrar'),
+    url(r'^estudiantes/', EstudianteList.as_view(), name='estudiantes'),  #Esta y las evaluaciones son listas de Rest.
+    url(r'^evaluaciones/', EvaluacionList.as_view(), name='evaluaciones'),
 
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
