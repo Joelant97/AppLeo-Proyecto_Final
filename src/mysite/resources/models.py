@@ -5,12 +5,15 @@ from django.core.urlresolvers import reverse
 # Crea tus Modelos aqui.
 
 
+
 class Estudiante(models.Model):
     nombres = models.CharField(max_length=250)
     apellidos = models.CharField(max_length=250)
     genero = models.CharField(max_length=10)
     edad = models.CharField(max_length=8)
     foto = models.FileField()
+    es_favorito = models.BooleanField(default=False)
+    #user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
         return reverse('resources:detalles', kwargs={'pk': self.pk})
@@ -35,9 +38,10 @@ class Evaluacion(models.Model):
 class Fluidez(models.Model):
     evaluacion = models.ForeignKey(Evaluacion, on_delete=models.CASCADE)
     ppm = models.CharField(max_length=8)
-    tipo_lectura = models.CharField(max_length=250)  # Tipos: LENTA, MUY LENTA, RAPIDA, etc.
+    tipo_lectura = models.CharField(max_length=250)  # Tipos: LENTA, MUY LENTA, RAPIDA, etc.S
 
 
 class Comprension(models.Model):
     evaluacion = models.ForeignKey(Evaluacion, on_delete=models.CASCADE)
     comprension_porcentaje = models.CharField(max_length=4)
+

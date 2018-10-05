@@ -17,8 +17,8 @@ urlpatterns = [
     # /resources/estudiante/add/
     url(r'estudiante/add/$', login_required(views.CrearEstudiante.as_view()), name='estudiante-add'),
 
-    # /resources/estudiante/2/
-    url(r'estudiante/(?P<pk>[0-9]+)/$', login_required(views.UpdateEstudiante.as_view()), name='estudiante-update'),
+    # /resources/estudiante/update/2/
+    url(r'estudiante/update/(?P<pk>[0-9]+)/$', login_required(views.UpdateEstudiante.as_view()), name='estudiante-update'),
 
     # /resources/estudiante/2/delete
     url(r'estudiante/(?P<pk>[0-9]+)/delete/$', login_required(views.DeleteEstudiante.as_view()), name='estudiante-delete'),

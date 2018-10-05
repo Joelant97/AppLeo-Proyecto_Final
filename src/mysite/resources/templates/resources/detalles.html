@@ -22,6 +22,8 @@
                         <small>{{ estudiante.id }}</small>
                     </h1>
                     <h2>{{ estudiante.apellidos }}</h2>
+                    <a href="{% url 'resources:estudiante-update' estudiante.id %}" class="btn btn-primary btn-sm"
+                       role="button">Editar</a>
                 </div>
             </div>
         </div>
