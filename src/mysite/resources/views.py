@@ -24,6 +24,11 @@ class RegistroUsuario(CreateView):
     form_class = RegistroForm
     success_url = reverse_lazy('login')
 
+class RegistroEvaluacion():
+    model = Evaluacion
+    template_name = "resources/evaluacion.html"
+    success_url = reverse_lazy('resources:detalles')    #Esto es para direcionar hacia los detalles luego de registrar la
+                                                        #evaluacion del estudiante.
 
 class IndexView(generic.ListView):
     template_name = 'resources/index.html'
