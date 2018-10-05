@@ -67,11 +67,11 @@ except Exception as e:
     print(e)
 
 # Guardar la Grabacion
-with open("records/grabacion.wav", "wb") as f:
+with open("static/resources/records/grabacion.wav", "wb") as f:
     f.write(audio.get_wav_data())
 
 # Calcular la duracion 
-fname = 'records/grabacion.wav'
+fname = 'static/resources/records/grabacion.wav'
 
 with contextlib.closing(wave.open(fname, 'r')) as g:
     frames = g.getnframes()
