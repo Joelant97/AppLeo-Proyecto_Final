@@ -21,15 +21,17 @@ from resources.views import RegistroUsuario
 from rest_framework.urlpatterns import format_suffix_patterns
 from resources.views import EstudianteList
 from resources.views import EvaluacionList
+from django.contrib.auth.decorators import login_required
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('resources.urls', namespace='resources')),
     url(r'^$', login, {'template_name': 'resources/login_form.html'}, name='login'),
+    url(r'^accounts/login/$', login, {'template_name': 'resources/login_form.html'}, name='login'),
     url(r'^registrar', RegistroUsuario.as_view(), name='registrar'),
-    url(r'^estudiantes/', EstudianteList.as_view(), name='estudiantes'),  #Esta y las evaluaciones son listas de Rest.
-    url(r'^evaluaciones/', EvaluacionList.as_view(), name='evaluaciones'),
+    url(r'^estudiantes/', login_required(EstudianteList.as_view()), name='estudiantes'),  #Esta y las evaluaciones son listas de Rest.
+    url(r'^evaluaciones/', login_required(EvaluacionList.as_view()), name='evaluaciones'),
 
 ]
 

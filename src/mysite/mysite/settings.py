@@ -107,3 +107,14 @@ MEDIA_URL = '/media/'
 
 
 LOGIN_REDIRECT_URL = reverse_lazy('resources:index')
+LOGOUT_REDIRECT_URL = reverse_lazy('login')
+
+#Configuraciones para el servicio SMTP, para restablecer las password de usuarios a traves del correo.
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'frankjodete2@gmail.com'
+EMAIL_HOST_PASSWORD = 'antonio2112'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
