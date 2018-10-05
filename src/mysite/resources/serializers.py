@@ -10,8 +10,7 @@ class EstudianteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Estudiante
         fields = ('id', 'nombres')
-        #fields = '__all__'
-
+        #fields = '__all__'     #Si quieres imprimir todos los campos (fields).
 
 
 class EvaluacionSerializer(serializers.ModelSerializer):
