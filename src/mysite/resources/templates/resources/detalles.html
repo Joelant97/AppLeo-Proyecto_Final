@@ -11,7 +11,7 @@
         <div class="col-sm-4 col-md-3">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <a href="{% url 'resources:detalles' estudiante.estudiante_id %}">
+                    <a href="{% url 'resources:detalles' estudiante.id %}">
                         {% if estudiante.foto %}
                         <img src="{{ estudiante.foto.url }}" class="img-responsive">
                         {% else %}
@@ -19,7 +19,7 @@
                         {% endif %}
                     </a>
                     <h1>{{ estudiante.nombres }}
-                        <small>{{ estudiante.estudiante_id }}</small>
+                        <small>{{ estudiante.id }}</small>
                     </h1>
                     <h2>{{ estudiante.apellidos }}</h2>
                 </div>
@@ -31,7 +31,7 @@
 
             <ul class="nav nav-pills" style="margin-bottom: 10px;">
                 <li role="presentation" class="active"><a
-                        href="{% url 'resources:detalles' estudiante.estudiante_id %}">Ver todo</a></li>
+                        href="{% url 'resources:detalles' estudiante.id %}">Ver todo</a></li>
                 <li role="presentation"><a href="#">Agregar nueva Evaluacion</a></li>
             </ul>
 
@@ -49,7 +49,7 @@
                         <tr>
                             <th>ID Evaluacion</th>
                             <th>Favorito</th>
-                            <th>Actions</th>
+                            <th>Comportamiento</th>
                         </tr>
                         </thead>
                         <tbody>

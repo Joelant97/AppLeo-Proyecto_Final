@@ -40,12 +40,12 @@ class DetailView(generic.DetailView):
 
 class CrearEstudiante(CreateView):
     model = Estudiante
-    fields = ['estudiante_id', 'nombres', 'apellidos', 'genero', 'edad', 'foto']
+    fields = ['id', 'nombres', 'apellidos', 'genero', 'edad', 'foto']
 
 
 class UpdateEstudiante(UpdateView):
     model = Estudiante
-    fields = ['estudiante_id', 'nombres', 'apellidos', 'genero', 'edad', 'foto']
+    fields = ['id', 'nombres', 'apellidos', 'genero', 'edad', 'foto']
 
 
 class DeleteEstudiante(DeleteView):

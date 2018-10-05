@@ -6,7 +6,6 @@ from django.core.urlresolvers import reverse
 
 
 class Estudiante(models.Model):
-    estudiante_id = models.CharField(max_length=5, default='Introduzca el ID')
     nombres = models.CharField(max_length=250)
     apellidos = models.CharField(max_length=250)
     genero = models.CharField(max_length=10)

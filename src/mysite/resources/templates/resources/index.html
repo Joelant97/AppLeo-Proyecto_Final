@@ -13,7 +13,7 @@
         {% for estudiante in all_estudiantes %}
         <div class="col-sm-4 col-lg-2">
             <div class="thumbnail">
-                <a href="{% url 'resources:detalles' estudiante.estudiante_id %}">
+                <a href="{% url 'resources:detalles' estudiante.id %}">
                     <img src="{{ estudiante.foto.url }}" class="img-responsive">
                 </a>
                 <div class="caption">
@@ -21,14 +21,14 @@
                     <h4>{{ estudiante.apellidos }}</h4>
 
                     <!-- Ver Detalles -->
-                    <a href="{% url 'resources:detalles' estudiante.estudiante_id %}" class="btn btn-primary btn-sm"
+                    <a href="{% url 'resources:detalles' estudiante.id %}" class="btn btn-primary btn-sm"
                        role="button">Ver Detalles</a>
 
                     <!-- Eliminar Estudiante -->
-                    <form action="{% url 'resources:estudiante-delete' estudiante.estudiante_id%}" method="post"
+                    <form action="{% url 'resources:estudiante-delete' estudiante.id%}" method="post"
                           style="display: inline;">
                         {% csrf_token %}
-                        <input type="hidden" name="album_id" value="{{ album.id }}"/>
+                        <input type="hidden" name="estudiante_id" value="{{ estudiante.id }}"/>
                         <button type="submit" class="btn btn-default btn-sm">
                             <span class="glyphicon glyphicon-trash"></span>
                         </button>
@@ -82,11 +82,11 @@
                             <td>{{ evaluacion.evaluacion_tipo }}</td>
                             <td>{{ evaluacion.estudiante.nombres }}</td>
                             <td>
-                                <a href="{% url 'resources:detalles' evaluacion.estudiante.estudiante_id %}">
+                                <a href="{% url 'resources:detalles' evaluacion.estudiante.id %}">
                                     <img src="{{ evaluacion.estudiante.foto.url }}" class="img-responsive"
                                          style="width: 20px; float: left; margin-right: 10px;"/>
                                 </a>
-                                <a href="{% url 'resources:detalles' evaluacion.estudiante.estudiante_id %}">{{
+                                <a href="{% url 'resources:detalles' evaluacion.estudiante.id %}">{{
                                     evaluacion.estudiante.nombres }}</a>
                             </td>
                             <td>
