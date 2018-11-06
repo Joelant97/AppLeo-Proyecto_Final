@@ -45,3 +45,13 @@ class Comprension(models.Model):
     evaluacion = models.ForeignKey(Evaluacion, on_delete=models.CASCADE)
     comprension_porcentaje = models.CharField(max_length=4)
 
+
+#Realizar Evaluaciones:
+class EvaluacionForm(models.Model):
+    texto_a_leer = models.CharField(max_length=500, default='María conoce un niño con muy mal carácter en su escuela')
+    #resultado = JSONField(max_length=200, default='')
+    #Este ultimo campo es la respuesta luego de evaluar la lectura --> campo imprime resultado en un json.
+
+    #resultado = models.JSONField(max_length=200)
+
+

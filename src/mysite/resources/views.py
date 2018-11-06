@@ -14,6 +14,7 @@ from rest_framework.response import Response
 from .models import Evaluacion
 from .serializers import EstudianteSerializer
 from .serializers import EvaluacionSerializer
+from .models import EvaluacionForm
 
 
 #Crea tus Vistas aqui
@@ -81,5 +82,10 @@ class EvaluacionList(APIView): #Esto funciona como una especie de JSON.
 
     def post(self):
         pass
+
+
+class RealizarEvaluacionVista(CreateView):
+    model = EvaluacionForm
+    fields = ['texto_a_leer']
 
 

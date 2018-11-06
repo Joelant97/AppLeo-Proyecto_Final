@@ -23,6 +23,9 @@ urlpatterns = [
     # /resources/estudiante/2/delete
     url(r'estudiante/(?P<pk>[0-9]+)/delete/$', login_required(views.DeleteEstudiante.as_view()), name='estudiante-delete'),
 
+    # /realizar-evaluacion/
+    url(r'realizar-evaluacion/$', login_required(views.RealizarEvaluacionVista.as_view()), name='realizar-evaluacion'),
+
     url(r'logout/', logout_then_login, name='logout'),
 ]
 
