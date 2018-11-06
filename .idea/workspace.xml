@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2af68542-2f0a-4732-842c-f45c8ffc129e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/src/mysite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mysite/resources/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/mysite/resources/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mysite/resources/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/mysite/resources/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mysite/resources/templates/resources/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/mysite/resources/templates/resources/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mysite/resources/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/mysite/resources/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mysite/resources/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/mysite/resources/views.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,7 +51,7 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mysite/resources/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="170">
               <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -93,7 +87,7 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
+            <state relative-caret-position="187">
               <caret line="39" column="72" selection-start-line="39" selection-start-column="72" selection-end-line="39" selection-end-column="72" />
             </state>
           </provider>
@@ -102,7 +96,7 @@
       <file leaf-file-name="evaluacionform_form.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/evaluacionform_form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="-1680">
               <folding>
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
               </folding>
@@ -538,7 +532,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180017000" />
+    <option name="totallyTimeSpent" value="181083000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -563,10 +557,10 @@
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.49919093" weight="0.3286385" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3286385" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4975728" visible="true" weight="0.23317684" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4975728" visible="true" weight="0.23317684" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49921754" visible="true" weight="0.22087379" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49921754" visible="true" weight="0.22087379" />
       <window_info anchor="right" id="Database" order="9" weight="0.32928804" />
       <window_info anchor="right" id="SciView" order="11" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -899,16 +893,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mysite/resources/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/mysite/resources/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -918,6 +902,9 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/form-template-evaluar.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mysite/resources/urls.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -929,19 +916,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/mysite/resources/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
+        <state relative-caret-position="187">
           <caret line="39" column="72" selection-start-line="39" selection-start-column="72" selection-end-line="39" selection-end-column="72" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/form-template-evaluar.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/evaluacionform_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="-1680">
           <folding>
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
           </folding>
