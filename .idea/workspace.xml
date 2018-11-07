@@ -10,14 +10,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/AppLeo$AppLeo_ver_1_2__2_.coverage" NAME="AppLeo_ver_1.2 (2) Coverage Results" MODIFIED="1537461241085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/mysite/appleo" />
-    <SUITE FILE_PATH="coverage/AppLeo$AppLeo_ver_1_2__1_.coverage" NAME="AppLeo_ver_1.2 (1) Coverage Results" MODIFIED="1536644494277" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/appleo" />
-    <SUITE FILE_PATH="coverage/AppLeo$speechtext.coverage" NAME="speechtext Coverage Results" MODIFIED="1541485290421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/mysite/resources" />
-    <SUITE FILE_PATH="coverage/AppLeo$appleo.coverage" NAME="appleo Coverage Results" MODIFIED="1539960236613" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/mysite/resources" />
-    <SUITE FILE_PATH="coverage/AppLeo$AppLeo_ver_1_0.coverage" NAME="AppLeo_ver_1.0 Coverage Results" MODIFIED="1536566592648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/AppLeo$AppLeo_ver_1_2.coverage" NAME="AppLeo_ver_1.2 Coverage Results" MODIFIED="1536567798030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-  </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
     <option name="GROUP_DATA_SOURCES" value="true" />
