@@ -83,7 +83,7 @@ class EvaluacionList(APIView): #Esto funciona como una especie de JSON.
     def post(self):
         pass
 
-
+#Vista para Realizar Evaluaciones
 class RealizarEvaluacionVista(CreateView):
     model = EvaluacionForm
     fields = ['texto_a_leer']
