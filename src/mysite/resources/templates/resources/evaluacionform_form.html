@@ -85,72 +85,7 @@
 
                             // $(document).ready(function() {
 
-                            $('#uno').mouseover(function() {
-                                artyom.say("enlace 1")
-                            });
 
-                            $('#uno').mouseout(function() {
-                                artyom.shutUp();
-                            });
-
-                            $('#dos').mouseover(function() {
-                                artyom.say("enlace 2")
-                            });
-
-                            $('#tres').mouseover(function() {
-                                artyom.say("enlace 3")
-                            });
-
-                            $('#cuatro').mouseover(function() {
-                                artyom.say("enlace 4")
-                            });
-
-                            //El sistema responde
-                            artyom.addCommands([
-                                {
-                                    indexes:["buenos días",'cuál es tu banda favorita','Saluda a mis seguidores'],
-                                    action: function(i){
-                                        if (i==0) {
-                                            artyom.say("Hola Raul, buenos dias");
-                                        }
-                                        if (i==1) {
-                                            artyom.say("Raul, me gusta tu banda BLESS");
-                                        }
-                                        if (i==2) {
-                                            artyom.say("Hola gente, espero les este yendo muy bien y que este tutorial les ayude de mucho. Saludos");
-                                        }
-                                    }
-                                },
-                                {
-                                    indexes:['me voy','chau'],
-                                    action: function(){
-                                        alert('ok, chau');
-                                    }
-                                },
-                                {
-                                    indexes:['abrir google','abrir facebook', 'abrir youtube'],
-                                    action: function(i){
-                                        if (i==0) {
-                                            artyom.say("Abriendo google");
-                                            window.open("http://www.google.com",'_blank');
-                                        }
-                                        if (i==1) {
-                                            artyom.say("Abriendo facebook");
-                                            window.open("http://www.facebook.com/intecsolt/",'_blank');
-                                        }
-                                        if (i==2) {
-                                            artyom.say("Abriendo youtube");
-                                            window.open("https://www.youtube.com/channel/UCF721oswf7EUSsQbuGFoMZQ",'_blank');
-                                        }
-                                    }
-                                },
-                                {
-                                    indexes:['limpiar'],
-                                    action: function(){
-                                        $('#salida').val('');
-                                    }
-                                }
-                            ]);
 
                             // Escribir lo que escucha.
                             artyom.redirectRecognizedTextOutput(function(text,isFinal){
