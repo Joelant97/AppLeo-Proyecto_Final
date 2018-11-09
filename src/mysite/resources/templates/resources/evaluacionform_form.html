@@ -29,15 +29,7 @@
                         {% csrf_token %}
                         {% include 'resources/form-template-evaluar.html' %}
                         <h1>Evaluacion de la Lectura</h1>
-                     <!--  texto_leer:<input type="text" id="inputTX" value="María conoce un niño con muy mal carácter en su escuela"><br> -->
-                        <!--  **  <input type="submit" id=btn1 value="Evaluar"><br>
-                        Resultado:<input type="text" id="outputR" value=""><br>
 
-                        <div class="form-group">
-                            <div class="col-sm-offset-5 col-sm-15">
-                                <button type="submit" class="btn btn-success">Guardar</button>
-                            </div>
-                        </div>  ** -->
 
                         <head>
                             <meta charset="utf-8">
@@ -47,9 +39,7 @@
                             <script src="{% static 'resources/artyom/jquery-3.1.1.js' %}"></script>
                             <script src="{% static 'resources/artyom/artyom.min.js' %}"></script>
                             <script src="{% static 'resources/artyom/artyomCommands.js' %}"></script>
-                       <!--     <script src="jquery-3.1.1.js"></script>
-                            <script src="artyom.min.js"></script>
-                            <script src="artyomCommands.js"></script>   -->
+
 
                             <style>
                                 .contenedor{
@@ -66,7 +56,7 @@
                             <!-- botonera -->
                             <div style="float: left;padding: 20px;">
                                 <input type="button" onclick="startArtyom();carga();" value="Escuchar">
-                                <input type="button" onclick="stopArtyom();detenerse();" value="Detener">
+                                <input type="button" onclick="stopArtyom();detenerse();wordCount();" value="Detener">
                                 <input id="salida" style="width: 400px;" />
 
                             </div>
@@ -92,6 +82,38 @@
                         <script>
 
                             // $(document).ready(function() {
+
+                            //Funcion para contar las palabras del Speech Recognition.
+                            function wordCount() {
+                                // Función que nos va a contar el número de caracteres
+                                // y de palabras del area de texto de un formulario
+                                // Obtenemos el texto del area.
+                                textoArea = document.getElementById("area").value;
+                                // El numero de caracteres es su longitud
+                                numeroCaracteres = textoArea.length;
+                                // Eliminamos los caracteres en blanco del inicio y del final.
+                                // Como no tenemos funciones del tipo trim, rtrim y ltrim usamos
+                                // expresiones regulares
+                                // El ^ indica principio de cadena
+                                inicioBlanco = /^ /
+                                // El $ indica final de cadena
+                                finBlanco = / $/
+                                // El global (g) es para obtener todas las posibles combinaciones
+                                variosBlancos = /[ ]+/g
+                                textoArea = textoArea.replace(inicioBlanco,"");
+                                textoArea = textoArea.replace(finBlanco,"");
+                                textoArea = textoArea.replace(variosBlancos," ");
+                                // Creamos un array con las diferentes palabras. Teniendo en
+                                // cuenta que la separación entre palabras es el espacio en blanco.
+                                textoAreaDividido = textoArea.split(" ");
+                                numeroPalabras = textoAreaDividido.length;
+                                // Mostramos los datos.
+                                // Tendremos en cuenta si hay que escribir en plural o en singular.
+                                tC = (numeroCaracteres==1)?" carácter":" caracteres";
+                                tP = (numeroPalabras==1)?" palabra":" palabras";
+
+                                alert (numeroCaracteres + tC +"\n" + numeroPalabras + tP);
+                            }
 
                             var cronometro;
 
