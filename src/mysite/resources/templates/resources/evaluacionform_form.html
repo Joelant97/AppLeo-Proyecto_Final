@@ -65,10 +65,17 @@
 
                             <!-- botonera -->
                             <div style="float: left;padding: 20px;">
-                                <input type="button" onclick="startArtyom();" value="Escuchar">
-                                <input type="button" onclick="stopArtyom();" value="Detener">
+                                <input type="button" onclick="startArtyom();carga();" value="Escuchar">
+                                <input type="button" onclick="stopArtyom();detenerse();" value="Detener">
                                 <input id="salida" style="width: 400px;" />
+
                             </div>
+
+                            <body >
+                            <p>
+                                <span id="segundos">0</span>
+                            </p>
+                            </body>
 
                             <br><br><br>
 
@@ -81,11 +88,33 @@
 
                         </div>
 
+
                         <script>
 
                             // $(document).ready(function() {
 
+                            var cronometro;
 
+                            //Funcion para detener cronometro. 
+                            function detenerse() {
+                                clearInterval(cronometro);
+                            }
+                            
+                            //Funcion para iniciar el cronometro en segundos.
+                            function carga()
+                            {
+                                contador_s =0;
+                                s = document.getElementById("segundos");
+
+                                cronometro = setInterval(
+                                    function(){
+                                        s.innerHTML = contador_s;
+                                        contador_s++;
+
+                                    }
+                                    ,1000);
+
+                            }
 
                             // Escribir lo que escucha.
                             artyom.redirectRecognizedTextOutput(function(text,isFinal){
