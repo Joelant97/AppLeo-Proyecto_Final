@@ -56,7 +56,8 @@
                             <!-- botonera -->
                             <div style="float: left;padding: 20px;">
                                 <input type="button" onclick="startArtyom();carga();" value="Escuchar">
-                                <input type="button" onclick="stopArtyom();detenerse();wordCount();" value="Detener">
+                                <input type="button" onclick="stopArtyom();detenerse();" value="Detener">
+                                <input type="button" onclick="wordCount();" value="Procesar">
                                 <input id="salida" style="width: 400px;" />
 
                             </div>
@@ -83,12 +84,13 @@
 
                             // $(document).ready(function() {
 
+                            var palabras;
                             //Funcion para contar las palabras del Speech Recognition.
                             function wordCount() {
                                 // Función que nos va a contar el número de caracteres
                                 // y de palabras del area de texto de un formulario
                                 // Obtenemos el texto del area.
-                                textoArea = document.getElementById("area").value;
+                                textoArea = document.getElementById("salida").value;
                                 // El numero de caracteres es su longitud
                                 numeroCaracteres = textoArea.length;
                                 // Eliminamos los caracteres en blanco del inicio y del final.
@@ -113,6 +115,8 @@
                                 tP = (numeroPalabras==1)?" palabra":" palabras";
 
                                 alert (numeroCaracteres + tC +"\n" + numeroPalabras + tP);
+
+
                             }
 
                             var cronometro;
@@ -152,11 +156,11 @@
                             //inicializamos la libreria Artyom
                             function startArtyom(){
                                 artyom.initialize({
-                                    lang: "es-ES",
-                                    continuous:true,// Reconoce 1 solo comando y para de escuchar
+                                    lang: "es-ES",      //pueba con lang: "es-MX"
+                                    continuous:true,// Reconoce 1 solo comando y para de escuchar //prueba con false aqui
                                     listen:true, // Iniciar !
                                     debug:true, // Muestra un informe en la consola
-                                    speed:1 // Habla normalmente
+                                    speed:1 // Habla normalmente   //prueba eliminando esto
                                 });
                             };
 
