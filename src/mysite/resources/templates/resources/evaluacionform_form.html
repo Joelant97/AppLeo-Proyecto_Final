@@ -59,6 +59,8 @@
                                 <input type="button" onclick="stopArtyom();detenerse();" value="Detener">
                                 <input type="button" onclick="wordCount();" value="Procesar">
                                 <input id="salida" style="width: 400px;" />
+                                <input id="words" style="width: 200px;" />
+
 
                             </div>
 
@@ -84,7 +86,6 @@
 
                             // $(document).ready(function() {
 
-                            var palabras;
                             //Funcion para contar las palabras del Speech Recognition.
                             function wordCount() {
                                 // Función que nos va a contar el número de caracteres
@@ -117,7 +118,22 @@
                                 alert (numeroCaracteres + tC +"\n" + numeroPalabras + tP);
 
 
+                                document.getElementById('words').value = sumPalabras(numeroPalabras, tP)
+
+
                             }
+
+                            //Retornar la cantd. de palabras.
+                            function sumPalabras(valor1, valor2){
+                                var resultado
+                                resultado = valor1 + valor2
+                                return resultado
+                            }
+
+                            //Funcion retornar ppm.
+                            //Necesitas s --> son los segundos.
+                            //numeroPalabras --> son las palabras.
+                            //Finalmente tienes que llamarla desde la funcion wordCount() como hiciste con sumPalabras.
 
                             var cronometro;
 
