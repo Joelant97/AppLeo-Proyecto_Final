@@ -59,16 +59,17 @@
                                 <input type="button" onclick="stopArtyom();detenerse();" value="Detener">
                                 <input type="button" onclick="wordCount();" value="Procesar">
                                 <input id="salida" style="width: 400px;" />
-                                <br><br>
+                                <br><br><br>
+                                <label for="fluidez">Fluidez lectora:</label>
                                 <input id="fluidez" style="width: 200px;" />
 
                             </div>
 
-                            <!-- <body >
+                            <body >
                             <p>
-                                <span id="segundos">0</span>
+                                <span id="segundos"></span> <!-- Agrega un 0 antes de cerrar el Span para imprimir el tiempo -->
                             </p>
-                            </body> -->
+                            </body>
 
                             <br><br><br>
 
@@ -143,7 +144,7 @@
                             //Funcion para iniciar el cronometro en segundos.
                             function carga()
                             {
-                                contador_s = 0;
+                                contador_s = 1;    //puedes iniciarlo en 0 como antes, pero hay un pequeño retraso.
                                 s = document.getElementById("segundos");
 
                                 cronometro = setInterval(
