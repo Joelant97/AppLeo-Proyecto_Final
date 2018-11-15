@@ -21,18 +21,21 @@ class Estudiante(models.Model):
     def __str__(self):
         return self.nombres + ' - ' + self.apellidos
 
-
+#Realizar Evaluaciones:
 class Evaluacion(models.Model):
     estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)
-    evaluacion_id = models.CharField(max_length=5)
+    texto_a_leer = models.CharField(max_length=500, default='María conoce un niño con muy mal carácter en su escuela llamado Juan Carlos')
+    #evaluacion_id = models.CharField(max_length=5)
     evaluacion_tipo = models.CharField(max_length=15)  # Los tipos de evaluacion son de Comprension o Fluidez Lectora.
+    fluidez_lectora = models.CharField(max_length=25, default='')
+    tipo_lectura = models.CharField(max_length=250, default='')  # Tipos: LENTA, MUY LENTA, RAPIDA, etc.S
     es_favorito = models.BooleanField(default=False)
 
     def get_absolute_url(self):
         return reverse('resources:favorito', kwargs={'pk': self.pk})
 
     def __str__(self):
-        return self.evaluacion_id + ' - ' + self.evaluacion_tipo
+        return self.fluidez_lectora + ' - ' + self.tipo_lectura
 
 
 class Fluidez(models.Model):
@@ -47,8 +50,10 @@ class Comprension(models.Model):
 
 
 #Realizar Evaluaciones:
-class EvaluacionForm(models.Model):
-    texto_a_leer = models.CharField(max_length=500, default='María conoce un niño con muy mal carácter en su escuela')
+#class EvaluacionForm(models.Model):
+    #texto_a_leer = models.CharField(max_length=500, default='María conoce un niño con muy mal carácter en su escuela')
+
+
     #resultado = JSONField(max_length=200, default='')
     #Este ultimo campo es la respuesta luego de evaluar la lectura --> campo imprime resultado en un json.
 

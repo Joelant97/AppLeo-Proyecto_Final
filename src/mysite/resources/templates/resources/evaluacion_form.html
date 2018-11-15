@@ -27,7 +27,12 @@
 
                     <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
+                        <br><br>
                         {% include 'resources/form-template-evaluar.html' %}
+                        <div class="col-sm-offset-5 col-sm-15">
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                        </div>
+                        <br><br>
                         <h1>Evaluacion de la Lectura</h1>
 
 
@@ -60,8 +65,8 @@
                                 <input type="button" onclick="wordCount();" value="Procesar">
                                 <input id="salida" style="width: 400px;" />
                                 <br><br><br>
-                                <label for="fluidez">Fluidez lectora:</label>
-                                <input id="fluidez" style="width: 200px;" />
+                                <!--    <label for="fluidez">Fluidez lectora:</label>
+                                   <input id="fluidez" style="width: 200px;" /> -->
 
                             </div>
 
@@ -73,12 +78,12 @@
 
                             <br><br><br>
 
-
+                            <!--
                             <div style="padding: 20px;">
                                 <label for="leer">Escribe un texto para leerlo</label>
                                 <textarea id="leer" rows="4" cols="100"></textarea>
                                 <input type="button" id="btnLeer" value="Leer">
-                            </div>
+                            </div>  -->
 
                         </div>
 
@@ -120,7 +125,7 @@
                                 //alert (numeroCaracteres + tC +"\n" + numeroPalabras + tP);
 
 
-                                document.getElementById('fluidez').value = calcPPM(numeroPalabras, contador_s, tPPM)
+                                document.getElementById('id_fluidez_lectora').value = calcPPM(numeroPalabras, contador_s, tPPM)
 
 
                             }

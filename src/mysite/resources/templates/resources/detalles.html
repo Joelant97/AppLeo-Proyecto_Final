@@ -57,16 +57,15 @@
                         <tbody>
                         {% for evaluacion in estudiante.evaluacion_set.all %}
                         <tr>
-                            <td>{{ evaluacion.evaluacion_id }}</td>
+                            <td>{{ evaluacion.id }}</td>
                             <td>
                                 <a href="#" class="btn-favorite"><span
                                         class="glyphicon glyphicon-star {% if evaluacion.es_favorito %}active{% endif %}"></span></a>
                             </td>
-                            <td>
                                 <form action="#" method="post" style="display: inline;">
                                     {% csrf_token %}
                                     <!-- Si da error usa name evaluacio_id y evaluacion.id o pruebas con varios casos-->
-                                    <input type="hidden" name="evaluacion_id" value="{{ evaluacion.evaluacion_id }}"/>
+                                    <input type="hidden" name="id" value="{{ evaluacion.id }}"/>
                                     <button type="submit" class="btn btn-danger btn-xs">
                                         <span class="glyphicon glyphicon-remove"></span>&nbsp; Delete
                                     </button>
