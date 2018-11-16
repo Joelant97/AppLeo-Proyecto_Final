@@ -123,11 +123,46 @@
                                 tPPM = " ppm";
 
                                 //alert (numeroCaracteres + tC +"\n" + numeroPalabras + tP);
-
-
                                 document.getElementById('id_fluidez_lectora').value = calcPPM(numeroPalabras, contador_s, tPPM)
 
+                                //Imprimir el tipo de evaluacion -->(recuerda borrar esto mas adelante).
+                                var tEval = $('#id_evaluacion_tipo');
+                                tEval.val("Fluidez");
 
+
+                                //nos da los ppm sin unidad en la variable tipo.
+                                var tipo = calcTipo(numeroPalabras, contador_s);
+
+                                //Imprimir el tipo de lectura que es, en palabras.
+                                var tLect = $('#id_tipo_lectura');
+                                if (tipo>=112) {
+                                    tLect.val("MUY RAPIDA");   //Recuerda cambiar estas condiciones,
+                                }                              //los casos son muy rapidos para la lectura
+                                if (tipo>=100 && tipo<=111) {  //de niños de las edades que evaluas.
+                                    tLect.val("RAPIDA");
+                                }
+                                if (tipo>=88 && tipo<=99) {
+                                    tLect.val("MEDIANA");
+                                }
+                                if (tipo>=76 && tipo<=87) {
+                                    tLect.val("LENTA MEDIANA");
+                                }
+                                if (tipo>=64 && tipo<=75) {
+                                    tLect.val("LENTA");
+                                }
+                                if (tipo<=63) {
+                                    tLect.val("MUY LENTA");
+                                }
+
+
+                            }
+
+
+                            //Funcion retornar ppm sin la unidad.
+                            function calcTipo(palb, seg){
+                                var result
+                                result = palb / seg * 60
+                                return result
                             }
 
                             //Funcion retornar ppm.
@@ -136,7 +171,6 @@
                                 PPM = valor1 / valor2 * 60
                                 return PPM + unidad
                             }
-
 
 
                             var cronometro;

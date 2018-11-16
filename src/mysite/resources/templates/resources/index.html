@@ -33,6 +33,7 @@
                             <span class="glyphicon glyphicon-trash"></span>
                         </button>
                     </form>
+                    <!-- Eliminar Evaluacion -->
 
                     <!-- Evaluacion Favorita del Estudiante -->
                     <a href="#" class="btn btn-default btn-sm btn-favorite">
@@ -78,7 +79,7 @@
                         <tbody>
                         {% for evaluacion in evaluacions %}
                         <tr>
-                            <td>{{ evaluacion.evaluacion_id }}</td>
+                            <td>{{ evaluacion.id }}</td>
                             <td>{{ evaluacion.evaluacion_tipo }}</td>
                             <td>{{ evaluacion.estudiante.nombres }}</td>
                             <td>
@@ -90,7 +91,7 @@
                                     evaluacion.estudiante.nombres }}</a>
                             </td>
                             <td>
-                                <a href="{% url 'resources:favorito' evaluacion.evaluacion_id %}"
+                                <a href="{% url 'resources:favorito' evaluacion.id %}"
                                    class="btn-favorite"><span
                                         class="glyphicon glyphicon-star {% if evaluacion.es_favorito %}active{% endif %}"></span></a>
                             </td>
