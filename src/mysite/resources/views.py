@@ -25,11 +25,25 @@ class RegistroUsuario(CreateView):
     form_class = RegistroForm
     success_url = reverse_lazy('login')
 
-class RegistroEvaluacion():
-    model = Evaluacion
-    template_name = "resources/evaluacion.html"
-    success_url = reverse_lazy('resources:detalles')    #Esto es para direcionar hacia los detalles luego de registrar la
+#class RegistroEvaluacion():
+ #   model = Evaluacion
+  #  template_name = "resources/evaluacion_form.html"     # antes --> evaluacion-detalles.html
+   # success_url = reverse_lazy('resources:detalles')    #Esto es para direcionar hacia los detalles luego de registrar la
                                                         #evaluacion del estudiante.
+
+#Vista para Realizar Evaluaciones del Modelo "Evaluacion"
+class RealizarEvaluacionVista(CreateView):
+    model = Evaluacion
+    template_name = "resources/evaluacion_form.html"   # antes --> evaluacion-detalles.html
+    success_url = reverse_lazy('resources:evaluacion-detalles') #Esto es para direcionar hacia los detalles luego de registrar la
+                                                                #evaluacion del estudiante.
+    fields = ['estudiante', 'es_favorito', 'evaluacion_tipo', 'fluidez_lectora', 'tipo_lectura',  'texto_a_leer']
+
+
+class DeleteEvaluacion(DeleteView):
+    model = Evaluacion
+    success_url = reverse_lazy('resources:detalles-evaluacion') #has el reverse hacia todas las evaluaciones del estudiante en especifico.
+                                                      #Osea seria la vista detallesEvaluacion.
 
 class IndexView(generic.ListView):
     template_name = 'resources/index.html'
@@ -38,6 +52,9 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Estudiante.objects.all()
 
+class DetailViewEvaluacion(generic.DetailView):
+    model = Evaluacion
+    template_name = 'resources/evaluacion-detalles.html'     #Tienes que hacer una de detalles para las evaluaciones.
 
 class DetailView(generic.DetailView):
     model = Estudiante
@@ -83,10 +100,6 @@ class EvaluacionList(APIView): #Esto funciona como una especie de JSON.
     def post(self):
         pass
 
-#Vista para Realizar Evaluaciones del Modelo "Evaluacion"
-class RealizarEvaluacionVista(CreateView):
-    model = Evaluacion
-    fields = ['estudiante', 'es_favorito', 'evaluacion_tipo', 'fluidez_lectora', 'tipo_lectura',  'texto_a_leer']
 
 
 

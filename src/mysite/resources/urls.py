@@ -23,8 +23,14 @@ urlpatterns = [
     # /resources/estudiante/2/delete
     url(r'estudiante/(?P<pk>[0-9]+)/delete/$', login_required(views.DeleteEstudiante.as_view()), name='estudiante-delete'),
 
-    # /realizar-evaluacion/
-    url(r'realizar-evaluacion/$', login_required(views.RealizarEvaluacionVista.as_view()), name='realizar-evaluacion'),
+    # evaluacion/<evaluacion_id>
+    url(r'^evaluacion/(?P<pk>[0-9]+)/$', login_required(views.DetailViewEvaluacion.as_view()), name='detalles-evaluacion'),
+
+    # /evaluacion/
+    url(r'evaluacion/add/$', login_required(views.RealizarEvaluacionVista.as_view()), name='realizar-evaluacion'),
+
+    # /resources/estudiante/2/delete
+    url(r'evaluacion/(?P<pk>[0-9]+)/delete/$', login_required(views.DeleteEvaluacion.as_view()), name='evaluacion-delete'),
 
     url(r'logout/', logout_then_login, name='logout'),
 ]

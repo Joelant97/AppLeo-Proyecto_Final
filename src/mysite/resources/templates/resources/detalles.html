@@ -51,7 +51,7 @@
                         <tr>
                             <th>ID Evaluacion</th>
                             <th>Favorito</th>
-                            <th>Comportamiento</th>
+                            <th>Acción</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -62,7 +62,9 @@
                                 <a href="#" class="btn-favorite"><span
                                         class="glyphicon glyphicon-star {% if evaluacion.es_favorito %}active{% endif %}"></span></a>
                             </td>
-                                <form action="#" method="post" style="display: inline;">
+                            <td>
+                                <!-- Eliminar Evaluacion -->
+                                <form action="{% url 'resources:evaluacion-delete' evaluacion.id%}" method="post" style="display: inline;">
                                     {% csrf_token %}
                                     <!-- Si da error usa name evaluacio_id y evaluacion.id o pruebas con varios casos-->
                                     <input type="hidden" name="evaluacion_id" value="{{ evaluacion.id }}"/>
