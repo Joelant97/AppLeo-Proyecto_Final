@@ -1,0 +1,17 @@
+# Para instalar una versión específica de las librerias implementadas en el Proyecto:
+
+SpeechRecognition==3.8.1
+Wave==0.0.2
+#Puedes probarlo tambien con portaudio solamente, para que se instale la ultima version.
+portaudio==18.*
+speech_classification==0.2
+contextlib2==0.5.5
+#Prueba con la version 0.2.11 sino funciona con la 0.2.9
+PyAudio==0.2.9
+Django==1.8.19
+django-crispy-forms==1.7.2
+DjangoRestFramework==3.4.0
+django-bootstrap-ui==0.5.1
+
+
+
