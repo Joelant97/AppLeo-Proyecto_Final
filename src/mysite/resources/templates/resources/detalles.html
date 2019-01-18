@@ -51,6 +51,7 @@
                         <tr>
                             <th>ID Evaluacion</th>
                             <th>Favorito</th>
+                            <th>Ver</th>
                             <th>Acción</th>
                         </tr>
                         </thead>
@@ -61,6 +62,11 @@
                             <td>
                                 <a href="#" class="btn-favorite"><span
                                         class="glyphicon glyphicon-star {% if evaluacion.es_favorito %}active{% endif %}"></span></a>
+                            </td>
+                            <!-- Ver Detalles de la Evaluacion -->
+                            <td>
+                            <a href="{% url 'resources:detalles-evaluacion' evaluacion.id %}" class="btn btn-primary btn-sm"
+                               role="button">Ver Detalles</a>
                             </td>
                             <td>
                                 <!-- Eliminar Evaluacion -->

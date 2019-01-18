@@ -42,8 +42,8 @@ class RealizarEvaluacionVista(CreateView):
 
 class DeleteEvaluacion(DeleteView):
     model = Evaluacion
-    success_url = reverse_lazy('resources:detalles-evaluacion') #has el reverse hacia todas las evaluaciones del estudiante en especifico.
-                                                      #Osea seria la vista detallesEvaluacion.
+    success_url = reverse_lazy('resources:detalles')
+
 
 class IndexView(generic.ListView):
     template_name = 'resources/index.html'

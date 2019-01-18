@@ -1,10 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Evaluacion Detalles</title>
-</head>
-<body>
+{% extends 'resources/base.html' %}
+{% block title %}Detalles del Estudiante{% endblock %}
+{% block estudiantes_active %}active{% endblock %}   <!-- Sino funciona prueba con: evaluacions_active-->
 
-</body>
-</html>
+{% block body %}
+<div class="container-fluid songs-container">
+
+    <div class="row">
+
+        <!-- Izquierda Evaluacion Info -->
+        <div class="col-sm-4 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <a href="{% url 'resources:detalles-evaluacion' evaluacion.id %}">
+                        {% if estudiante.foto %}
+                        <img src="{{ estudiante.foto.url }}" class="img-responsive">
+                        {% else %}
+                        <h3>No hay imagen para mostrar</h3>
+                        {% endif %}
+                    </a>
+                    <h1>{{ evaluacion.texto_a_leer }}
+                        <small>{{ evaluacion.evaluacion_tipo }}</small>
+                    </h1>
+                    <h2>{{ evaluacion.fluidez_lectora }}</h2>
+                    <h2>{{ evaluacion.tipo_lectura }}</h2>
+                    <h2>{{ evaluacion.es_favorito }}</h2>
+
+                    <!-- Puedes hacer lo de editar las evaluaciones aqui, aunque creo que en realidad mejor
+                     porque despues de realizar una evaluacion no es veridico que el usuario la editar, asi que
+                     mejor has un boton para que la pueda eliminar silo desea y recuerda poner un mensaje de confirmacion
+                     para la opcion de eliminar. -->
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
