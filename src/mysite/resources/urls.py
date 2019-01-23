@@ -4,6 +4,7 @@ from . import views
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import logout_then_login
 
+
 app_name = 'resources'
 
 urlpatterns = [
@@ -29,9 +30,13 @@ urlpatterns = [
     # /evaluacion/
     url(r'evaluacion/add/$', login_required(views.RealizarEvaluacionVista.as_view()), name='realizar-evaluacion'),
 
+    # /resources/evaluacion/update/2/
+
     # /resources/estudiante/2/delete
-    url(r'evaluacion/(?P<pk>[0-9]+)/delete/$', login_required(views.DeleteEvaluacion.as_view()), name='evaluacion-delete'),
+    url(r'evaluacion/delete/(?P<eva_id>[\d]+)/$', login_required(views.DeleteEvaluacion), name='evaluacion-delete'),
 
     url(r'logout/', logout_then_login, name='logout'),
+
+
 ]
 

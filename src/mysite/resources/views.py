@@ -1,3 +1,5 @@
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
@@ -7,7 +9,7 @@ from django.contrib.auth.models import User
 from .forms import RegistroForm
 
 #Librerias para Servicio de Rest:
-#from django.shortcuts import get_object_or_404
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
 #from rest_framework import status
@@ -40,11 +42,15 @@ class RealizarEvaluacionVista(CreateView):
     fields = ['estudiante', 'es_favorito', 'evaluacion_tipo', 'fluidez_lectora', 'tipo_lectura',  'texto_a_leer']
 
 
-class DeleteEvaluacion(DeleteView):
-    model = Evaluacion
-    success_url = reverse_lazy('resources:detalles')
+#Eliminar las Evaluaciones:
+def DeleteEvaluacion(request, eva_id):
 
+    #El id de la Evaluacion a eliminar es id== eva_id
 
+    eva_obj = get_object_or_404(Evaluacion, id=eva_id)
+    eva_obj.delete()
+    return HttpResponseRedirect("")  #Supuestamente la "" te redireciona a la misma pagina en que estabas,
+                                    #confirma esto cuando cambies el DEBUG a DEBUG = False en el archivo de settings.
 class IndexView(generic.ListView):
     template_name = 'resources/index.html'
     context_object_name = 'all_estudiantes'
