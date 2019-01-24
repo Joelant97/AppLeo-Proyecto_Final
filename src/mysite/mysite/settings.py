@@ -116,5 +116,3 @@ EMAIL_PORT = 25
 EMAIL_HOST_USER = 'frankjodete2@gmail.com'
 EMAIL_HOST_PASSWORD = 'antonio2112'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-

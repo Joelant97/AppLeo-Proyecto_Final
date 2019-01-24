@@ -12,6 +12,9 @@ Django==1.8.19
 django-crispy-forms==1.7.2
 DjangoRestFramework==3.4.0
 django-bootstrap-ui==0.5.1
+#Instalamos virtualenv-16.0.0 con el comando siguiente --> py -m pip install --user virtualenv
+#Pero podemos dejar el siguiente comando, para instalarlo desde este archivo:
+virtualenv==16.0.0
 
 
 
