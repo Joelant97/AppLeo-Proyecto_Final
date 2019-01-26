@@ -49,8 +49,9 @@ def DeleteEvaluacion(request, eva_id):
 
     eva_obj = get_object_or_404(Evaluacion, id=eva_id)
     eva_obj.delete()
-    return HttpResponseRedirect("")  #Supuestamente la "" te redireciona a la misma pagina en que estabas,
-                                    #confirma esto cuando cambies el DEBUG a DEBUG = False en el archivo de settings.
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/')) #Esto te permite redirecionar a la misma pagina
+                                                                       # en que estabas, luego de eliminar y actualizar.
+
 class IndexView(generic.ListView):
     template_name = 'resources/index.html'
     context_object_name = 'all_estudiantes'
@@ -60,7 +61,7 @@ class IndexView(generic.ListView):
 
 class DetailViewEvaluacion(generic.DetailView):
     model = Evaluacion
-    template_name = 'resources/evaluacion-detalles.html'     #Tienes que hacer una de detalles para las evaluaciones.
+    template_name = 'resources/evaluacion-detalles.html'
 
 class DetailView(generic.DetailView):
     model = Estudiante
