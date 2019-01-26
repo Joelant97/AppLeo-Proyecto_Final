@@ -70,9 +70,8 @@
                             </td>
                             <td>
                                 <!-- Eliminar Evaluacion -->
-                                <form action="{% url 'resources:evaluacion-delete' evaluacion.id%}" method="post" style="display: inline;">
+                                <form action="{% url 'resources:evaluacion-delete' evaluacion.id%}" method="post" style="display: inline;" onclick="return confirm('Seguro que desea eliminar la Evaluacion?');">
                                     {% csrf_token %}
-                                    <!-- Si da error usa name evaluacio_id y evaluacion.id o pruebas con varios casos-->
                                     <input type="hidden" name="evaluacion_id" value="{{ evaluacion.id }}"/>
                                     <button type="submit" class="btn btn-danger btn-xs">
                                         <span class="glyphicon glyphicon-remove"></span>&nbsp; Eliminar
