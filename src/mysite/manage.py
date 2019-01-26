@@ -4,8 +4,8 @@ import sys
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
-    try:                                    #Agregamos este try-except, para ejecutar el enviroment sin tener que
-        from django.core.management import execute_from_command_line    #usar el comando "python manage.py runserver".
+    try:
+        from django.core.management import execute_from_command_line
     except ImportError as exc:
         raise ImportError(
             "Couldn't import Django. Are you sure it's installed and "
