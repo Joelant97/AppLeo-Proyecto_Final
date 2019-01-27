@@ -32,7 +32,7 @@ class Evaluacion(models.Model):
     es_favorito = models.BooleanField(default=False)
 
     def get_absolute_url(self):
-        return reverse('resources:favorito', kwargs={'pk': self.pk})
+        return reverse('resources:detalles-evaluacion', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.fluidez_lectora + ' - ' + self.tipo_lectura

@@ -34,7 +34,7 @@
             <ul class="nav nav-pills" style="margin-bottom: 10px;">
                 <li role="presentation" class="active"><a
                         href="{% url 'resources:detalles' estudiante.id %}">Ver todo</a></li>
-                <li role="presentation"><a href="{% url 'resources:realizar-evaluacion' estudiante.id %}">Agregar nueva Evaluacion</a></li>
+                <li role="presentation"><a href="{% url 'resources:realizar-evaluacion' estudiante.id %}">Agregar nueva Evaluación</a></li>
             </ul>
 
             <div class="panel panel-default">
@@ -49,7 +49,7 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>ID Evaluacion</th>
+                            <th>ID Evaluación</th>
                             <th>Favorito</th>
                             <th>Ver</th>
                             <th>Acción</th>
@@ -70,7 +70,7 @@
                             </td>
                             <td>
                                 <!-- Eliminar Evaluacion -->
-                                <form action="{% url 'resources:evaluacion-delete' evaluacion.id%}" method="post" style="display: inline;" onclick="return confirm('Seguro que desea eliminar la Evaluacion?');">
+                                <form action="{% url 'resources:evaluacion-delete' evaluacion.id%}" method="post" style="display: inline;" onclick="return confirm('¿Seguro que desea eliminar la Evaluación?');">
                                     {% csrf_token %}
                                     <input type="hidden" name="evaluacion_id" value="{{ evaluacion.id }}"/>
                                     <button type="submit" class="btn btn-danger btn-xs">

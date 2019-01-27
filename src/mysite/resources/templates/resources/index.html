@@ -26,7 +26,7 @@
 
                     <!-- Eliminar Estudiante -->
                     <form action="{% url 'resources:estudiante-delete' estudiante.id%}" method="post"
-                          style="display: inline;" onclick="return confirm('Seguro que desea eliminar el Estudiante?');">
+                          style="display: inline;" onclick="return confirm('¿Seguro que desea eliminar el Estudiante?');">
                         {% csrf_token %}
                         <input type="hidden" name="estudiante_id" value="{{ estudiante.id }}"/>
                         <button type="submit" class="btn btn-default btn-sm">

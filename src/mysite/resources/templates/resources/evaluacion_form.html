@@ -30,10 +30,10 @@
                         <br><br>
                         {% include 'resources/form-template-evaluar.html' %}
                         <div class="col-sm-offset-5 col-sm-15">
-                            <button type="submit" class="btn btn-success" onClick="Confirm(this.form)">Guardar</button>
+                            <button type="submit" class="btn btn-success" onclick="return confirm('¿Desea guardar la Evaluación?');">Guardar</button>
                         </div>
                         <br><br>
-                        <h1>Evaluacion de la Lectura</h1>
+                        <h1>Evaluación de la Lectura</h1>
 
 
                         <head>
@@ -258,12 +258,6 @@
                             });
 
                             // });
-
-                            <!-- Funcion de mensaje de Confirmacion, luego de guardar evaluaciones -->
-                            function Confirm(form){
-                                alert("Datos guardados correctamente!");
-                                form.submit();
-                            };
 
                         </script>
                         </body>

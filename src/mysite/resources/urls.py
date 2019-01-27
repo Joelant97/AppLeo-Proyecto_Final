@@ -30,8 +30,6 @@ urlpatterns = [
     # /evaluacion/
     url(r'evaluacion/add/$', login_required(views.RealizarEvaluacionVista.as_view()), name='realizar-evaluacion'),
 
-    # /resources/evaluacion/update/2/
-
     # /resources/estudiante/2/delete
     url(r'evaluacion/delete/(?P<eva_id>[\d]+)/$', login_required(views.DeleteEvaluacion), name='evaluacion-delete'),
 
