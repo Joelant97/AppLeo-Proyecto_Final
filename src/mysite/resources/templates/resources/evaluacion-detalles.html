@@ -3,17 +3,17 @@
 {% block estudiantes_active %}active{% endblock %}   <!-- Sino funciona prueba con: evaluacions_active-->
 
 {% block body %}
-<div class="container-fluid songs-container">
+<div class="container-fluid songs-container" xmlns="http://www.w3.org/1999/html">
 
     <div class="row">
 
-        <!-- Izquierda Evaluacion Info -->
+        <!-- Panel Detalla la Info de las Evaluaciones  -->
         <div class="col-sm-6 col-md-10">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h2>Detalles de la Evaluación</h2>
                     <p>Haga clic en los botones dentro del menú de pestañas:</p>
-                    <br> <br>
+                    <br>
 
                     <div class="tab">
                         <button class="tablinks" onclick="openTab(event, 'General')">General</button>
@@ -21,26 +21,47 @@
                     </div>
 
                     <div id="General" class="tabcontent">
+                        <br><br>
                         <h3>_____Detalles Generales_____</h3>
-                        <a href="{% url 'resources:detalles-evaluacion' evaluacion.id %}">
-                            {% if estudiante.foto %}
-                            <img src="{{ estudiante.foto.url }}" class="img-responsive">
-                            {% else %}
-                            <h3>No hay imagen para mostrar</h3>
-                            {% endif %}
-                        </a>
-                        <h1>{{ evaluacion.texto_a_leer }}
-                            <small>{{ evaluacion.evaluacion_tipo }}</small>
-                        </h1>
-                        <h2>{{ evaluacion.fluidez_lectora }}</h2>
-                        <h2>{{ evaluacion.tipo_lectura }}</h2>
-                        <h2>{{ evaluacion.es_favorito }}</h2>
+                        <br>
+                        <label for="out">Tipo de Evaluación : </label>
+                        <output id="out">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ evaluacion.evaluacion_tipo }}</output>
+
+                        <br>
+                        <label for="out1">Fluidez Lectora : </label>
+                        <output id="out1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ evaluacion.fluidez_lectora }}</output>
+
+                        <br>
+                        <label for="out2">Tipo de Lectura : </label>
+                        <output id="out2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ evaluacion.tipo_lectura }}</output>
+
+                        <br>
+                        <label for="out3">¿La Evaluación es relevante? : </label>
+                        <output id="out3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ evaluacion.es_favorito }}</output>
                     </div>
 
                     <div id="Notas" class="tabcontent">
+                        <br><br>
                         <h3>Notas</h3>
+                        <br>
                         <p>Notas especificas de la evaluacion --> Registradas por el Profesor.</p>
                     </div>
+					<!-- Puedes hacer lo de editar las evaluaciones aqui, aunque mas bien es un editar para las
+                         notas de las evaluaciones, por si luego quieres agregar algo nuevo a un apunte sobre una
+                         evaluacion en especifico. -->
+						 
 
                     <!-- Funciones para Cargar los Tabs -->
                     <script>
