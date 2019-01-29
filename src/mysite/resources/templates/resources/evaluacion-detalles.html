@@ -8,28 +8,56 @@
     <div class="row">
 
         <!-- Izquierda Evaluacion Info -->
-        <div class="col-sm-4 col-md-3">
+        <div class="col-sm-6 col-md-10">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <a href="{% url 'resources:detalles-evaluacion' evaluacion.id %}">
-                        {% if estudiante.foto %}
-                        <img src="{{ estudiante.foto.url }}" class="img-responsive">
-                        {% else %}
-                        <h3>No hay imagen para mostrar</h3>
-                        {% endif %}
-                    </a>
-                    <h1>{{ evaluacion.texto_a_leer }}
-                        <small>{{ evaluacion.evaluacion_tipo }}</small>
-                    </h1>
-                    <h2>{{ evaluacion.fluidez_lectora }}</h2>
-                    <h2>{{ evaluacion.tipo_lectura }}</h2>
-                    <h2>{{ evaluacion.es_favorito }}</h2>
+                    <h2>Detalles de la Evaluación</h2>
+                    <p>Haga clic en los botones dentro del menú de pestañas:</p>
+                    <br> <br>
 
-                    <!-- Puedes hacer lo de editar las evaluaciones aqui, aunque creo que en realidad mejor
-                     porque despues de realizar una evaluacion no es veridico que el usuario la editar, asi que
-                     mejor has un boton para que la pueda eliminar silo desea y recuerda poner un mensaje de confirmacion
-                     para la opcion de eliminar. -->
+                    <div class="tab">
+                        <button class="tablinks" onclick="openTab(event, 'General')">General</button>
+                        <button class="tablinks" onclick="openTab(event, 'Notas')">Notas</button>
+                    </div>
 
+                    <div id="General" class="tabcontent">
+                        <h3>_____Detalles Generales_____</h3>
+                        <a href="{% url 'resources:detalles-evaluacion' evaluacion.id %}">
+                            {% if estudiante.foto %}
+                            <img src="{{ estudiante.foto.url }}" class="img-responsive">
+                            {% else %}
+                            <h3>No hay imagen para mostrar</h3>
+                            {% endif %}
+                        </a>
+                        <h1>{{ evaluacion.texto_a_leer }}
+                            <small>{{ evaluacion.evaluacion_tipo }}</small>
+                        </h1>
+                        <h2>{{ evaluacion.fluidez_lectora }}</h2>
+                        <h2>{{ evaluacion.tipo_lectura }}</h2>
+                        <h2>{{ evaluacion.es_favorito }}</h2>
+                    </div>
+
+                    <div id="Notas" class="tabcontent">
+                        <h3>Notas</h3>
+                        <p>Notas especificas de la evaluacion --> Registradas por el Profesor.</p>
+                    </div>
+
+                    <!-- Funciones para Cargar los Tabs -->
+                    <script>
+                        function openTab(evt, tabName) {
+                            var i, tabcontent, tablinks;
+                            tabcontent = document.getElementsByClassName("tabcontent");
+                            for (i = 0; i < tabcontent.length; i++) {
+                                tabcontent[i].style.display = "none";
+                            }
+                            tablinks = document.getElementsByClassName("tablinks");
+                            for (i = 0; i < tablinks.length; i++) {
+                                tablinks[i].className = tablinks[i].className.replace(" active", "");
+                            }
+                            document.getElementById(tabName).style.display = "block";
+                            evt.currentTarget.className += " active";
+                        }
+                    </script>
 
                 </div>
             </div>
