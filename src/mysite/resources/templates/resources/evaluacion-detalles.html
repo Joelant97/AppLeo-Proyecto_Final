@@ -20,7 +20,7 @@
 
                     <div class="tab">
                         <button class="tablinks" onclick="openTab(event, 'General')">General</button>
-                        <button class="tablinks" onclick="openTab(event, 'Notas')">Notas</button>
+                        <button class="tablinks" onclick="openTab(event, 'Comentarios')">Comentarios</button>
                     </div>
 
                     <article>
@@ -55,11 +55,11 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ evaluacion.es_favorito }}</output>
                         </div>
 
-                        <div id="Notas" class="tabcontent">
+                        <div id="Comentarios" class="tabcontent">
                             <br><br>
-                            <h3>Notas</h3>
+                            <h3>Comentarios</h3>
                             <br>
-                            <p>Notas especificas de la evaluacion --> Registradas por el Profesor.</p>
+                            <output>{{ evaluacion.comentario }}</output>
                         </div>
                     </article>
 

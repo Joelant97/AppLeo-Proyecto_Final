@@ -34,7 +34,7 @@ class RealizarEvaluacionVista(CreateView):
 
     success_url = "/estudiante/{estudiante_id}" #Esto es para direcionar hacia los detalles del estudiante
                                                 #luego de registrar la evaluacion que se le ha realizo.
-    fields = ['estudiante', 'es_favorito', 'evaluacion_tipo', 'fluidez_lectora', 'tipo_lectura',  'texto_a_leer']
+    fields = ['estudiante', 'es_favorito', 'evaluacion_tipo', 'fluidez_lectora', 'tipo_lectura', 'comentario', 'texto_a_leer']
 
 #Eliminar las Evaluaciones:
 def DeleteEvaluacion(request, eva_id):
