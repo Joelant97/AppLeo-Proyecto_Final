@@ -1,5 +1,5 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404
+from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import get_object_or_404, render_to_response
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
@@ -21,11 +21,26 @@ from .serializers import EvaluacionSerializer
 
 #Crea tus Vistas aqui
 
+def busqueda(request):
+    valores = ""
+    estudiantes = Estudiante.objects.filter(nombres=request.GET['nombres']).values('id', 'nombres', 'apellidos')
+    try:
+        if estudiantes:
+            #  for key, value in estudiantes.():
+            # #     valores += valor
+            # # return HttpResponse(json.dumps(list(estudiantes)), content_type='application/json')
+            return render_to_response('resources/buscar-resultados.html', {'estudiante': estudiantes})
+    except:
+        return HttpResponse("Hubo una excepcion")
+    else:
+        return HttpResponse("No hay estudiantes con ese nombre")
+
 class RegistroUsuario(CreateView):
     model = User
     template_name = "resources/registrar.html"
     form_class = RegistroForm
     success_url = reverse_lazy('login')
+
 
 #Vista para Realizar Evaluaciones del Modelo "Evaluacion"
 class RealizarEvaluacionVista(CreateView):

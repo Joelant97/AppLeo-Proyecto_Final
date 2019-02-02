@@ -15,6 +15,8 @@ urlpatterns = [
     url(r'^estudiante/(?P<pk>[0-9]+)/$', login_required(views.DetailView.as_view()), name='detalles'),
     # Por razones de prueba estoy validando solo ID numericos.
 
+    url(r'estudiante/buscar/$', login_required(views.busqueda), name='estudiante-buscar'),
+
     # /resources/estudiante/add/
     url(r'estudiante/add/$', login_required(views.CrearEstudiante.as_view()), name='estudiante-add'),
 
