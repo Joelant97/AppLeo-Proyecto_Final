@@ -4,11 +4,11 @@
 {% block body %}
 <div class="col-sm-4 col-lg-2">
     <div class="thumbnail">
-        <img src="#" class="img-responsive">
-        </a>
         <div class="caption">
             {% for item in estudiante %}
-            <h2>{{ item }}</h2>
+            <h2>{{ item.nombres }}</h2>
+            <h2>{{ item.apellidos }}</h2>
+            <h2>{{ item.id }}</h2>
             {% endfor %}
             <!-- Ver Detalles -->
             <a href="#" class="btn btn-primary btn-sm" role="button">Ver Detalles</a>
