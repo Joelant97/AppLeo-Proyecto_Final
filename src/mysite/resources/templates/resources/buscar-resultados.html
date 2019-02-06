@@ -2,17 +2,49 @@
 {% block estudiantes_active %}active{% endblock %}
 
 {% block body %}
-<div class="col-sm-4 col-lg-2">
-    <div class="thumbnail">
-        <div class="caption">
-            {% for item in estudiante %}
-            <h2>{{ item.nombres }}</h2>
-            <h2>{{ item.apellidos }}</h2>
-            <h2>{{ item.id }}</h2>
-            {% endfor %}
-            <!-- Ver Detalles -->
-            <a href="#" class="btn btn-primary btn-sm" role="button">Ver Detalles</a>
+<div class="albums-container container-fluid">
+
+    <!-- Estudiantes de la Busqueda -->
+    <div class="row">
+
+        {% for item in estudiante %}
+        <div class="col-sm-4 col-lg-2">
+            <div class="thumbnail">
+                <img src="https://drive.google.com/file/d/192dpdS00eJOUrWRNMbd3UyDbC3hXaLLU/view" class="img-responsive">
+
+                <div class="caption">
+                    <h2>{{ item.nombres }}</h2>
+                    <h4>{{ item.apellidos }}</h4>
+
+                    <!-- Ver Detalles -->
+                    <a href="{% url 'resources:detalles' item.id %}" class="btn btn-primary btn-sm"
+                       role="button">Ver Detalles</a>
+
+                    <!-- Eliminar Estudiante -->
+                    <form action="{% url 'resources:estudiante-delete' item.id%}" method="post"
+                          style="display: inline;" onclick="return confirm('¿Seguro que desea eliminar el Estudiante?');">
+                        {% csrf_token %}
+                        <input type="hidden" name="estudiante_id" value="{{ item.id }}"/>
+                        <button type="submit" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </form>
+
+                    <!-- Evaluacion Favorita del Estudiante -->
+                    <a href="#" class="btn btn-default btn-sm btn-favorite">
+                        <span class="glyphicon glyphicon-star {% if item.es_favorito %}active{% endif %}"></span>
+                    </a>
+
+                </div>
+            </div>
         </div>
+
+        {% endfor %}
+
     </div>
+
+
+
 </div>
 {% endblock %}
+
