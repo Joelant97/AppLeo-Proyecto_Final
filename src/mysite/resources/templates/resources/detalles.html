@@ -18,10 +18,13 @@
                         <h3>No hay imagen para mostrar</h3>
                         {% endif %}
                     </a>
-                    <h1>{{ estudiante.nombres }}
-                        <small>{{ estudiante.id }}</small>
-                    </h1>
-                    <h2>{{ estudiante.apellidos }}</h2>
+                    <h1>{{ estudiante.nombres }}</h1>
+                    <h2>{{ estudiante.apellidos }}
+                        <small>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: {{ estudiante.id }} </label>
+                        </small>
+                    </h2>
+
                     <a href="{% url 'resources:estudiante-update' estudiante.id %}" class="btn btn-primary btn-sm"
                        role="button">Editar</a>
                 </div>

@@ -2,6 +2,7 @@
 {% block estudiantes_active %}active{% endblock %}
 
 {% block body %}
+{% load staticfiles %}
 <div class="albums-container container-fluid">
 
     <!-- Estudiantes de la Busqueda -->
@@ -10,9 +11,11 @@
         {% for item in estudiante %}
         <div class="col-sm-4 col-lg-2">
             <div class="thumbnail">
-                <img src="https://drive.google.com/file/d/192dpdS00eJOUrWRNMbd3UyDbC3hXaLLU/view" class="img-responsive">
 
                 <div class="caption">
+                    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+                    <img src="{% static 'resources/images/registered_user-512.png' %}" class="w3-round-xxlarge" alt="Norway" style="width:30%">
+
                     <h2>{{ item.nombres }}</h2>
                     <h4>{{ item.apellidos }}</h4>
 
