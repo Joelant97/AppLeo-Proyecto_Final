@@ -22,13 +22,9 @@ from .serializers import EvaluacionSerializer
 #Crea tus Vistas aqui
 
 def busqueda(request):
-    valores = ""
     estudiantes = Estudiante.objects.filter(nombres=request.GET['nombres']).values('id', 'nombres', 'apellidos')
     try:
         if estudiantes:
-            #  for key, value in estudiantes.():
-            # #     valores += valor
-            # # return HttpResponse(json.dumps(list(estudiantes)), content_type='application/json')
             return render_to_response('resources/buscar-resultados.html', {'estudiante': estudiantes})
     except:
         return HttpResponse("Hubo una excepcion")
