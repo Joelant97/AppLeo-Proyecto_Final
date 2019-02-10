@@ -113,7 +113,7 @@ LOGOUT_REDIRECT_URL = reverse_lazy('login')
 #Configuraciones para el servicio SMTP, para restablecer las password de usuarios a traves del correo.
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 25
+EMAIL_PORT = 587
 EMAIL_HOST_USER = 'appleord21@gmail.com'
-EMAIL_HOST_PASSWORD = 'Antonio21'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST_PASSWORD = 'ANtonio21'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
