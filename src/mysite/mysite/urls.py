@@ -16,7 +16,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from django.contrib.auth.views import login, password_reset, password_reset_done, password_reset_confirm, password_reset_complete
+from django.contrib.auth.views import login
 from resources.views import RegistroUsuario
 from rest_framework.urlpatterns import format_suffix_patterns
 from resources.views import EstudianteList
@@ -34,14 +34,15 @@ urlpatterns = [
     #Password Reset URL's
     url(r'^password_reset/$', auth_views.password_reset, name='password_reset'),
     url(r'^password_reset/done/$', auth_views.password_reset_done, name='password_reset_done'),
-    url(r'^password_reset/confirm/(?P<uidb64>[\w-]+)/(?P<token>[\w-]+)/$', auth_views.password_reset_confirm, name='password_reset_confirm'),
+    url(r'^password_reset/confirm/(?P<uidb64>[\w-]+)/(?P<token>[\w-]+)/$', auth_views.password_reset_confirm,
+        name='password_reset_confirm'),
     url(r'^password_reset/complete/$', auth_views.password_reset_complete, name='password_reset_complete'),
 
     url(r'^', include('django.contrib.auth.urls')),
 
 
     #estudiantes y evaluaciones son listas de Rest (Servicio RESTful)
-    url(r'^estudiantes/', login_required(EstudianteList.as_view()), name='estudiantes'),  #Esta y las evaluaciones son listas de Rest.
+    url(r'^estudiantes/', login_required(EstudianteList.as_view()), name='estudiantes'),
     url(r'^evaluaciones/', login_required(EvaluacionList.as_view()), name='evaluaciones'),
 ]
 
