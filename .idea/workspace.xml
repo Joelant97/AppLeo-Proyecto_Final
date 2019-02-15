@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0af2beb-261e-49bc-ac8b-7423b61c1c36" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/mysite/resources/static/resources/echarts/echarts.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mysite/resources/templates/resources/ai_manejo_lectura.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/src/mysite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mysite/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/mysite/mysite/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mysite/resources/templates/resources/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/mysite/resources/templates/resources/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mysite/resources/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/mysite/resources/views.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,7 +18,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/AppLeo$manage.coverage" NAME="manage Coverage Results" MODIFIED="1549834347288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/mysite" />
+    <SUITE FILE_PATH="coverage/AppLeo$manage.coverage" NAME="manage Coverage Results" MODIFIED="1550184414194" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/mysite" />
     <SUITE FILE_PATH="coverage/AppLeo$appleo.coverage" NAME="appleo Coverage Results" MODIFIED="1546981740680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/mysite/resources" />
   </component>
   <component name="DatabaseView">
@@ -28,16 +32,100 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
+        <item name="resources_estudiante: table" type="ffe0bd85:SqliteImplModel$Table" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/mysite/mysite/urls.py">
+      <file leaf-file-name="evaluacion_form.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/evaluacion_form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="47">
-              <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+            <state relative-caret-position="3077">
+              <caret line="200" column="54" selection-start-line="200" selection-start-column="48" selection-end-line="200" selection-end-column="54" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#3;n#div#0;n#div#0;n#body#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="15" column="71" selection-start-line="15" selection-start-column="71" selection-end-line="15" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mysite/resources/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#58#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mysite/resources/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="31" column="61" selection-start-line="31" selection-start-column="61" selection-end-line="31" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="registrar.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/registrar.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form-template.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/form-template.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="56" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -79,6 +167,9 @@
       <find>estudiante</find>
       <find>Authenti</find>
       <find>BACKEND</find>
+      <find>comand</find>
+      <find>sear</find>
+      <find>salida</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -110,7 +201,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/pocketsphinx.py" />
         <option value="$PROJECT_DIR$/src/AppLeo_ver_1.0.py" />
         <option value="$PROJECT_DIR$/src/AppLeo_ver_1.2.py" />
         <option value="$PROJECT_DIR$/src/appleo/AppLeo_ver_1.2.py" />
@@ -139,19 +229,16 @@
         <option value="$PROJECT_DIR$/src/requirements.txt" />
         <option value="$PROJECT_DIR$/src/mysite/manage.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/src/mysite/resources/templates/resources/evaluacion_form.html" />
         <option value="$PROJECT_DIR$/src/mysite/resources/static/resources/js/main.js" />
         <option value="$PROJECT_DIR$/src/mysite/resources/static/resources/style.css" />
         <option value="$PROJECT_DIR$/src/mysite/resources/models.py" />
         <option value="$PROJECT_DIR$/src/mysite/resources/templates/resources/evaluacion-detalles.html" />
         <option value="$PROJECT_DIR$/src/mysite/resources/urls.py" />
         <option value="$PROJECT_DIR$/src/mysite/resources/templates/resources/ficha.html" />
-        <option value="$PROJECT_DIR$/src/mysite/resources/templates/resources/base.html" />
         <option value="$PROJECT_DIR$/src/mysite/resources/templates/resources/index.html" />
         <option value="$PROJECT_DIR$/src/mysite/resources/templates/resources/buscar-resultados.html" />
         <option value="$PROJECT_DIR$/src/mysite/resources/templates/resources/detalles.html" />
         <option value="$PROJECT_DIR$/src/mysite/resources/forms.py" />
-        <option value="$PROJECT_DIR$/src/mysite/resources/views.py" />
         <option value="$PROJECT_DIR$/src/mysite/resources/templates/resources/password_reset_subject.txt" />
         <option value="$PROJECT_DIR$/src/mysite/resources/templates/resources/password_reset_email.html" />
         <option value="$PROJECT_DIR$/src/mysite/resources/templates/resources/password_reset_done.html" />
@@ -161,6 +248,10 @@
         <option value="$PROJECT_DIR$/src/mysite/resources/templates/resources/login_form.html" />
         <option value="$PROJECT_DIR$/src/mysite/mysite/settings.py" />
         <option value="$PROJECT_DIR$/src/mysite/mysite/urls.py" />
+        <option value="$PROJECT_DIR$/src/mysite/resources/templates/resources/evaluacion_form.html" />
+        <option value="$PROJECT_DIR$/src/mysite/resources/templates/resources/ai_manejo_lectura.html" />
+        <option value="$PROJECT_DIR$/src/mysite/resources/templates/resources/base.html" />
+        <option value="$PROJECT_DIR$/src/mysite/resources/views.py" />
       </list>
     </option>
   </component>
@@ -191,6 +282,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -229,7 +323,16 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="mysite" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AppLeo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AppLeo-Proyecto_Final" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="mysite" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AppLeo" type="b2602c69:ProjectViewProjectNode" />
@@ -238,21 +341,19 @@
               <item name="mysite" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="Sqlite (Xerial)" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -263,19 +364,19 @@
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ANTONIO\Documents\WorkSpace Web\AppLeo-Proyecto_Final\src\mysite\resources\templates" />
+      <recent name="C:\Users\ANTONIO\Documents\WorkSpace Web\AppLeo-Proyecto_Final\src\mysite\resources\static\resources\echarts" />
+      <recent name="C:\Users\ANTONIO\Documents\WorkSpace Web\AppLeo-Proyecto_Final\src\mysite\resources\static\resources\images" />
+      <recent name="C:\Users\ANTONIO\Documents\WorkSpace Web\App_Leo" />
+      <recent name="C:\Users\ANTONIO\Documents\WorkSpace Web\App_Leo\src\mysite\resources\static\resources" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ANTONIO\Documents\WorkSpace Web\AppLeo-Proyecto_Final\src\mysite\resources\templates" />
       <recent name="C:\Users\ANTONIO\Documents\WorkSpace Web\App_Leo\src\mysite\resources\static\resources\artyom" />
       <recent name="C:\Users\ANTONIO\Documents\WorkSpace Web\App_Leo\src\mysite\resources\templates\resources" />
       <recent name="C:\Users\ANTONIO\Documents\WorkSpace Web\App_Leo\src\mysite\resources\static\resources\images" />
       <recent name="C:\Users\ANTONIO\Documents\WorkSpace Web\App_Leo\src\resources" />
-      <recent name="C:\Users\ANTONIO\Documents\WorkSpace Web\App_Leo\src\appleo" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\ANTONIO\Documents\WorkSpace Web\AppLeo-Proyecto_Final\src\mysite\resources\static\resources\images" />
-      <recent name="C:\Users\ANTONIO\Documents\WorkSpace Web\App_Leo" />
-      <recent name="C:\Users\ANTONIO\Documents\WorkSpace Web\App_Leo\src\mysite\resources\static\resources" />
-      <recent name="C:\Users\ANTONIO\Documents\WorkSpace Web\App_Leo\src\mysite\resources" />
-      <recent name="C:\Users\ANTONIO\Documents\WorkSpace Web\App_Leo\src\mysite\appleo" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -538,12 +639,14 @@
       <workItem from="1549663324253" duration="1512000" />
       <workItem from="1549665360511" duration="6467000" />
       <workItem from="1549773287653" duration="5526000" />
-      <workItem from="1549834167165" duration="506000" />
+      <workItem from="1549834167165" duration="767000" />
+      <workItem from="1550009919269" duration="3730000" />
+      <workItem from="1550179752709" duration="7964000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="364744000" />
+    <option name="totallyTimeSpent" value="376699000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -556,7 +659,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286385" />
@@ -571,7 +673,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49838188" weight="0.20187794" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49921754" visible="true" weight="0.23220065" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49921754" visible="true" weight="0.24029127" />
       <window_info anchor="right" id="Database" order="9" weight="0.32928804" />
       <window_info anchor="right" id="SciView" order="11" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -585,6 +687,7 @@
       <window_info anchor="right" id="Gradle" order="5" weight="0.32928804" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Inspection Results" order="14" weight="0.3286385" />
+      <window_info anchor="bottom" id="Database Console" weight="0.3286385" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.3286385" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -663,17 +766,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/mysite/mysite/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/appleo/settings.py" />
-    <entry file="file://$PROJECT_DIR$/src/resources/urls.py" />
-    <entry file="file://$PROJECT_DIR$/src/manage.py" />
-    <entry file="file://$PROJECT_DIR$/src/appleo/AppLeo_ver_1.2.py" />
     <entry file="file://$PROJECT_DIR$/src/appleo/AppLeo_ver_1.2.py" />
     <entry file="file://$PROJECT_DIR$/src/appleo/wsgi.py" />
     <entry file="file://$PROJECT_DIR$/src/appleo/urls.py" />
@@ -759,20 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/evaluacion-detalles.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" column="58" selection-start-line="51" selection-start-column="52" selection-end-line="51" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/mysite/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -787,45 +865,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mysite/resources/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-38">
-          <caret line="31" column="61" selection-start-line="31" selection-start-column="61" selection-end-line="31" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/registrar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/form-template-evaluar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mysite/resources/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/form-template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -843,24 +886,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/evaluacion_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/login_form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="37" column="75" lean-forward="true" selection-start-line="37" selection-start-column="75" selection-end-line="37" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mysite/resources/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="31" column="64" lean-forward="true" selection-start-line="31" selection-start-column="64" selection-end-line="31" selection-end-column="64" />
         </state>
       </provider>
     </entry>
@@ -907,17 +936,120 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mysite/mysite/settings.py">
+    <entry file="file://$PROJECT_DIR$/src/mysite/resources/static/resources/artyom/artyom.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="118" column="61" selection-start-line="118" selection-start-column="61" selection-end-line="118" selection-end-column="61" />
-        </state>
+        <state relative-caret-position="-28618" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mysite/resources/static/resources/artyom/artyomCommands.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-197" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mysite/mysite/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
+        <state relative-caret-position="-316">
           <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/ai_manejo_lectura.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="106" column="46" selection-start-line="106" selection-start-column="46" selection-end-line="106" selection-end-column="46" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#2;n#div#0;n#div#0;n#body#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/evaluacion-detalles.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="51" column="58" selection-start-line="51" selection-start-column="52" selection-end-line="51" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mysite/resources/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="31" column="61" selection-start-line="31" selection-start-column="61" selection-end-line="31" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/registrar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/form-template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mysite/resources/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6c581183-ef08-4b7b-8019-4a375dd4c797/schema/main/table/resources_estudiante">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mysite/mysite/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="962">
+          <caret line="118" column="61" selection-start-line="118" selection-start-column="61" selection-end-line="118" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="71" selection-start-line="15" selection-start-column="71" selection-end-line="15" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mysite/resources/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="56" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/stisla-2.2.0/dist/assets/js/page/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/evaluacion_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3077">
+          <caret line="200" column="54" selection-start-line="200" selection-start-column="48" selection-end-line="200" selection-end-column="54" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#3;n#div#0;n#div#0;n#body#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

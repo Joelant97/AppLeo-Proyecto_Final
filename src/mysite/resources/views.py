@@ -22,7 +22,8 @@ from .serializers import EvaluacionSerializer
 #Crea tus Vistas aqui
 
 def busqueda(request):
-    estudiantes = Estudiante.objects.filter(nombres=request.GET['nombres']).values('id', 'nombres', 'apellidos')
+    estudiantes = Estudiante.objects.filter(nombres__icontains=request.GET['nombres']).values('id', 'nombres', 'apellidos')
+
     try:
         if estudiantes:
             return render_to_response('resources/buscar-resultados.html', {'estudiante': estudiantes})
