@@ -8,21 +8,24 @@ from .models import Estudiante
 from django.contrib.auth.models import User
 from .forms import RegistroForm
 
-#Librerias para Servicio de Rest:
+# Librerias para Servicio de Rest:
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
-#from rest_framework import status
+# from rest_framework import status
 from .models import Evaluacion
 from .serializers import EstudianteSerializer
 from .serializers import EvaluacionSerializer
-#from .models import EvaluacionForm
 
 
-#Crea tus Vistas aqui
+# from .models import EvaluacionForm
+
+
+# Crea tus Vistas aqui
 
 def busqueda(request):
-    estudiantes = Estudiante.objects.filter(nombres__icontains=request.GET['nombres']).values('id', 'nombres', 'apellidos')
+    estudiantes = Estudiante.objects.filter(nombres__icontains=request.GET['nombres']).values('id', 'nombres',
+                                                                                              'apellidos')
 
     try:
         if estudiantes:
@@ -32,6 +35,7 @@ def busqueda(request):
     else:
         return HttpResponse("No hay estudiantes con ese nombre")
 
+
 class RegistroUsuario(CreateView):
     model = User
     template_name = "resources/registrar.html"
@@ -39,35 +43,56 @@ class RegistroUsuario(CreateView):
     success_url = reverse_lazy('login')
 
 
-#Vista para Realizar Evaluaciones del Modelo "Evaluacion"
+# Vista para Realizar Evaluaciones del Modelo "Evaluacion"
 class RealizarEvaluacionVista(CreateView):
     model = Evaluacion
     template_name = "resources/evaluacion_form.html"
 
-    success_url = "/estudiante/{estudiante_id}" #Esto es para direcionar hacia los detalles del estudiante
-                                                #luego de registrar la evaluacion que se le ha realizo.
-    fields = ['estudiante', 'es_favorito', 'evaluacion_tipo', 'fluidez_lectora', 'tipo_lectura', 'comentario', 'texto_a_leer']
+    success_url = "/estudiante/{estudiante_id}"  # Esto es para direcionar hacia los detalles del estudiante
+    # luego de registrar la evaluacion que se le ha realizo.
+    fields = ['estudiante', 'es_favorito', 'evaluacion_tipo', 'fluidez_lectora', 'tipo_lectura', 'comentario',
+              'texto_a_leer']
 
-#Eliminar las Evaluaciones:
+
+# Eliminar las Evaluaciones:
 def DeleteEvaluacion(request, eva_id):
-
-    #El id de la Evaluacion a eliminar es id== eva_id
+    # El id de la Evaluacion a eliminar es id== eva_id
 
     eva_obj = get_object_or_404(Evaluacion, id=eva_id)
     eva_obj.delete()
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/')) #Esto te permite redirecionar a la misma pagina
-                                                                       # en que estabas, luego de eliminar y actualizar.
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))  # Esto te permite redirecionar a la misma pagina
+    # en que estabas, luego de eliminar y actualizar.
+
 
 class IndexView(generic.ListView):
     template_name = 'resources/index.html'
     context_object_name = 'all_estudiantes'
 
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        context.update({
+            'all_evaluaciones': Evaluacion.objects.all(),
+        })
+        return context
+
     def get_queryset(self):
         return Estudiante.objects.all()
+
 
 class DetailViewEvaluacion(generic.DetailView):
     model = Evaluacion
     template_name = 'resources/evaluacion-detalles.html'
+
+
+class ListEstudiantes(generic.ListView):
+    template_name = 'resources/estudiantes.html'
+    context_object_name = 'all_estudiantes'
+    slug_field = 'estudiante'
+    slug_url_kwarg = 'estudiante'
+
+    def get_queryset(self):
+        return Estudiante.objects.all()
+
 
 class DetailView(generic.DetailView):
     model = Estudiante
@@ -89,8 +114,8 @@ class DeleteEstudiante(DeleteView):
     success_url = reverse_lazy('resources:index')
 
 
-#Manejo de RestFull(Listar o crear uno nuevo del model para el Serv.Rest):
-#/estudiantes
+# Manejo de RestFull(Listar o crear uno nuevo del model para el Serv.Rest):
+# /estudiantes
 class EstudianteList(APIView):
 
     def get(self, request):
@@ -102,8 +127,8 @@ class EstudianteList(APIView):
         pass
 
 
-#/evaluaciones
-class EvaluacionList(APIView): #Esto funciona como una especie de JSON.
+# /evaluaciones
+class EvaluacionList(APIView):  # Esto funciona como una especie de JSON.
 
     def get(self, request):
         evaluaciones = Evaluacion.objects.all()
@@ -112,9 +137,3 @@ class EvaluacionList(APIView): #Esto funciona como una especie de JSON.
 
     def post(self):
         pass
-
-
-
-
-
-

@@ -59,7 +59,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/src/mysite/resources/templates/resources'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -110,7 +110,7 @@ MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = reverse_lazy('resources:index')
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
 
-#Configuraciones para el servicio SMTP, para restablecer las password de usuarios a traves del correo.
+# Configuraciones para el servicio SMTP, para restablecer las password de usuarios a traves del correo.
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587

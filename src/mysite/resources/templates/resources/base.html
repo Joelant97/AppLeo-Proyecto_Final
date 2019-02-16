@@ -8,98 +8,301 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="{% static 'resources/style.css' %}"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--General CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'resources/js/modules/bootstrap/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'resources/js/modules/fontawesome/css/all.min.css' %}"/>
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'resources/js/modules/jqvmap/dist/jqvmap.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'resources/js/modules/summernote/summernote-bs4.css' %}"/>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'resources/js/modules/owlcarousel2/dist/assets/owl.carousel.min.css' %}"/>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'resources/js/modules/owlcarousel2/dist/assets/owl.theme.default.min.css' %}"/>
+    <!--Template CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'resources/css/style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'resources/css/components.css' %}"/>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>-->
+    <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <script src="{% static 'resources/js/modules/jquery.min.js' %}"></script>
 
     <script src="{% static 'resources/js/main.js' %}"></script>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
 
-        <!-- Header -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{% url 'resources:index' %}">AppLeo</a>
-        </div>
-
-        <!-- Items -->
-        <div class="collapse navbar-collapse" id="topNavBar">
-
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="{% url 'resources:index' %}">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp; Estudiantes
-                    </a>
-                </li>
-                <li class="">
-                    <a href="{% url 'resources:realizar-evaluacion' %}">
-                        <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>&nbsp; Realizar
-                        Evaluación
-                    </a>
-                </li>
-            </ul>
-
-            <form class="navbar-form navbar-left" role="search" method="get" action="{% url 'resources:estudiante-buscar' %}">
-                <div class="form-group">
-                    <input type="text" class="form-control" name="nombres" required value="">
+<nav class="navbar navbar-expand-lg main-navbar">
+    <form class="form-inline mr-auto">
+        <ul class="navbar-nav mr-3">
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg" style=""><i class="fas fa-bars"></i></a>
+            </li>
+            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i
+                    class="fas fa-search"></i></a></li>
+        </ul>
+        <div class="search-element">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250"
+                   style="width: 250px;">
+            <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+            <div class="search-backdrop"></div>
+            <div class="search-result">
+                <div class="search-header">
+                    Histories
                 </div>
-                <button type="submit" class="btn btn-default">Buscar</button>
-            </form>
-
-            <script>
-                $(document).ready(function(){
-
-                    $("#q").on('change', function () {
-
-                        buscar();
-                    })
-
-                });
-
-
-                function buscar() {
-
-                    $.ajax({
-                        type: 'POST',
-                        data: $('#form').serialize(),
-                        url: "/estudiante/busqueda",
-                        success: function (res) {
-
-                            console.log(res);
-
-                        }
-
-                    });
-
-
-                }
-            </script>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li class="">
-                    <a href="{% url 'resources:estudiante-add' %}">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp; Agregar Estudiante
+                <div class="search-item">
+                    <a href="#">How to hack NASA using CSS</a>
+                    <a href="#" class="search-close"><i class="fas fa-times"></i></a>
+                </div>
+                <div class="search-item">
+                    <a href="#">Kodinger.com</a>
+                    <a href="#" class="search-close"><i class="fas fa-times"></i></a>
+                </div>
+                <div class="search-item">
+                    <a href="#">#Stisla</a>
+                    <a href="#" class="search-close" style=""><i class="fas fa-times"></i></a>
+                </div>
+                <div class="search-header">
+                    Result
+                </div>
+                <div class="search-item">
+                    <a href="#">
+                        <img class="mr-3 rounded" width="30" src="assets/img/products/product-3-50.png" alt="product">
+                        oPhone S9 Limited Edition
                     </a>
-                </li>
-                <li class="">
-                    <a href="{% url 'resources:logout' %}">
-                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Cerrar Sesión
+                </div>
+                <div class="search-item">
+                    <a href="#">
+                        <img class="mr-3 rounded" width="30" src="assets/img/products/product-2-50.png" alt="product">
+                        Drone X2 New Gen-7
                     </a>
-                </li>
-
-            </ul>
-
+                </div>
+                <div class="search-item">
+                    <a href="#">
+                        <img class="mr-3 rounded" width="30" src="assets/img/products/product-1-50.png" alt="product">
+                        Headphone Blitz
+                    </a>
+                </div>
+                <div class="search-header">
+                    Projects
+                </div>
+                <div class="search-item">
+                    <a href="#">
+                        <div class="search-icon bg-danger text-white mr-3">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        Stisla Admin Template
+                    </a>
+                </div>
+                <div class="search-item">
+                    <a href="#">
+                        <div class="search-icon bg-primary text-white mr-3">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        Create a new Homepage Design
+                    </a>
+                </div>
+            </div>
         </div>
-
-
-    </div>
+    </form>
+    <ul class="navbar-nav navbar-right">
+        <!--<li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle beep"><i class="far fa-envelope"></i></a>-->
+        <!--<div class="dropdown-menu dropdown-list dropdown-menu-right">-->
+        <!--<div class="dropdown-header">Messages-->
+        <!--<div class="float-right">-->
+        <!--<a href="#">Mark All As Read</a>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="dropdown-list-content dropdown-list-message">-->
+        <!--<a href="#" class="dropdown-item dropdown-item-unread">-->
+        <!--<div class="dropdown-item-avatar">-->
+        <!--<img alt="image" src="assets/img/avatar/avatar-1.png" class="rounded-circle">-->
+        <!--<div class="is-online"></div>-->
+        <!--</div>-->
+        <!--<div class="dropdown-item-desc">-->
+        <!--<b>Kusnaedi</b>-->
+        <!--<p>Hello, Bro!</p>-->
+        <!--<div class="time">10 Hours Ago</div>-->
+        <!--</div>-->
+        <!--</a>-->
+        <!--<a href="#" class="dropdown-item dropdown-item-unread">-->
+        <!--<div class="dropdown-item-avatar">-->
+        <!--<img alt="image" src="assets/img/avatar/avatar-2.png" class="rounded-circle">-->
+        <!--</div>-->
+        <!--<div class="dropdown-item-desc">-->
+        <!--<b>Dedik Sugiharto</b>-->
+        <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>-->
+        <!--<div class="time">12 Hours Ago</div>-->
+        <!--</div>-->
+        <!--</a>-->
+        <!--<a href="#" class="dropdown-item dropdown-item-unread">-->
+        <!--<div class="dropdown-item-avatar">-->
+        <!--<img alt="image" src="assets/img/avatar/avatar-3.png" class="rounded-circle">-->
+        <!--<div class="is-online"></div>-->
+        <!--</div>-->
+        <!--<div class="dropdown-item-desc">-->
+        <!--<b>Agung Ardiansyah</b>-->
+        <!--<p>Sunt in culpa qui officia deserunt mollit anim id est laborum.</p>-->
+        <!--<div class="time">12 Hours Ago</div>-->
+        <!--</div>-->
+        <!--</a>-->
+        <!--<a href="#" class="dropdown-item">-->
+        <!--<div class="dropdown-item-avatar">-->
+        <!--<img alt="image" src="assets/img/avatar/avatar-4.png" class="rounded-circle">-->
+        <!--</div>-->
+        <!--<div class="dropdown-item-desc">-->
+        <!--<b>Ardian Rahardiansyah</b>-->
+        <!--<p>Duis aute irure dolor in reprehenderit in voluptate velit ess</p>-->
+        <!--<div class="time">16 Hours Ago</div>-->
+        <!--</div>-->
+        <!--</a>-->
+        <!--<a href="#" class="dropdown-item">-->
+        <!--<div class="dropdown-item-avatar">-->
+        <!--<img alt="image" src="assets/img/avatar/avatar-5.png" class="rounded-circle">-->
+        <!--</div>-->
+        <!--<div class="dropdown-item-desc">-->
+        <!--<b>Alfa Zulkarnain</b>-->
+        <!--<p>Exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>-->
+        <!--<div class="time">Yesterday</div>-->
+        <!--</div>-->
+        <!--</a>-->
+        <!--</div>-->
+        <!--<div class="dropdown-footer text-center">-->
+        <!--<a href="#">View All <i class="fas fa-chevron-right"></i></a>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--<li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>-->
+        <!--<div class="dropdown-menu dropdown-list dropdown-menu-right">-->
+        <!--<div class="dropdown-header">Notifications-->
+        <!--<div class="float-right">-->
+        <!--<a href="#">Mark All As Read</a>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="dropdown-list-content dropdown-list-icons">-->
+        <!--<a href="#" class="dropdown-item dropdown-item-unread">-->
+        <!--<div class="dropdown-item-icon bg-primary text-white">-->
+        <!--<i class="fas fa-code"></i>-->
+        <!--</div>-->
+        <!--<div class="dropdown-item-desc">-->
+        <!--Template update is available now!-->
+        <!--<div class="time text-primary">2 Min Ago</div>-->
+        <!--</div>-->
+        <!--</a>-->
+        <!--<a href="#" class="dropdown-item">-->
+        <!--<div class="dropdown-item-icon bg-info text-white">-->
+        <!--<i class="far fa-user"></i>-->
+        <!--</div>-->
+        <!--<div class="dropdown-item-desc">-->
+        <!--<b>You</b> and <b>Dedik Sugiharto</b> are now friends-->
+        <!--<div class="time">10 Hours Ago</div>-->
+        <!--</div>-->
+        <!--</a>-->
+        <!--<a href="#" class="dropdown-item">-->
+        <!--<div class="dropdown-item-icon bg-success text-white">-->
+        <!--<i class="fas fa-check"></i>-->
+        <!--</div>-->
+        <!--<div class="dropdown-item-desc">-->
+        <!--<b>Kusnaedi</b> has moved task <b>Fix bug header</b> to <b>Done</b>-->
+        <!--<div class="time">12 Hours Ago</div>-->
+        <!--</div>-->
+        <!--</a>-->
+        <!--<a href="#" class="dropdown-item">-->
+        <!--<div class="dropdown-item-icon bg-danger text-white">-->
+        <!--<i class="fas fa-exclamation-triangle"></i>-->
+        <!--</div>-->
+        <!--<div class="dropdown-item-desc">-->
+        <!--Low disk space. Let's clean it!-->
+        <!--<div class="time">17 Hours Ago</div>-->
+        <!--</div>-->
+        <!--</a>-->
+        <!--<a href="#" class="dropdown-item">-->
+        <!--<div class="dropdown-item-icon bg-info text-white">-->
+        <!--<i class="fas fa-bell"></i>-->
+        <!--</div>-->
+        <!--<div class="dropdown-item-desc">-->
+        <!--Welcome to Stisla template!-->
+        <!--<div class="time">Yesterday</div>-->
+        <!--</div>-->
+        <!--</a>-->
+        <!--</div>-->
+        <!--<div class="dropdown-footer text-center">-->
+        <!--<a href="#">View All <i class="fas fa-chevron-right"></i></a>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</li>-->
+        <li class="dropdown"><a href="#" data-toggle="dropdown"
+                                class="nav-link dropdown-toggle nav-link-lg nav-link-user" style=""
+                                data-vivaldi-spatnav-clickable="1" aria-expanded="false">
+{#            <img alt="image" src="assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">#}
+            <div class="d-sm-none d-lg-inline-block">Hola, {{ user.first_name }}</div>
+        </a>
+            <div class="dropdown-menu dropdown-menu-right">
+                {#                <div class="dropdown-title">Logged in 5 min ago</div>#}
+                <a href="features-profile.html" class="dropdown-item has-icon">
+                    <i class="far fa-user"></i> Profile
+                </a>
+                <a href="features-activities.html" class="dropdown-item has-icon">
+                    <i class="fas fa-bolt"></i> Activities
+                </a>
+                <a href="features-settings.html" class="dropdown-item has-icon">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="{% url 'resources:logout' %}" class="dropdown-item has-icon text-danger">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar sesi&oacute;n
+                </a>
+            </div>
+        </li>
+    </ul>
 </nav>
+
+<div class="main-sidebar sidebar-style-2">
+    <aside id="sidebar-wrapper">
+        <div class="sidebar-brand">
+            <a href="{% url 'resources:index' %}">App Leo</a>
+        </div>
+        <div class="sidebar-brand sidebar-brand-sm">
+            <a href="{% url 'resources:index' %}">AL</a>
+        </div>
+        <ul class="sidebar-menu">
+
+
+            <li class="{% if "/index" in request.path %}active{% endif %}">
+                <a class="nav-link" href="{% url 'resources:index' %}">
+                    <i class="fas fa-home"></i> <span>Inicio</span></a>
+            </li>
+
+
+            <li class="menu-header">Estudiantes</li>
+            <li class="{% if "/evaluacion/add" in request.path %}active{% endif %}">
+                <a class="nav-link" href="{% url 'resources:realizar-evaluacion' %}">
+                    <i class="fas fa-file-signature "></i> <span>Realizar evaluación</span></a>
+            </li>
+
+        <li class="{% if "/listado/estudiantes" in request.path %}active{% endif %}">
+                <a class="nav-link" href="{% url 'resources:listado-estudiantes' %}">
+                    <i class="fas fa-users "></i> <span>Listado estudiantes</span></a>
+            </li>
+        </ul>
+
+        <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
+            <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
+                <i class="fas fa-rocket"></i> Documentation
+            </a>
+        </div>
+    </aside>
+</div>
 {% block body %}
 {% endblock %}
+
+<script src="{% static 'resources/js/modules/popper.js' %}"></script>
+<script src="{% static 'resources/js/modules/tooltip.js' %}"></script>
+<script src="{% static 'resources/js/modules/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'resources/js/modules/nicescroll/jquery.nicescroll.min.js' %}"></script>
+<script src="{% static 'resources/js/modules/moment.min.js' %}"></script>
+<script src="{% static 'resources/js/stisla.js' %}"></script>
+<script src="{% static 'resources/js/modules/summernote/summernote-bs4.js' %}"></script>
+<script src="{% static 'resources/js/modules/chocolat/dist/js/jquery.chocolat.min.js' %}"></script>
+<script src="{% static 'resources/js/page/index.js' %}"></script>
+<script src="{% static 'resources/js/scripts.js' %}"></script>
+<script src="{% static 'resources/js/custom.js' %}"></script>
+
 </body>
 </html>

@@ -3,7 +3,7 @@
 SpeechRecognition==3.8.1
 Wave==0.0.2
 #Puedes probarlo tambien con portaudio solamente, para que se instale la ultima version.
-portaudio==18.*
+# portaudio>=18
 speech_classification==0.2
 contextlib2==0.5.5
 #Prueba con la version 0.2.11 sino funciona con la 0.2.9

@@ -1,108 +1,60 @@
-{% extends 'resources/base.html' %}
-{% block estudiantes_active %}active{% endblock %}
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <div class="navbar-bg"></div>
 
-{% block body %}
-<div class="albums-container container-fluid">
+        {% extends 'resources/base.html' %}
+        {% block estudiantes_active %}active{% endblock %}
 
-    <!-- Estudiantes -->
-    <div class="row">
-        <div class="col-sm-12">
-            <h3>{{ user.first_name }}<hr>Listado de Estudiantes:</h3>
-        </div>
-        {% if all_estudiantes %}
-        {% for estudiante in all_estudiantes %}
-        <div class="col-sm-4 col-lg-2">
-            <div class="thumbnail">
-                <a href="{% url 'resources:detalles' estudiante.id %}">
-                    <img src="{{ estudiante.foto.url }}" class="img-responsive">
-                </a>
-                <div class="caption">
-                    <h2>{{ estudiante.nombres }}</h2>
-                    <h4>{{ estudiante.apellidos }}</h4>
+        {% block body %}
 
-                    <!-- Ver Detalles -->
-                    <a href="{% url 'resources:detalles' estudiante.id %}" class="btn btn-primary btn-sm"
-                       role="button">Ver Detalles</a>
+            <div class="main-content">
+                <section class="section">
+                    <div class="section-header">
+                        <h1>Inicio</h1>
 
-                    <!-- Eliminar Estudiante -->
-                    <form action="{% url 'resources:estudiante-delete' estudiante.id%}" method="post"
-                          style="display: inline;" onclick="return confirm('¿Seguro que desea eliminar el Estudiante?');">
-                        {% csrf_token %}
-                        <input type="hidden" name="estudiante_id" value="{{ estudiante.id }}"/>
-                        <button type="submit" class="btn btn-default btn-sm">
-                            <span class="glyphicon glyphicon-trash"></span>
-                        </button>
-                    </form>
+                    </div>
+                    <div class="row">
 
-                    <!-- Evaluacion Favorita del Estudiante -->
-                    <a href="#" class="btn btn-default btn-sm btn-favorite">
-                        <span class="glyphicon glyphicon-star {% if estudiante.es_favorito %}active{% endif %}"></span>
-                    </a>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="card card-statistic-1">
+                                <div class="card-icon bg-primary centro">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                        <h4>Estudiantes</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        {{ all_estudiantes|length }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="card card-statistic-1">
+                                <div class="card-icon bg-warning centro">
+                                    <i class="far fa-file"></i>
+                                </div>
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                        <h4>Evaluaciones</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        {{ all_evaluaciones|length }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
             </div>
-        </div>
 
-        {% endfor %}
-        {% else %}
-        <div class="col-sm-12">
-            <br>
-            <a href="{% url 'resources:estudiante-add' %}">
-                <button type="button" class="btn btn-success">
-                    <span class="glyphicon glyphicon-plus"></span>&nbsp; Agregar un Estudiante
-                </button>
-            </a>
-        </div>
-        {% endif %}
-    </div>
 
-    <!-- Si el usuario busca y hay evaluaciones -->
-    {% if evaluacions %}
-    <div class="row">
-        <div class="col-sm-12">
-            <h3>Evaluaciones</h3>
-        </div>
-        <div class="col-sm-12">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>Evaluacion ID</th>
-                            <th>Tipo de Evaluacion</th>
-                            <th>Nombre</th>
-                            <th>Estudiante</th>
-                            <th>Favorito</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for evaluacion in evaluacions %}
-                        <tr>
-                            <td>{{ evaluacion.id }}</td>
-                            <td>{{ evaluacion.evaluacion_tipo }}</td>
-                            <td>{{ evaluacion.estudiante.nombres }}</td>
-                            <td>
-                                <a href="{% url 'resources:detalles' evaluacion.estudiante.id %}">
-                                    <img src="{{ evaluacion.estudiante.foto.url }}" class="img-responsive"
-                                         style="width: 20px; float: left; margin-right: 10px;"/>
-                                </a>
-                                <a href="{% url 'resources:detalles' evaluacion.estudiante.id %}">{{
-                                    evaluacion.estudiante.nombres }}</a>
-                            </td>
-                            <td>
-                                <a href="{% url 'resources:favorito' evaluacion.id %}"
-                                   class="btn-favorite"><span
-                                        class="glyphicon glyphicon-star {% if evaluacion.es_favorito %}active{% endif %}"></span></a>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+        {% endblock %}
     </div>
-    {% endif %}
 
 </div>
-{% endblock %}
+

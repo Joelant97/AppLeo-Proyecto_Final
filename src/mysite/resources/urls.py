@@ -17,6 +17,8 @@ urlpatterns = [
 
     url(r'estudiante/buscar/$', login_required(views.busqueda), name='estudiante-buscar'),
 
+    url(r'listado/estudiantes/$', login_required(views.ListEstudiantes.as_view()), name='listado-estudiantes'),
+
     # /resources/estudiante/add/
     url(r'estudiante/add/$', login_required(views.CrearEstudiante.as_view()), name='estudiante-add'),
 
