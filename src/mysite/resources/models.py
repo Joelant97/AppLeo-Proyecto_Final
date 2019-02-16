@@ -1,18 +1,19 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
 
 
 # Crea tus Modelos aqui.
 
 
-
 class Estudiante(models.Model):
+    profesor = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     nombres = models.CharField(max_length=250)
     apellidos = models.CharField(max_length=250)
     genero = models.CharField(max_length=10)
     edad = models.CharField(max_length=8)
     foto = models.FileField()
-    es_favorito = models.BooleanField(default=False)
+    #es_favorito = models.BooleanField(default=False)
     #user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def get_absolute_url(self):

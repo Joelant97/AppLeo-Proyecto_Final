@@ -78,6 +78,15 @@ class CrearEstudiante(CreateView):
     model = Estudiante
     fields = ['id', 'nombres', 'apellidos', 'genero', 'edad', 'foto']
 
+    def form_valid(self, form):
+
+        #Add logged-in user as autor of comment THIS IS THE KEY TO THE SOLUTION
+        form.instance.profesor = self.request.user.id
+
+        # Call super-class form validation behaviour
+        return super().form_valid(form)
+
+
 
 class UpdateEstudiante(UpdateView):
     model = Estudiante
