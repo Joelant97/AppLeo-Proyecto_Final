@@ -189,19 +189,19 @@ select.form-control:not([size]):not([multiple]) {
   background-size: 40px;
   padding-right: 60px; }
   .form-control.creditcard.visa {
-    background-image: url("../img/visa.png"); }
+    background-image: url("../../../templates/stisla-2.2.0/dist/assets/img/visa.png"); }
   .form-control.creditcard.americanexpress {
-    background-image: url("../img/americanexpress.png"); }
+    background-image: url("../../../templates/stisla-2.2.0/dist/assets/img/americanexpress.png"); }
   .form-control.creditcard.dinersclub {
-    background-image: url("../img/dinersclub.png"); }
+    background-image: url("../../../templates/stisla-2.2.0/dist/assets/img/dinersclub.png"); }
   .form-control.creditcard.discover {
-    background-image: url("../img/discover.png"); }
+    background-image: url("../../../templates/stisla-2.2.0/dist/assets/img/discover.png"); }
   .form-control.creditcard.jcb {
-    background-image: url("../img/jcb.png"); }
+    background-image: url("../../../templates/stisla-2.2.0/dist/assets/img/jcb.png"); }
   .form-control.creditcard.mastercard {
-    background-image: url("../img/mastercard.png"); }
+    background-image: url("../../../templates/stisla-2.2.0/dist/assets/img/mastercard.png"); }
   .form-control.creditcard.visa {
-    background-image: url("../img/visa.png"); }
+    background-image: url("../../../templates/stisla-2.2.0/dist/assets/img/visa.png"); }
 
 .form-group {
   margin-bottom: 25px; }
@@ -722,7 +722,7 @@ select.form-control:not([size]):not([multiple]) {
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
   .card.card-progress:not(.remove-spinner):after {
-    background-image: url("../img/spinner.svg");
+    background-image: url("../../../templates/stisla-2.2.0/dist/assets/img/spinner.svg");
     background-size: 80px;
     background-repeat: no-repeat;
     background-position: center; }
@@ -995,7 +995,7 @@ table tr:hover .table-links {
     height: 100%;
     background-color: rgba(255, 255, 255, 0.5);
     z-index: 999;
-    background-image: url("../img/spinner.svg");
+    background-image: url("../../../templates/stisla-2.2.0/dist/assets/img/spinner.svg");
     background-size: 80px;
     background-repeat: no-repeat;
     background-position: center;
@@ -1361,7 +1361,7 @@ h6 .badge {
 
 .btn-progress {
   position: relative;
-  background-image: url("../img/spinner-white.svg");
+  background-image: url("../../../templates/stisla-2.2.0/dist/assets/img/spinner-white.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 30px;
@@ -1909,36 +1909,36 @@ a.dropdown-item {
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/nunito-v9-latin-regular.eot");
+  src: url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-regular.eot");
   /* IE9 Compat Modes */
-  src: local("Nunito Regular"), local("Nunito-Regular"), url("../fonts/nunito-v9-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/nunito-v9-latin-regular.woff2") format("woff2"), url("../fonts/nunito-v9-latin-regular.woff") format("woff"), url("../fonts/nunito-v9-latin-regular.ttf") format("truetype"), url("../fonts/nunito-v9-latin-regular.svg#Nunito") format("svg");
+  src: local("Nunito Regular"), local("Nunito-Regular"), url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-regular.eot?#iefix") format("embedded-opentype"), url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-regular.woff2") format("woff2"), url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-regular.woff") format("woff"), url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-regular.ttf") format("truetype"), url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-regular.svg#Nunito") format("svg");
   /* Legacy iOS */ }
 /* nunito-600 - latin */
 @font-face {
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 600;
-  src: url("../fonts/nunito-v9-latin-600.eot");
+  src: url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-600.eot");
   /* IE9 Compat Modes */
-  src: local("Nunito SemiBold"), local("Nunito-SemiBold"), url("../fonts/nunito-v9-latin-600.eot?#iefix") format("embedded-opentype"), url("../fonts/nunito-v9-latin-600.woff2") format("woff2"), url("../fonts/nunito-v9-latin-600.woff") format("woff"), url("../fonts/nunito-v9-latin-600.ttf") format("truetype"), url("../fonts/nunito-v9-latin-600.svg#Nunito") format("svg");
+  src: local("Nunito SemiBold"), local("Nunito-SemiBold"), url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-600.eot?#iefix") format("embedded-opentype"), url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-600.woff2") format("woff2"), url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-600.woff") format("woff"), url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-600.ttf") format("truetype"), url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-600.svg#Nunito") format("svg");
   /* Legacy iOS */ }
 /* nunito-700 - latin */
 @font-face {
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 700;
-  src: url("../fonts/nunito-v9-latin-700.eot");
+  src: url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-700.eot");
   /* IE9 Compat Modes */
-  src: local("Nunito Bold"), local("Nunito-Bold"), url("../fonts/nunito-v9-latin-700.eot?#iefix") format("embedded-opentype"), url("../fonts/nunito-v9-latin-700.woff2") format("woff2"), url("../fonts/nunito-v9-latin-700.woff") format("woff"), url("../fonts/nunito-v9-latin-700.ttf") format("truetype"), url("../fonts/nunito-v9-latin-700.svg#Nunito") format("svg");
+  src: local("Nunito Bold"), local("Nunito-Bold"), url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-700.eot?#iefix") format("embedded-opentype"), url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-700.woff2") format("woff2"), url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-700.woff") format("woff"), url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-700.ttf") format("truetype"), url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-700.svg#Nunito") format("svg");
   /* Legacy iOS */ }
 /* nunito-800 - latin */
 @font-face {
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 800;
-  src: url("../fonts/nunito-v9-latin-800.eot");
+  src: url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-800.eot");
   /* IE9 Compat Modes */
-  src: local("Nunito ExtraBold"), local("Nunito-ExtraBold"), url("../fonts/nunito-v9-latin-800.eot?#iefix") format("embedded-opentype"), url("../fonts/nunito-v9-latin-800.woff2") format("woff2"), url("../fonts/nunito-v9-latin-800.woff") format("woff"), url("../fonts/nunito-v9-latin-800.ttf") format("truetype"), url("../fonts/nunito-v9-latin-800.svg#Nunito") format("svg");
+  src: local("Nunito ExtraBold"), local("Nunito-ExtraBold"), url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-800.eot?#iefix") format("embedded-opentype"), url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-800.woff2") format("woff2"), url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-800.woff") format("woff"), url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-800.ttf") format("truetype"), url("../../../templates/stisla-2.2.0/dist/assets/fonts/nunito-v9-latin-800.svg#Nunito") format("svg");
   /* Legacy iOS */ }
 :root {
   /* Colors */
