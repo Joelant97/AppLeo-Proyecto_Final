@@ -38,7 +38,7 @@ urlpatterns = [
         name='password_reset_confirm'),
     url(r'^password_reset/complete/$', auth_views.password_reset_complete, name='password_reset_complete'),
 
-    url(r'^', include('django.contrib.auth.urls')),
+    #url(r'^', include('django.contrib.auth.urls')),
 
 
     #estudiantes y evaluaciones son listas de Rest (Servicio RESTful)
