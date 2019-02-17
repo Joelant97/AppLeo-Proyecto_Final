@@ -1,0 +1,133 @@
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <div class="navbar-bg"></div>
+
+        {% extends 'resources/base.html' %}
+        {% block estudiantes_active %}active{% endblock %}
+
+        {% block body %}
+
+            <div class="main-content">
+                <section class="section">
+                    <div class="section-header">
+                        <h1>Listado de Estudiantes</h1>
+                        <div class="section-header-breadcrumb">
+                            <a href="{% url 'resources:estudiante-add' %}">
+                                <button type="button" class="btn btn-success">
+                                    <span class="glyphicon glyphicon-plus"></span>&nbsp; Agregar un
+                                    Estudiante
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Estudiantes -->
+                    <div class="section-body">
+                        <div class="row">
+
+                            {% for estudiante in all_estudiantes %}
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                                    <article class="article">
+                                        <div class="article-header">
+                                            <div class="article-image" data-background="{{ estudiante.foto.url }}"
+                                                 style="background-image: url(&quot;assets/img/news/img08.jpg&quot;);">
+                                            </div>
+                                            <div class="article-title">
+                                                <h2>
+                                                    <a href="{% url 'resources:detalles' estudiante.id %}">{{ estudiante.nombres }} {{ estudiante.apellidos }}</a>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                        <div class="article-details">
+                                            <div class="article-title">
+                                                <h2>
+                                                    <a href="{% url 'resources:detalles-evaluacion' estudiante.evaluacion_set.last.id %}">&Uacute;ltima
+                                                        evaluaci&oacute;n</a>
+                                                </h2>
+                                            </div>
+                                            <p>{{ estudiante.evaluacion_set.last.comentario }}</p>
+                                            <div class="article-cta">
+                                                <a href="{% url 'resources:detalles' estudiante.id %}"
+                                                   class="btn btn-primary"><span
+                                                        class="glyphicon glyphicon-eye-open"></span> Ver
+                                                    Detalles</a>
+                                                <form action="{% url 'resources:estudiante-delete' estudiante.id %}"
+                                                      method="post"
+                                                      style="display: inline;"
+                                                      onclick="return confirm('¿Seguro que desea eliminar el Estudiante?');">
+                                                    {% csrf_token %}
+                                                    <input type="hidden" name="estudiante_id"
+                                                           value="{{ estudiante.id }}"/>
+                                                    <button type="submit"
+                                                            class="btn btn-danger"><span
+                                                            class="glyphicon glyphicon-trash"></span> Eliminar
+                                                    </button>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Si el usuario busca y hay evaluaciones -->
+            {% if evaluacions %}
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3>Evaluaciones</h3>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Evaluacion ID</th>
+                                        <th>Tipo de Evaluacion</th>
+                                        <th>Nombre</th>
+                                        <th>Estudiante</th>
+                                        <th>Favorito</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for evaluacion in evaluacions %}
+                                        <tr>
+                                            <td>{{ evaluacion.id }}</td>
+                                            <td>{{ evaluacion.evaluacion_tipo }}</td>
+                                            <td>{{ evaluacion.estudiante.nombres }}</td>
+                                            <td>
+                                                <a href="{% url 'resources:detalles' evaluacion.estudiante.id %}">
+                                                    <img src="{{ evaluacion.estudiante.foto.url }}"
+                                                         class="img-responsive"
+                                                         style="width: 20px; float: left; margin-right: 10px;"/>
+                                                </a>
+                                                <a href="{% url 'resources:detalles' evaluacion.estudiante.id %}">
+                                                    {{ evaluacion.estudiante.nombres }}</a>
+                                            </td>
+                                            <td>
+                                                <a href="{% url 'resources:favorito' evaluacion.id %}"
+                                                   class="btn-favorite"><span
+                                                        class="glyphicon glyphicon-star {% if evaluacion.es_favorito %}active{% endif %}"></span></a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+
+        {% endblock %}
+    </div>
+
+</div>
+

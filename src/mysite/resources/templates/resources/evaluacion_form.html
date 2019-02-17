@@ -21,9 +21,6 @@
             <!-- </head> -->
             <!-- {% endblock %} -->
 
-        <script src="{% static 'resources/artyom/jquery-3.1.1.js' %}"></script>
-        <script src="{% static 'resources/artyom/artyom.min.js' %}"></script>
-        <script src="{% static 'resources/artyom/artyomCommands.js' %}"></script>
 
         {% block body %}
 
@@ -88,6 +85,7 @@
                                                    id="tipo_lectura"
                                                    placeholder="Tipo lectura">
                                         </div>
+
                                     </div>
 
                                     <div class="form-group row">
@@ -124,8 +122,12 @@
 
 
                                 <div class="card-header">
+                                    <script src="{% static 'resources/artyom/jquery-3.1.1.js' %}"></script>
+                                    <script src="{% static 'resources/artyom/artyom.min.js' %}"></script>
+                                    <script src="{% static 'resources/artyom/artyomCommands.js' %}"></script>
                                     <h4>Evaluación de la Lectura</h4>
                                 </div>
+
 
 
                                 <!-- botonera -->
@@ -142,11 +144,12 @@
 
                                 </div>
 
-
+                                <body>
                                 <p>
                                     <span id="segundos"></span>
                                     <!-- Agrega un 0 antes de cerrar el Span para imprimir el tiempo -->
                                 </p>
+                                </body>
 
 
                                 <br><br><br>
@@ -159,7 +162,7 @@
                                 </div>  -->
 
 
-                            </div>
+
                         </div>
 
 
@@ -195,13 +198,13 @@
                                 // Tendremos en cuenta si hay que escribir en plural o en singular.
                                 tC = (numeroCaracteres == 1) ? " carácter" : " caracteres";
                                 tP = (numeroPalabras == 1) ? " palabra" : " palabras";
-                                tPPM = " ppm";
+                                //tPPM = " ppm";
 
                                 //alert (numeroCaracteres + tC +"\n" + numeroPalabras + tP);
-                                document.getElementById('id_fluidez_lectora').value = calcPPM(numeroPalabras, contador_s, tPPM)
+                                document.getElementById('fluidez_lectora').value = calcTipo(numeroPalabras, contador_s)
 
                                 //Imprimir el tipo de evaluacion -->(recuerda borrar esto mas adelante).
-                                var tEval = $('#id_evaluacion_tipo');
+                                var tEval = $('#evaluacion_tipo');
                                 tEval.val("Fluidez");
 
 
@@ -209,7 +212,7 @@
                                 var tipo = calcTipo(numeroPalabras, contador_s);
 
                                 //Imprimir el tipo de lectura que es, en palabras.
-                                var tLect = $('#id_tipo_lectura');
+                                var tLect = $('#tipo_lectura');
                                 if (tipo >= 112) {
                                     tLect.val("MUY RAPIDA");   //Recuerda cambiar estas condiciones,
                                 }                              //los casos son muy rapidos para la lectura
@@ -241,11 +244,11 @@
                             }
 
                             //Funcion retornar ppm.
-                            function calcPPM(valor1, valor2, unidad) {
-                                var PPM
-                                PPM = valor1 / valor2 * 60
-                                return PPM + unidad
-                            }
+                            {#function calcPPM(valor1, valor2, unidad) {#}
+                            {#    var PPM#}
+                            {#    PPM = valor1 / valor2 * 60#}
+                            {#    return PPM + unidad#}
+                            {#}#}
 
 
                             var cronometro;
@@ -334,6 +337,8 @@
                             // });
 
                         </script>
+
+
 
                     </div>
                 </section>

@@ -82,6 +82,8 @@ class IndexView(generic.ListView):
 class DetailViewEvaluacion(generic.DetailView):
     model = Evaluacion
     template_name = 'resources/evaluacion-detalles.html'
+    #success_url = reverse_lazy('estudiante-update')
+
 
 
 class ListEstudiantes(generic.ListView):
@@ -89,6 +91,7 @@ class ListEstudiantes(generic.ListView):
     context_object_name = 'all_estudiantes'
     slug_field = 'estudiante'
     slug_url_kwarg = 'estudiante'
+
 
     def get_queryset(self):
         return Estudiante.objects.all()
@@ -102,11 +105,13 @@ class DetailView(generic.DetailView):
 class CrearEstudiante(CreateView):
     model = Estudiante
     fields = ['id', 'nombres', 'apellidos', 'genero', 'edad', 'foto']
+    success_url = "/listado/estudiantes/"
+    #success_url = reverse_lazy('listado-estudiantes')
 
     def form_valid(self, form):
 
         #Add logged-in user as autor of comment THIS IS THE KEY TO THE SOLUTION
-        form.instance.profesor = self.request.user.id
+        form.instance.profesor = self.request.user
 
         # Call super-class form validation behaviour
         return super().form_valid(form)
