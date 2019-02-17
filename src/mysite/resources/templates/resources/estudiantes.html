@@ -12,7 +12,7 @@
                     <div class="section-header">
                         <h1>Listado de Estudiantes</h1>
                         <div class="section-header-breadcrumb">
-                            <a href="{% url 'resources:estudiante-add' user.id%}">
+                            <a href="{% url 'resources:estudiante-add' user.id %}">
                                 <button type="button" class="btn btn-success">
                                     <span class="glyphicon glyphicon-plus"></span>&nbsp; Agregar un
                                     Estudiante
@@ -41,8 +41,12 @@
                                         <div class="article-details">
                                             <div class="article-title">
                                                 <h2>
-                                                    <a href="{% url 'resources:detalles-evaluacion' estudiante.evaluacion_set.last.id %}">&Uacute;ltima
-                                                        evaluaci&oacute;n</a>
+                                                    {% if estudiante.evaluacion_set.last %}
+                                                        <a href="{% url 'resources:detalles-evaluacion' estudiante.evaluacion_set.last.id %}">&Uacute;ltima
+                                                            evaluaci&oacute;n</a>
+                                                     {% else %}
+                                                        <a href="#">No tiene evaluaciones</a>
+                                                    {% endif %}
                                                 </h2>
                                             </div>
                                             <p>{{ estudiante.evaluacion_set.last.comentario }}</p>
