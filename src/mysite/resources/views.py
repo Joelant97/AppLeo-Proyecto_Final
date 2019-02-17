@@ -105,7 +105,7 @@ class DetailView(generic.DetailView):
 class CrearEstudiante(CreateView):
     model = Estudiante
     fields = ['id', 'nombres', 'apellidos', 'genero', 'edad', 'foto']
-    success_url = "/listado/estudiantes/"
+    #success_url = "/estudiante/{estudiante_id}"
     #success_url = reverse_lazy('listado-estudiantes')
 
     def form_valid(self, form):

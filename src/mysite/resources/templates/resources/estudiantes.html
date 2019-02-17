@@ -12,7 +12,7 @@
                     <div class="section-header">
                         <h1>Listado de Estudiantes</h1>
                         <div class="section-header-breadcrumb">
-                            <a href="{% url 'resources:estudiante-add' %}">
+                            <a href="{% url 'resources:estudiante-add' user.id%}">
                                 <button type="button" class="btn btn-success">
                                     <span class="glyphicon glyphicon-plus"></span>&nbsp; Agregar un
                                     Estudiante
