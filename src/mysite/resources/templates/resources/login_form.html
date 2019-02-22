@@ -14,8 +14,8 @@
 
     <script src="{% static 'resources/js/main.js' %}"></script>
 </head>
-<body>
-<nav class="navbar navbar-inverse">
+
+<nav class="navbar-bg">
     <div class="container-fluid">
 
         <!-- Header -->
@@ -27,19 +27,28 @@
 
 </nav>
 
-<div class='col-sm-6 col-sm-offset-3'>
-<h1>Login</h1>
-    <hr/>
+<body>
+<div class="main-content">
+    <section class="section">
 
-<form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
-    <!-- {% crispy form %}  -->
-    {% include 'resources/form-template.html' %}
-    <a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a><br/>
-    <a href="{% url 'registrar' %}" class="btn btn-default">Registrarse</a>
-    <button type="submit" class="btn btn-default">Login</button>
-    <!-- <input type="submit" class="btn btn-default" value="{{ title }}"/> -->
-</form>
+        <div class='col-sm-6 col-sm-offset-3'>
+            <h1>Login</h1>
+            <hr/>
+
+            <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+                <!-- {% crispy form %}  -->
+                {% include 'resources/form-template.html' %}
+                <a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a><br/>
+                <a href="{% url 'registrar' %}" class="btn btn-default">Registrarse</a>
+                <button type="submit" class="btn btn-default">Login</button>
+                <!-- <input type="submit" class="btn btn-default" value="{{ title }}"/> -->
+            </form>
+        </div>
+
+    </section>
 </div>
 
 </body>
 </html>
+
+

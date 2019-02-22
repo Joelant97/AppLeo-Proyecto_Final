@@ -39,6 +39,16 @@
                                     <br><br>
 
                                     <div class="form-group row">
+                                        <label for="texto_a_leer" class="col-sm-3 col-form-label">Texo a leer</label>
+                                        <div class="col-sm-9">
+
+                                            <textarea id="texto_a_leer" placeholder="Se sentía feliz consigo misma pues cada día conseguía lo poquito que se proponía porque era consciente de que había hecho todo lo posible por lograrlo." name="texto_a_leer"
+                                                      class="form-control"></textarea>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
                                         <label for="estudiante" class="col-sm-3 col-form-label">Estudiante: </label>
                                         <div class="col-sm-9">
                                             <select class="form-control" name="estudiante" id="estudiante"></select>
@@ -95,14 +105,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group row">
-                                        <label for="texto_a_leer" class="col-sm-3 col-form-label">Texo a leer</label>
-                                        <div class="col-sm-9">
 
-                                            <textarea id="texto_a_leer" name="texto_a_leer"
-                                                      class="form-control"></textarea>
-                                        </div>
-                                    </div>
 
 
                                     <div class="col-sm-offset-5 col-sm-15">
@@ -167,6 +170,34 @@
 
 
                         <script>
+
+                            //El sistema imprime los Signos
+                            artyom.addCommands([
+                                {
+                                    indexes:["buenos días", 'pregunté','cuál es su banda favorita', 'Cuál es su banda favorita'],
+                                    action: function(i){
+                                        if (i==0) {
+                                            $('#salida').val('¡Buenos dias!,');
+                                        }
+                                        if (i==1) {
+                                            $('#salida').val('pregunté:');
+                                        }
+                                        if (i==2) {
+                                            $('#salida').val('¿Cuál es su banda favorita?');
+                                        }
+
+                                        if (i==3) {
+                                            $('#salida').val('¿Cuál es tsu banda favorita?');
+                                        }
+                                    }
+                                },
+                                {
+                                    indexes:['limpiar'],
+                                    action: function(){
+                                        $('#salida').val('');
+                                    }
+                                }
+                            ]);
 
                             // $(document).ready(function() {
 

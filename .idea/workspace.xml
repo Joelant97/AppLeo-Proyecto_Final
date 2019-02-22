@@ -4,8 +4,9 @@
     <list default="true" id="35713c3f-fef1-48df-8368-20c817dd5f02" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/src/mysite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mysite/resources/templates/resources/detalles.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/mysite/resources/templates/resources/detalles.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mysite/resources/templates/resources/evaluacion-detalles.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/mysite/resources/templates/resources/evaluacion-detalles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mysite/resources/templates/resources/ai_manejo_lectura.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/mysite/resources/templates/resources/ai_manejo_lectura.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mysite/resources/templates/resources/evaluacion_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/mysite/resources/templates/resources/evaluacion_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mysite/resources/templates/resources/login_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/mysite/resources/templates/resources/login_form.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,13 +19,16 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/AppLeo_Proyecto_Final$manage.coverage" NAME="manage Coverage Results" MODIFIED="1550838500413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/mysite" />
   </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mysite/resources/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-190">
-              <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+            <state relative-caret-position="252">
+              <caret line="27" column="51" lean-forward="true" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="58" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -35,8 +39,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mysite/resources/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="106" column="69" selection-start-line="106" selection-start-column="69" selection-end-line="106" selection-end-column="69" />
+            <state relative-caret-position="153">
+              <caret line="90" column="27" lean-forward="true" selection-start-line="90" selection-start-column="27" selection-end-line="90" selection-end-column="42" />
               <folding>
                 <element signature="e#0#58#0" expanded="true" />
               </folding>
@@ -70,17 +74,17 @@
       <file leaf-file-name="estudiante_form.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/estudiante_form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="2" selection-end-column="37" />
+            <state relative-caret-position="51">
+              <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detalles.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/detalles.html">
+      <file leaf-file-name="login_form.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/login_form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1428">
-              <caret line="9" column="37" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="9" selection-end-column="37" />
+            <state relative-caret-position="227">
+              <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -88,13 +92,22 @@
       <file leaf-file-name="evaluacion_form.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/evaluacion_form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="72" column="61" selection-start-line="72" selection-start-column="61" selection-end-line="72" selection-end-column="61" />
+            <state relative-caret-position="-34">
+              <caret line="193" column="33" lean-forward="true" selection-start-line="193" selection-start-column="33" selection-end-line="193" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="evaluacion-detalles.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ai_manejo_lectura.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/ai_manejo_lectura.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="111" column="70" lean-forward="true" selection-start-line="111" selection-start-column="70" selection-end-line="111" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="evaluacion-detalles.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/evaluacion-detalles.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="116">
@@ -124,6 +137,7 @@
       <find>calcPPM</find>
       <find>ID:</find>
       <find>agre</find>
+      <find>estudiante</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -169,13 +183,15 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/mysite/mysite/urls.py" />
-        <option value="$PROJECT_DIR$/src/mysite/resources/templates/resources/evaluacion_form.html" />
         <option value="$PROJECT_DIR$/src/mysite/resources/templates/resources/estudiantes.html" />
         <option value="$PROJECT_DIR$/src/mysite/resources/views.py" />
         <option value="$PROJECT_DIR$/src/mysite/resources/models.py" />
         <option value="$PROJECT_DIR$/src/mysite/resources/templates/resources/estudiante_form.html" />
         <option value="$PROJECT_DIR$/src/mysite/resources/templates/resources/detalles.html" />
         <option value="$PROJECT_DIR$/src/mysite/resources/templates/resources/evaluacion-detalles.html" />
+        <option value="$PROJECT_DIR$/src/mysite/resources/templates/resources/login_form.html" />
+        <option value="$PROJECT_DIR$/src/mysite/resources/templates/resources/ai_manejo_lectura.html" />
+        <option value="$PROJECT_DIR$/src/mysite/resources/templates/resources/evaluacion_form.html" />
       </list>
     </option>
   </component>
@@ -369,12 +385,12 @@
       <workItem from="1550360241262" duration="16172000" />
       <workItem from="1550413333312" duration="7404000" />
       <workItem from="1550759184081" duration="347000" />
-      <workItem from="1550838350946" duration="2434000" />
+      <workItem from="1550838350946" duration="9193000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36685000" />
+    <option name="totallyTimeSpent" value="43444000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -398,8 +414,8 @@
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.32928804" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.3286385" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.26917058" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.19874804" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.26917058" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.1971831" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="2" />
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49921754" visible="true" weight="0.27184466" />
@@ -828,51 +844,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mysite/resources/models.py">
+    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/evaluacion-detalles.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-190">
-          <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="116">
+          <caret line="49" column="122" lean-forward="true" selection-start-line="49" selection-start-column="122" selection-end-line="49" selection-end-column="122" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/detalles.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1388">
+          <caret line="9" column="37" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="9" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/base.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/estudiante_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mysite/resources/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="106" column="69" selection-start-line="106" selection-start-column="69" selection-end-line="106" selection-end-column="69" />
+        <state relative-caret-position="153">
+          <caret line="90" column="27" lean-forward="true" selection-start-line="90" selection-start-column="27" selection-end-line="90" selection-end-column="42" />
           <folding>
             <element signature="e#0#58#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/detalles.html">
+    <entry file="file://$PROJECT_DIR$/src/mysite/resources/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1428">
-          <caret line="9" column="37" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="9" selection-end-column="37" />
+        <state relative-caret-position="252">
+          <caret line="27" column="51" lean-forward="true" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/login_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/evaluacion_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="72" column="61" selection-start-line="72" selection-start-column="61" selection-end-line="72" selection-end-column="61" />
+        <state relative-caret-position="-34">
+          <caret line="193" column="33" lean-forward="true" selection-start-line="193" selection-start-column="33" selection-end-line="193" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/estudiante_form.html">
+    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/ai_manejo_lectura.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="2" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mysite/resources/templates/resources/evaluacion-detalles.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="49" column="122" lean-forward="true" selection-start-line="49" selection-start-column="122" selection-end-line="49" selection-end-column="122" />
+        <state relative-caret-position="255">
+          <caret line="111" column="70" lean-forward="true" selection-start-line="111" selection-start-column="70" selection-end-line="111" selection-end-column="70" />
         </state>
       </provider>
     </entry>
