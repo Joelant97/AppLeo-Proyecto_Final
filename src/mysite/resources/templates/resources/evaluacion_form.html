@@ -164,36 +164,35 @@
                                     <input type="button" id="btnLeer" value="Leer">
                                 </div>  -->
 
-
-
+                            </div>
                         </div>
 
 
                         <script>
 
-                            //El sistema imprime los Signos
                             artyom.addCommands([
                                 {
-                                    indexes:["buenos días", 'pregunté','cuál es su banda favorita', 'Cuál es su banda favorita'],
-                                    action: function(i){
-                                        if (i==0) {
-                                            $('#salida').val('¡Buenos dias!,');
+                                    indexes: ["buenos días", 'pregunté', 'cuál es su banda favorita', 'Cuál es su banda favorita'],
+                                    action: function (i) {
+                                        salidaValue = $('#salida').val();
+                                        if (i == 0) {
+                                            $('#salida').val(salidaValue + '¡Buenos dias!,');
                                         }
-                                        if (i==1) {
-                                            $('#salida').val('pregunté:');
+                                        if (i == 1) {
+                                            $('#salida').val(salidaValue + 'pregunté:');
                                         }
-                                        if (i==2) {
-                                            $('#salida').val('¿Cuál es su banda favorita?');
+                                        if (i == 2) {
+                                            $('#salida').val(salidaValue + '¿Cuál es su banda favorita?');
                                         }
 
-                                        if (i==3) {
-                                            $('#salida').val('¿Cuál es tsu banda favorita?');
+                                        if (i == 3) {
+                                            $('#salida').val(salidaValue + '¿Cuál es su banda favorita?');
                                         }
                                     }
                                 },
                                 {
-                                    indexes:['limpiar'],
-                                    action: function(){
+                                    indexes: ['limpiar'],
+                                    action: function () {
                                         $('#salida').val('');
                                     }
                                 }
@@ -279,7 +278,7 @@
                             {#    var PPM#}
                             {#    PPM = valor1 / valor2 * 60#}
                             {#    return PPM + unidad#}
-                            {#}#}
+
 
 
                             var cronometro;
@@ -307,10 +306,9 @@
                             // Escribir lo que escucha.
                             artyom.redirectRecognizedTextOutput(function (text, isFinal) {
                                 var texto = $('#salida');
+                                nuevaSalida = texto + " " + text;
                                 if (isFinal) {
-                                    texto.val(text);
-                                } else {
-
+                                    texto.val(nuevaSalida);
                                 }
                             });
 
@@ -369,15 +367,11 @@
 
                         </script>
 
-
-
                     </div>
                 </section>
 
 
             </div>
-
-
         {% endblock %}
 
     </div>
