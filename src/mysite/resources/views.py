@@ -114,7 +114,7 @@ class CrearEstudiante(CreateView):
         form.instance.profesor = self.request.user
 
         # Call super-class form validation behaviour
-        return super().form_valid(form)
+        return super(CrearEstudiante, self).form_valid(form)
 
 
 

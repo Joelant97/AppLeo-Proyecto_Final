@@ -1,53 +1,126 @@
-{% extends 'resources/base.html' %}
-{% block estudiantes_active %}active{% endblock %}
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <div class="navbar-bg"></div>
 
-{% block body %}
-{% load staticfiles %}
-<div class="albums-container container-fluid">
+        {% extends 'resources/base.html' %}
+        {% block estudiantes_active %}active{% endblock %}
 
-    <!-- Estudiantes de la Busqueda -->
-    <div class="row">
+        {% block body %}
+        {% load staticfiles %}
 
-        {% for item in estudiante %}
-        <div class="col-sm-4 col-lg-2">
-            <div class="thumbnail">
+            <div class="main-content">
+                <section class="section">
+                    <div class="section-header">
+                        <h1>Resultados de la Búsqueda:</h1>
+                    </div>
 
-                <div class="caption">
-                    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-                    <img src="{% static 'resources/images/registered_user-512.png' %}" class="w3-round-xxlarge" alt="Norway" style="width:30%">
+                    <!-- Estudiantes -->
+                    <div class="section-body">
+                        <div class="row">
 
-                    <h2>{{ item.nombres }}</h2>
-                    <h4>{{ item.apellidos }}</h4>
+                            {% for item in estudiante %}
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                                    <article class="article">
+                                        <div class="article-header">
+                                            <div class="article-image" data-background="{% static 'resources/images/registered_user-512.png' %}"
+                                                 style="background-image: url(&quot;assets/img/news/img08.jpg&quot;);">
+                                            </div>
+                                            <div class="article-title">
+                                                <h2>
+                                                    <a href="{% url 'resources:detalles' item.id %}">{{ item.nombres }} {{ item.apellidos }}</a>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                        <div class="article-details">
+{#                                            <div class="article-title">#}
+{#                                                <h2>#}
+{#                                                    {% if item.evaluacion_set.last %}#}
+{#                                                        <a href="{% url 'resources:detalles-evaluacion' item.evaluacion_set.last.id %}">&Uacute;ltima#}
+{#                                                            evaluaci&oacute;n</a>#}
+{#                                                    {% else %}#}
+{#                                                        <span>No tiene evaluaciones</span>#}
+{#                                                    {% endif %}#}
+{#                                                </h2>#}
+{#                                            </div>#}
+{#                                            <p>{{ item.evaluacion_set.last.comentario }}</p>#}
+                                            <div class="article-cta">
+                                                <a href="{% url 'resources:detalles' item.id %}"
+                                                   class="btn btn-primary"><span
+                                                        class="glyphicon glyphicon-eye-open"></span> Ver
+                                                    Detalles</a>
+                                                <form action="{% url 'resources:estudiante-delete' item.id %}"
+                                                      method="post"
+                                                      style="display: inline;"
+                                                      onclick="return confirm('¿Seguro que desea eliminar el Estudiante?');">
+                                                    {% csrf_token %}
+                                                    <input type="hidden" name="estudiante_id"
+                                                           value="{{ item.id }}"/>
+                                                    <button type="submit"
+                                                            class="btn btn-danger"><span
+                                                            class="glyphicon glyphicon-trash"></span> Eliminar
+                                                    </button>
+                                                </form>
 
-                    <!-- Ver Detalles -->
-                    <a href="{% url 'resources:detalles' item.id %}" class="btn btn-primary btn-sm"
-                       role="button">Ver Detalles</a>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
 
-                    <!-- Eliminar Estudiante -->
-                    <form action="{% url 'resources:estudiante-delete' item.id%}" method="post"
-                          style="display: inline;" onclick="return confirm('¿Seguro que desea eliminar el Estudiante?');">
-                        {% csrf_token %}
-                        <input type="hidden" name="estudiante_id" value="{{ item.id }}"/>
-                        <button type="submit" class="btn btn-default btn-sm">
-                            <span class="glyphicon glyphicon-trash"></span>
-                        </button>
-                    </form>
+                            {% endfor %}
 
-                    <!-- Evaluacion Favorita del Estudiante -->
-                    <a href="#" class="btn btn-default btn-sm btn-favorite">
-                        <span class="glyphicon glyphicon-star {% if item.es_favorito %}active{% endif %}"></span>
-                    </a>
-
-                </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </div>
 
-        {% endfor %}
+
+{#        <div class="section-body">#}
+{##}
+{#            <!-- Estudiantes de la Busqueda -->#}
+{#            <div class="row">#}
+{##}
+{#                {% for item in estudiante %}#}
+{#                <div class="col-sm-4 col-lg-2">#}
+{#                    <div class="thumbnail">#}
+{##}
+{#                        <div class="caption">#}
+{#                            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">#}
+{#                            <img src="{% static 'resources/images/registered_user-512.png' %}" class="w3-round-xxlarge" alt="Norway" style="width:30%">#}
+{##}
+{#                            <h2>{{ item.nombres }}</h2>#}
+{#                            <h4>{{ item.apellidos }}</h4>#}
+{##}
+{#                            <!-- Ver Detalles -->#}
+{#                            <a href="{% url 'resources:detalles' item.id %}" class="btn btn-primary btn-sm"#}
+{#                               role="button">Ver Detalles</a>#}
+{##}
+{#                            <!-- Eliminar Estudiante -->#}
+{#                            <form action="{% url 'resources:estudiante-delete' item.id%}" method="post"#}
+{#                                  style="display: inline;" onclick="return confirm('¿Seguro que desea eliminar el Estudiante?');">#}
+{#                                {% csrf_token %}#}
+{#                                <input type="hidden" name="estudiante_id" value="{{ item.id }}"/>#}
+{#                                <button type="submit" class="btn btn-default btn-sm">#}
+{#                                    <span class="glyphicon glyphicon-trash"></span>#}
+{#                                </button>#}
+{#                            </form>#}
+{##}
+{#                            <!-- Evaluacion Favorita del Estudiante -->#}
+{#                            <a href="#" class="btn btn-default btn-sm btn-favorite">#}
+{#                                <span class="glyphicon glyphicon-star {% if item.es_favorito %}active{% endif %}"></span>#}
+{#                            </a>#}
+{##}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                {% endfor %}#}
+{##}
+{#            </div>#}
+{##}
+{##}
+{##}
+{#        </div>#}
+        {% endblock %}
 
     </div>
-
-
-
 </div>
-{% endblock %}
-

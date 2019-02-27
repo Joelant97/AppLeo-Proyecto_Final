@@ -7,7 +7,8 @@ from django.contrib.auth.models import User
 
 
 class Estudiante(models.Model):
-    profesor = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    profesor =models.ForeignKey(User, on_delete=models.CASCADE, unique=True)
+    #profesor = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     nombres = models.CharField(max_length=250)
     apellidos = models.CharField(max_length=250)
     genero = models.CharField(max_length=10)
