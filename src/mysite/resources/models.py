@@ -1,13 +1,28 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
+from phone_field import PhoneField
+#from phonenumber_field.modelfields import PhoneNumberField
 
 
 # Crea tus Modelos aqui.
 
 
+class Profesor(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    nombre = models.CharField(max_length=250)
+    direccion = models.CharField(max_length=250)
+    telefono = PhoneField(blank=True, help_text='Teléfono de contacto')
+
+    def __str__(self):
+        return self.user.username
+
+#Modelo de los Grupos:
+#class Grupo(models.Model):
+
+
 class Estudiante(models.Model):
-    profesor =models.ForeignKey(User, on_delete=models.CASCADE, unique=True)
+    profesor =models.OneToOneField(User, on_delete=models.CASCADE)  #Es mejor usar OneToOneField y eliminar el (unique = True).
     #profesor = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     nombres = models.CharField(max_length=250)
     apellidos = models.CharField(max_length=250)

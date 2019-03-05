@@ -15,6 +15,7 @@ django-bootstrap-ui==0.5.1
 #Instalamos virtualenv-16.0.0 con el comando siguiente --> py -m pip install --user virtualenv
 #Pero podemos dejar el siguiente comando, para instalarlo desde este archivo:
 virtualenv==16.0.0
-
+django-phone-field==1.7.0
+#django-phonenumber-field==2.2.0
 
 
