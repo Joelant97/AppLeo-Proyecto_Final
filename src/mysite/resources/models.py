@@ -22,7 +22,7 @@ class Profesor(models.Model):
 
 
 class Estudiante(models.Model):
-    profesor =models.OneToOneField(User, on_delete=models.CASCADE)  #Es mejor usar OneToOneField y eliminar el (unique = True).
+    #profesor =models.OneToOneField(Profesor, on_delete=models.CASCADE)  #Es mejor usar OneToOneField y eliminar el (unique = True).
     #profesor = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     nombres = models.CharField(max_length=250)
     apellidos = models.CharField(max_length=250)
