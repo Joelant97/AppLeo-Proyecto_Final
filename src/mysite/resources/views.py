@@ -25,7 +25,8 @@ from django.shortcuts import render
 
 from django.contrib.auth import authenticate, login, logout
 
-from django.urls import reverse
+from django.core.urlresolvers import reverse
+
 from django.contrib.auth.decorators import login_required
 def index(request):
     return render(request,'resources/index.html')

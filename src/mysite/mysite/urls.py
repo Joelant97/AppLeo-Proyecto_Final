@@ -17,19 +17,23 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import login
-from resources.views import RegistroUsuario
+#from src.mysite.resources.views import RegistroUsuario
 from rest_framework.urlpatterns import format_suffix_patterns
 from resources.views import EstudianteList
 from resources.views import EvaluacionList
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views as auth_views
 
+from resources import views
+
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('resources.urls', namespace='resources')),
-    url(r'^$', login, {'template_name': 'resources/login_form.html'}, name='login'),
-    url(r'^accounts/login/$', login, {'template_name': 'resources/login_form.html'}, name='login'),
-    url(r'^registrar', RegistroUsuario.as_view(), name='registrar'),
+    url(r'^$', login, {'template_name': 'resources/login_form.html'}, name='user_login'),
+    url(r'^accounts/user_login/$', login, {'template_name': 'resources/login_form.html'}, name='user_login'),
+    url(r'^register', views.register, name='register'),
+    #url(r'^registrar', RegistroUsuario.as_view(), name='registrar'),
 
     #Password Reset URL's
     url(r'^password_reset/$', auth_views.password_reset, name='password_reset'),

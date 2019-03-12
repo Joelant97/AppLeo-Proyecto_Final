@@ -270,7 +270,12 @@
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user" style=""
                                 data-vivaldi-spatnav-clickable="1" aria-expanded="false">
 {#            <img alt="image" src="assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">#}
-            <div class="d-sm-none d-lg-inline-block">Hola, {{ user.first_name }}</div>
+            {% if user.is_authenticated %}
+                <div class="d-sm-none d-lg-inline-block">Hola, {{ user.first_name }}</div>
+            {% else %}
+                <div class="d-sm-none d-lg-inline-block">Regístrese o inicie sesión si desea</div>
+            {% endif %}
+
         </a>
             <div class="dropdown-menu dropdown-menu-right">
                 {#                <div class="dropdown-title">Logged in 5 min ago</div>#}

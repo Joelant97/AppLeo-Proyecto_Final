@@ -106,6 +106,7 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+LOGIN_URL = '/accounts/user_login/'
 
 LOGIN_REDIRECT_URL = reverse_lazy('resources:index')
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
