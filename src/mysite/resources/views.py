@@ -3,10 +3,12 @@ from django.shortcuts import get_object_or_404, render_to_response
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
-from .models import Estudiante
+from .models import Estudiante, Profesor
 
-from django.contrib.auth.models import User
-from .forms import RegistroForm, ProfesorForm
+#from django.contrib.auth.models import User
+from .forms import RegistroForm
+from django.shortcuts import redirect
+from django.contrib.auth import login, authenticate
 
 # Librerias para Servicio de Rest:
 
@@ -19,65 +21,32 @@ from .serializers import EvaluacionSerializer
 # from .models import EvaluacionForm
 
 
-#///////////////////////// (** LOGN PROCESS VIEWS **) //////////////////////////////////////
+class RegistrarView(CreateView):
+    model = Profesor
+    form_class = RegistroForm
+    template_name = "resources/registrar.html"
+    success_url = reverse_lazy('login')
 
-from django.shortcuts import render
+    def form_valid(self, form):
+        '''
+        En este parte, si el formulario es valido guardamos lo que se obtiene de él
+        y usamos authenticate para que el usuario incie sesión luego de haberse registrado
+        y lo redirigimos al index
+        '''
+        form.save()
+        usuario = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password1')
+        usuario = authenticate(username=usuario, password=password)
+        login(self.request, usuario)
+        return redirect('/')
 
-from django.contrib.auth import authenticate, login, logout
 
-from django.core.urlresolvers import reverse
+# class RegistroUsuario(CreateView):
+#     model = User
+#     template_name = "resources/registrar.html"
+#     form_class = RegistroForm
+#     success_url = reverse_lazy('login')
 
-from django.contrib.auth.decorators import login_required
-def index(request):
-    return render(request,'resources/index.html')
-@login_required
-def special(request):
-    return HttpResponse("Has iniciado sesión!")
-@login_required
-def user_logout(request):
-    logout(request)
-    return HttpResponseRedirect(reverse('index'))
-def register(request):
-    registered = False
-    if request.method == 'POST':
-        user_form = RegistroForm(data=request.POST)
-        profesor_form = ProfesorForm(data=request.POST)
-        if user_form.is_valid() and profesor_form.is_valid():
-            user = user_form.save()
-            user.set_password(user.password)
-            user.save()
-            profesor = profesor_form.save(commit=False)  #profesor se usa para mostrar los datos del perfil del profesor.
-            profesor.user = user
-            profesor.save()
-            registered = True
-        else:
-            print(user_form.errors,profesor_form.errors)
-    else:
-        user_form = RegistroForm()
-        profesor_form = ProfesorForm()
-    return render(request,'resources/registrar.html',
-                          {'user_form':user_form,
-                           'profesor_form':profesor_form,
-                           'registered':registered})
-def user_login(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(username=username, password=password)
-        if user:
-            if user.is_active:
-                login(request,user)
-                return HttpResponseRedirect(reverse('index'))
-            else:
-                return HttpResponse("Tu cuenta fue desactivada.")
-        else:
-            print("Alguien intentó iniciar sesión y falló.")
-            print("Uso el nombre de usuario: {} y la contraseña: {}".format(username,password))
-            return HttpResponse("Datos de inicio de sesión no válidos dados")
-    else:
-        return render(request, 'resources/login_form.html', {})
-
-#///////////////////////////////////////////////////////////////////////////////////////////
 
 
 # Crea tus Vistas aqui
@@ -95,11 +64,7 @@ def busqueda(request):
         return HttpResponse("No hay estudiantes con ese nombre")
 
 
-class RegistroUsuario(CreateView):
-    model = User
-    template_name = "resources/registrar.html"
-    form_class = RegistroForm
-    success_url = reverse_lazy('login')
+
 
 
 # Vista para Realizar Evaluaciones del Modelo "Evaluacion"

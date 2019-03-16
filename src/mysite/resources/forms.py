@@ -4,39 +4,30 @@ from django.contrib.auth.forms import UserCreationForm
 #from django.contrib.auth.forms import AuthenticationForm
 #from phonenumber_field.phonenumber import PhoneNumber
 from .models import Profesor
+from django import forms
 
 class RegistroForm(UserCreationForm):
+    first_name = forms.CharField(max_length=140, required=True)
+    last_name = forms.CharField(max_length=140, required=False)
+    email = forms.EmailField(required=True)
 
     class Meta:
         model = User
-        fields = [
-                'username',
-                'first_name',
-                'last_name',
-                'email',
-
-        ]
+        fields = (
+            'username',
+            'email',
+            'first_name',
+            'last_name',
+            'password1',
+            'password2',
+        )
         labels = {
-                'username': 'Nombre de usuario',
-                'first_name': 'Nombre',
-                'last_name': 'Apellidos',
-                'email': 'Correo',
+            'username': 'Nombre de usuario',
+            'email': 'Correo',
+            'first_name': 'Nombre(s)',
+            'last_name': 'Apellido(s)',
+            'password1': 'Contraseña',
+            'password2': 'Confirme la Contraseña',
+
         }
-
-
-#Para Acceder al String que contiene el Field con el telefono del Profesor: -->( profesor.telefono.as_e164 )
-#Profesor {{ profesor.nombre }} tiene el Teléfono de contacto {{ profesor.telefono }}
-
-class ProfesorForm(UserCreationForm):  #Maybe a uthenticationForm
-    class Meta:
-        model = Profesor
-        fields = [
-                'nombre',
-                'direccion',
-                'telefono',
-
-        ]
-                                #if don't work with the field "phone" change for "telefono" in the same line.
-    #telefono = PhoneNumberField()
-    #phone = PhoneNumber.from_string(phone_number=+(829-555-5555), region='DO').as_e164
 
