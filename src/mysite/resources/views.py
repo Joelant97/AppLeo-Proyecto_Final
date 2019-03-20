@@ -78,6 +78,11 @@ class DetailViewProfesor(generic.DetailView):
     template_name = 'resources/profesor-detalles.html'
     # success_url = reverse_lazy('profesor-update')
 
+'''
+Vista para la Lectura, la cual solo sera vista por el estudiante: 
+
+'''
+
 
 # Crea tus Vistas aqui
 
