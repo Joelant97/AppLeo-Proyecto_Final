@@ -112,15 +112,15 @@ class RealizarEvaluacionVista(CreateView):
     fields = ['estudiante', 'es_favorito', 'evaluacion_tipo', 'fluidez_lectora', 'tipo_lectura', 'comentario',
               'texto_a_leer']
 
-    def get_context_data(self, **kwargs):
-        context = super(CreateView, self).get_context_data(**kwargs)
-        context.update({
-            'all_estudiantes': Estudiante.objects.all(),
-        })
-        return context
-
-    def get_queryset(self):
-        return Estudiante.objects.all()
+    # def get_context_data(self, **kwargs):
+    #     context = super(CreateView, self).get_context_data(**kwargs)
+    #     context.update({
+    #         'all_estudiantes': Estudiante.objects.all(),
+    #     })
+    #     return context
+    #
+    # def get_queryset(self):
+    #     return Estudiante.objects.all()
 
 
 # Eliminar las Evaluaciones:

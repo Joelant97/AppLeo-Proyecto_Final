@@ -51,17 +51,18 @@
                                     </div>
 
                                     <div class="form-group mb-0 row">
-                                        <label for="estudiante" class="col-sm-3 col-form-label">Estudiante: </label>
+{#                                        <label for="estudiante" class="col-sm-3 col-form-label">Estudiante: </label>#}
                                         <div class="col-sm-9">
 
 
-                                            <select class="form-control" required name="estudiante" id="estudiante"
-                                                    style="height: 2.7em">
-                                                <option value="" selected>Seleccione</option>
-                                                {% for estudiante in all_estudiantes %}
-                                                    <option value="{{ estudiante.id }}">{{ estudiante.nombres }}</option>
-                                                {% endfor %}
-                                            </select>
+                                            <input id="(?P<pk>[0-9]+)" name="estudiante" hidden>
+{#                                            <select class="form-control" required name="estudiante" id="estudiante"#}
+{#                                                    style="height: 2.7em">#}
+{#                                                <option value="" selected>Seleccione</option>#}
+{#                                                {% for estudiante in all_estudiantes %}#}
+{#                                                    <option value="{{ estudiante.id }}">{{ estudiante.nombres }}</option>#}
+{#                                                {% endfor %}#}
+{#                                            </select>#}
 
                                         </div>
                                     </div>
