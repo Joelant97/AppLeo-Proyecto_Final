@@ -2,8 +2,8 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from phone_field import PhoneField
-from django.dispatch import receiver
-from django.db.models.signals import post_save
+#from django.dispatch import receiver
+#from django.db.models.signals import post_save
 #from phonenumber_field.modelfields import PhoneNumberField
 
 # Crea tus Modelos aqui.
@@ -11,22 +11,32 @@ from django.db.models.signals import post_save
 
 class Profesor(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
-    direccion = models.CharField(max_length=250)
+    direccion = models.CharField(max_length=250, blank=True)
     telefono = PhoneField(blank=True, help_text='Teléfono de contacto')
 
+    #def from_db_value(self, usuario, direccion, telefono):
+
+    # def __init__(self, usuario, direccion, telefono):
+    #     # Input parameters are lists of cards ('Ah', '9s', etc.)
+    #     self.usarioario = usuario
+    #     self.direccion = direccion
+    #     self.telefono = telefono
+
+    def get_absolute_url(self):
+        return reverse('resources:profesor-perfil', kwargs={'pk': self.pk})
+
     def __str__(self):
-        return self.user.username
+        return self.usuario.username
 
-
-@receiver(post_save, sender=User)
-def crear_usuario_profesor(sender, instance, created, **kwargs):
-    if created:
-        Profesor.objects.create(usuario=instance)
-
-
-@receiver(post_save, sender=User)
-def guardar_usuario_profesor(sender, instance, **kwargs):
-    instance.profesor.save()
+# @receiver(post_save, sender=User)
+# def crear_usuario_profesor(sender, instance, created, **kwargs):
+#     if created:
+#         Profesor.objects.create(usuario=instance)
+#
+#
+# @receiver(post_save, sender=User)
+# def guardar_usuario_profesor(sender, instance, **kwargs):
+#     instance.profesor.save()
 
 #Modelo de los Grupos:
 #class Grupo(models.Model):

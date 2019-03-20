@@ -40,13 +40,43 @@ class RegistrarView(CreateView):
         login(self.request, usuario)
         return redirect('/')
 
+    # def form_valid(self, form):
+    #     # Add logged-in user as autor of comment THIS IS THE KEY TO THE SOLUTION
+    #     form.instance.profesor = self.request.user
+    #
+    #     # Call super-class form validation behaviour
+    #     return super(RegistrarView, self).form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super(CreateView, self).get_context_data(**kwargs)
+        context.update({
+            'all_profesors': Profesor.objects.all(),
+        })
+        return context
+
+    def get_queryset(self):
+        return Profesor.objects.all()
 
 # class RegistroUsuario(CreateView):
 #     model = User
 #     template_name = "resources/registrar.html"
 #     form_class = RegistroForm
 #     success_url = reverse_lazy('login')
+class ListProfesorLogeado(generic.ListView):
+    template_name = 'resources/profesor-detalles.html'
+    context_object_name = 'user.is_authenticated'
+    slug_field = 'profesor'
+    slug_url_kwarg = 'profesor'
 
+    def get_queryset(self):
+        return Profesor.objects.all()
+
+
+
+class DetailViewProfesor(generic.DetailView):
+    model = Profesor
+    template_name = 'resources/profesor-detalles.html'
+    # success_url = reverse_lazy('profesor-update')
 
 
 # Crea tus Vistas aqui
