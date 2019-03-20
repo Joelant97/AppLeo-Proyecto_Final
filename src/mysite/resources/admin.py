@@ -16,6 +16,7 @@ admin.site.register(Profesor)
 #admin.site.register(EvaluacionForm)
 
 
+
 #Para registrar el modelo Profesor en el admin de django editamos nuestro admin.py
 # @admin.register(Profesor)
 # class ProfesorAdmin(admin.ModelAdmin):
