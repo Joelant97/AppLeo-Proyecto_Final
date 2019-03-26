@@ -1,0 +1,309 @@
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <div class="navbar-bg"></div>
+
+        {% extends 'resources/base.html' %}
+        {% block title %}Realizar Evaluación{% endblock %}
+        {#{% block estudiantes_active %}active{% endblock %}#}
+        <!-- Toma en cuenta esto de estudiantes_active, puede que tengas que cambiarlo por evaluaciones -->
+
+        <!--
+{% block head %} -->
+            <!-- <head> -->
+            <!--    {% load staticfiles %}
+    <meta charset="UTF-8">
+
+    <title>Realizar Evaluación</title>
+    <link rel="stylesheet" href="{% static 'resources/style.css' %}"> -->
+            <!--   <script src="{% static "c1/jquery-3.1.0.min.js" %}"></script>  -->
+            <!--   <script src="{% static 'resources/appleo1/ux.js' %}"></script> -->
+
+            <!-- </head> -->
+            <!-- {% endblock %} -->
+
+
+        {% block body %}
+
+            <div class="main-content">
+                <section class="section">
+                    <div class="section-header">
+                        <h1>Evaluación</h1>
+
+                    </div>
+                    <div class="row">
+
+                        <div class="col-12 col-md-6 col-lg-6">
+                            <div class="card col-12">
+                                <form class="col-12" action="" method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <br><br>
+                                    {% include 'resources/form-template-evaluar.html' %}
+                                    <br><br>
+
+
+                                    <div class="col-sm-offset-5 col-sm-15">
+                                        <button type="submit" class="btn btn-primary"
+                                                onclick="return confirm('¿Desea guardar la Evaluación?');">Guardar
+                                        </button>
+                                    </div>
+
+
+                                </form>
+
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-6">
+                            <div class="card col-12">
+
+
+                                <div class="card-header">
+                                    <script src="{% static 'resources/artyom/jquery-3.1.1.js' %}"></script>
+                                    <script src="{% static 'resources/artyom/artyom.min.js' %}"></script>
+                                    <script src="{% static 'resources/artyom/artyomCommands.js' %}"></script>
+                                    <h4>Evaluación de la Lectura</h4>
+                                </div>
+
+
+                                <!-- botonera -->
+                                <div style="float: left;padding: 20px;">
+                                    <input type="button" onclick="startArtyom();carga();"
+                                           value="Escuchar">
+                                    <input type="button" onclick="stopArtyom();detenerse();"
+                                           value="Detener">
+                                    <input type="button" onclick="wordCount();" value="Procesar">
+                                    <input id="salida" style="width: 400px;"/>
+                                    <br><br><br>
+                                    <!--    <label for="fluidez">Fluidez lectora:</label>
+                                       <input id="fluidez" style="width: 200px;" /> -->
+
+                                </div>
+
+                                <body>
+                                <p>
+                                    <span id="segundos"></span>
+                                    <!-- Agrega un 0 antes de cerrar el Span para imprimir el tiempo -->
+                                </p>
+                                </body>
+
+
+                                <br><br><br>
+
+                                <!--
+                                <div style="padding: 20px;">
+                                    <label for="leer">Escribe un texto para leerlo</label>
+                                    <textarea id="leer" rows="4" cols="100"></textarea>
+                                    <input type="button" id="btnLeer" value="Leer">
+                                </div>  -->
+
+                            </div>
+                        </div>
+
+
+                        <script>
+
+                            artyom.addCommands([
+                                {
+                                    indexes: ["buenos días", 'pregunté', 'cuál es tu banda favorita', 'Cuál es tu banda favorita'],
+                                    action: function (i) {
+                                        salidaValue = $('#salida').val();
+                                        if (i == 0) {
+                                            $('#salida').val(salidaValue + '¡Buenos días!,');
+                                        }
+                                        if (i == 1) {
+                                            $('#salida').val(salidaValue + 'pregunté:');
+                                        }
+                                        if (i == 2) {
+                                            $('#salida').val(salidaValue + '¿Cuál es tu banda favorita?');
+                                        }
+
+                                        if (i == 3) {
+                                            $('#salida').val(salidaValue + '¿Cuál es tu banda favorita?');
+                                        }
+                                    }
+                                },
+                                {
+                                    indexes: ['limpiar'],
+                                    action: function () {
+                                        $('#salida').val('');
+                                    }
+                                }
+                            ]);
+
+                            // $(document).ready(function() {
+
+                            //Funcion para contar las palabras del Speech Recognition.
+                            function wordCount() {
+                                // Función que nos va a contar el número de caracteres
+                                // y de palabras del area de texto de un formulario
+                                // Obtenemos el texto del area.
+                                textoArea = document.getElementById("salida").value;
+                                // El numero de caracteres es su longitud
+                                numeroCaracteres = textoArea.length;
+                                // Eliminamos los caracteres en blanco del inicio y del final.
+                                // Como no tenemos funciones del tipo trim, rtrim y ltrim usamos
+                                // expresiones regulares
+                                // El ^ indica principio de cadena
+                                inicioBlanco = /^ /
+                                // El $ indica final de cadena
+                                finBlanco = / $/
+                                // El global (g) es para obtener todas las posibles combinaciones
+                                variosBlancos = /[ ]+/g
+                                textoArea = textoArea.replace(inicioBlanco, "");
+                                textoArea = textoArea.replace(finBlanco, "");
+                                textoArea = textoArea.replace(variosBlancos, " ");
+                                // Creamos un array con las diferentes palabras. Teniendo en
+                                // cuenta que la separación entre palabras es el espacio en blanco.
+                                textoAreaDividido = textoArea.split(" ");
+                                numeroPalabras = textoAreaDividido.length;
+                                // Mostramos los datos.
+                                // Tendremos en cuenta si hay que escribir en plural o en singular.
+                                tC = (numeroCaracteres == 1) ? " carácter" : " caracteres";
+                                tP = (numeroPalabras == 1) ? " palabra" : " palabras";
+                                //tPPM = " ppm";
+
+                                //alert (numeroCaracteres + tC +"\n" + numeroPalabras + tP);
+                                document.getElementById('id_fluidez_lectora').value = calcTipo(numeroPalabras, contador_s)
+
+                                //Imprimir el tipo de evaluacion -->(recuerda borrar esto mas adelante).
+                                var tEval = $('#id_evaluacion_tipo');
+                                tEval.val("Fluidez");
+
+
+                                //nos da los ppm sin unidad en la variable tipo.
+                                var tipo = calcTipo(numeroPalabras, contador_s);
+
+                                //Imprimir el tipo de lectura que es, en palabras.
+                                var tLect = $('#id_tipo_lectura');
+                                if (tipo >= 112) {
+                                    tLect.val("MUY RAPIDA");   //Recuerda cambiar estas condiciones,
+                                }                              //los casos son muy rapidos para la lectura
+                                if (tipo >= 100 && tipo <= 111) {  //de niños de las edades que evaluas.
+                                    tLect.val("RAPIDA");
+                                }
+                                if (tipo >= 88 && tipo <= 99) {
+                                    tLect.val("MEDIANA");
+                                }
+                                if (tipo >= 76 && tipo <= 87) {
+                                    tLect.val("LENTA MEDIANA");
+                                }
+                                if (tipo >= 64 && tipo <= 75) {
+                                    tLect.val("LENTA");
+                                }
+                                if (tipo <= 63) {
+                                    tLect.val("MUY LENTA");
+                                }
+
+
+                            }
+
+
+                            //Funcion retornar ppm sin la unidad.
+                            function calcTipo(palb, seg) {
+                                var result
+                                result = palb / seg * 60
+                                return result
+                            }
+
+                            //Funcion retornar ppm.
+                            {#function calcPPM(valor1, valor2, unidad) {#}
+                            {#    var PPM#}
+                            {#    PPM = valor1 / valor2 * 60#}
+                            {#    return PPM + unidad#}
+
+
+                            var cronometro;
+
+                            //Funcion para detener cronometro.
+                            function detenerse() {
+                                clearInterval(cronometro);
+                            }
+
+                            //Funcion para iniciar el cronometro en segundos.
+                            function carga() {
+                                contador_s = 1;    //puedes iniciarlo en 0 como antes, pero hay un pequeño retraso.
+                                s = document.getElementById("segundos");
+
+                                cronometro = setInterval(
+                                    function () {
+                                        s.innerHTML = contador_s;
+                                        contador_s++;
+
+                                    }
+                                    , 1000);
+
+                            }
+
+                            // Escribir lo que escucha.
+                            artyom.redirectRecognizedTextOutput(function (text, isFinal) {
+                                var texto = $('#salida');
+                                nuevaSalida = texto + " " + text;
+                                if (isFinal) {
+                                    texto.val(nuevaSalida);
+                                }
+                            });
+
+
+                            //inicializamos la libreria Artyom
+                            function startArtyom() {
+                                artyom.initialize({
+                                    lang: "es-ES",      //pueba con lang: "es-MX"
+                                    continuous: true,// Reconoce 1 solo comando y para de escuchar //prueba con false aqui
+                                    listen: true, // Iniciar !
+                                    debug: true, // Muestra un informe en la consola
+                                    speed: 1 // Habla normalmente   //prueba eliminando esto
+                                });
+                            };
+
+                            // Stop libreria;
+                            function stopArtyom() {
+                                artyom.fatality();// Detener cualquier instancia previa
+                            };
+
+                            // leer texto
+                            $('#btnLeer').click(function (e) {
+                                e.preventDefault();
+                                var btn = $('#btnLeer');
+                                if (artyom.speechSupported()) {
+                                    btn.addClass('disabled');
+                                    btn.attr('disabled', 'disabled');
+
+                                    var text = $('#leer').val();
+                                    if (text) {
+                                        var lines = $("#leer").val().split("\n").filter(function (e) {
+                                            return e
+                                        });
+                                        var totalLines = lines.length - 1;
+
+                                        for (var c = 0; c < lines.length; c++) {
+                                            var line = lines[c];
+                                            if (totalLines == c) {
+                                                artyom.say(line, {
+                                                    onEnd: function () {
+                                                        btn.removeAttr('disabled');
+                                                        btn.removeClass('disabled');
+                                                    }
+                                                });
+                                            } else {
+                                                artyom.say(line);
+                                            }
+                                        }
+                                    }
+                                } else {
+                                    alert("Tu navegador no puede hablar!");
+                                }
+                            });
+
+                            // });
+
+                        </script>
+
+                    </div>
+                </section>
+
+
+            </div>
+        {% endblock %}
+
+    </div>
+</div>

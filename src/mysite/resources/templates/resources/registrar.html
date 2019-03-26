@@ -1,0 +1,128 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}AppLeo{% endblock %}</title>
+    <!-- Carga la ruta a tus archivos estáticos -->
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'resources/style.css' %}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="{% static 'resources/js/main.js' %}"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+
+        <!-- Header -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">AppLeo</a>
+        </div>
+
+    </div>
+
+</nav>
+
+<div class='col-sm-6 col-sm-offset-3'>
+    <h1>Registro de Profesores</h1>
+    <hr/>
+
+    <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+        {% include 'resources/form-template.html' %}
+        <button type="submit" class="btn btn-default">Registrar</button>
+
+    </form>
+</div>
+
+</body>
+
+
+{#{% block body_block %}#}
+{#    <div class="container">#}
+{#        <div class="jumbotron">#}
+{#            {% if registered %}#}
+{#                <h1>¡Gracias por registrarte!</h1>#}
+{#            {% else %}#}
+{#                <h1>Registrar aquí</h1>#}
+{#                <h3>Sólo tienes que rellenar el formulario.</h3>#}
+{#                <br><br>#}
+{#                <form method="post" enctype="multipart/form-data" >#}
+{#                    {% csrf_token %}#}
+{#                    <div class="form-group row">#}
+{#                        <label for="username" class="col-sm-3 col-form-label">Nombre de Usuario: </label>#}
+{#                        <div class="col-sm-9">#}
+{#                            <input type="text" class="form-control" name="username"#}
+{#                                   id="id_username"#}
+{#                                   placeholder="Escriba su nombre de Usuario">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="form-group row">#}
+{#                        <label for="nombre" class="col-sm-3 col-form-label">Nombre(s): </label>#}
+{#                        <div class="col-sm-9">#}
+{#                            <input type="text" class="form-control" name="nombre"#}
+{#                                   id="nombre"#}
+{#                                   placeholder="Nombre del Profesor">#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group row">#}
+{#                        <label for="apellidos" class="col-sm-3 col-form-label">Apellido(s): </label>#}
+{#                        <div class="col-sm-9">#}
+{#                            <input type="text" class="form-control" name="apellidos"#}
+{#                                   id="apellidos"#}
+{#                                   placeholder="Apellidos del Profesor">#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group row">#}
+{#                        <label for="direccion" class="col-sm-3 col-form-label">Dirección: </label>#}
+{#                        <div class="col-sm-9">#}
+{#                            <input type="text" class="form-control" name="direccion"#}
+{#                                   id="direccion"#}
+{#                                   placeholder="Dirección del Profesor">#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group row">#}
+{#                        <label for="telefono" class="col-sm-3 col-form-label">Teléfono: </label>#}
+{#                        <div class="col-sm-9">#}
+{#                            <input type="tel" class="form-control" name="telefono"#}
+{#                                   id="telefono"#}
+{#                                   placeholder="Teléfono del Profesor">#}
+{#                        </div>#}
+{##}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group row">#}
+{#                        <label for="password1" class="col-sm-3 col-form-label">Contraseña: </label>#}
+{#                        <div class="col-sm-9">#}
+{#                            <input type="password" class="form-control" name="password1"#}
+{#                                   id="password" required#}
+{#                                   placeholder="Digite una Contraseña">#}
+{#                        </div>#}
+{##}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group row">#}
+{#                        <label for="password2" class="col-sm-3 col-form-label">Confirme la Contraseña: </label>#}
+{#                        <div class="col-sm-9">#}
+{#                            <input type="password" class="form-control" name="password2"#}
+{#                                   id="confirm_password" required#}
+{#                                   placeholder="Confirme la Contraseña">#}
+{#                        </div>#}
+{##}
+{#                    </div>#}
+{#                    {{ form.as_p }}#}
+{#                    <br>#}
+{#                    <input type="submit" name="" value="Registrarse">#}
+{#                </form>#}
+{##}
+{#            {% endif %}#}
+{#        </div>#}
+{#    </div>#}
+{#{% endblock %}#}
+
+</html>

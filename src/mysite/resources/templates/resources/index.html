@@ -1,0 +1,60 @@
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <div class="navbar-bg"></div>
+
+        {% extends 'resources/base.html' %}
+        {% block estudiantes_active %}active{% endblock %}
+
+        {% block body %}
+
+            <div class="main-content">
+                <section class="section">
+                    <div class="section-header">
+                        <h1>Inicio</h1>
+
+                    </div>
+                    <div class="row">
+
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="card card-statistic-1">
+                                <div class="card-icon bg-primary centro">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                        <h4>Estudiantes</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        {{ all_estudiantes|length }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="card card-statistic-1">
+                                <div class="card-icon bg-warning centro">
+                                    <i class="far fa-file"></i>
+                                </div>
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                        <h4>Evaluaciones</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        {{ all_evaluaciones|length }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
+
+
+        {% endblock %}
+    </div>
+
+</div>
+

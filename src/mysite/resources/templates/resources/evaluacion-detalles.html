@@ -1,0 +1,170 @@
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <div class="navbar-bg"></div>
+        {% extends 'resources/base.html' %}
+        {% block title %}Detalles del Estudiante{% endblock %}
+        {% block estudiantes_active %}active{% endblock %}   <!-- Sino funciona prueba con: evaluacions_active-->
+
+        {% block body %}
+        <div class="main-content">
+            <section class="section">
+
+                <div class="container-fluid songs-container" xmlns="http://www.w3.org/1999/html">
+
+                    <div class="row">
+
+                        <!-- Panel Detalla la Info de las Evaluaciones  -->
+                        <div class="col-sm-6 col-md-10">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <header>
+                                        <h2>Detalles de la Evaluación</h2>
+                                    </header>
+                                    <p>Haga click en los botones dentro del menú de pestañas:</p>
+                                    <br>
+
+                                    <div class="tab">
+                                        <button class="tablinks" onclick="openTab(event, 'General')">General</button>
+                                        <button class="tablinks" onclick="openTab(event, 'Comentarios')">Comentarios</button>
+                                    </div>
+
+                                    <article>
+                                        <div id="General" class="tabcontent">
+                                            <h3>_____Detalles Generales_____</h3>
+                                            <br>
+                                            <label for="out">Tipo de Evaluación : </label>
+                                            <output id="out">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;{{ evaluacion.evaluacion_tipo }}</output>
+
+                                            <br>
+                                            <label for="out1">Fluidez Lectora : </label>
+                                            <output id="out1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ evaluacion.fluidez_lectora }} PPM</output>
+
+                                            <br>
+                                            <label for="out2">Tipo de Lectura : </label>
+                                            <output id="out2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ evaluacion.tipo_lectura }}</output>
+
+                                            <br>
+                                            <label for="out3">¿La Evaluación es relevante? : </label>
+                                            <output id="out3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ evaluacion.es_favorito }}</output>
+                                        </div>
+
+                                        <div id="Comentarios" class="tabcontent">
+                                            <br><br>
+                                            <h3>Comentarios</h3>
+                                            <br>
+                                            <output>{{ evaluacion.comentario }}</output>
+                                        </div>
+                                    </article>
+
+                                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+                                    <footer>
+                                        <p> AppLeo ® </p>
+                                    </footer>
+                                    <!-- Puedes hacer lo de editar las evaluaciones aqui, aunque mas bien es un editar para las
+                                         notas de las evaluaciones, por si luego quieres agregar algo nuevo a un apunte sobre una
+                                         evaluacion en especifico. -->
+
+
+                                    <!-- Funciones para Cargar los Tabs -->
+                                    <script>
+                                        function openTab(evt, tabName) {
+                                            var i, tabcontent, tablinks;
+                                            tabcontent = document.getElementsByClassName("tabcontent");
+                                            for (i = 0; i < tabcontent.length; i++) {
+                                                tabcontent[i].style.display = "none";
+                                            }
+                                            tablinks = document.getElementsByClassName("tablinks");
+                                            for (i = 0; i < tablinks.length; i++) {
+                                                tablinks[i].className = tablinks[i].className.replace(" active", "");
+                                            }
+                                            document.getElementById(tabName).style.display = "block";
+                                            evt.currentTarget.className += " active";
+                                        }
+                                    </script>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <style>
+                    * {
+                        box-sizing: border-box;
+                    }
+
+                    body {
+                        font-family: Arial, Helvetica, sans-serif;
+                    }
+
+                    /* Style the header */
+                    header {
+                        background-color: #666;
+                        padding: 30px;
+                        text-align: center;
+                        font-size: 35px;
+                        color: white;
+                    }
+
+
+                    /* Style the list inside the menu */
+                    nav ul {
+                        list-style-type: none;
+                        padding: 0;
+                    }
+
+                    article {
+                        float: left;
+                        padding: 20px;
+                        width: 70%;
+                        background-color: #f1f1f1;
+                        height: 400px; /* only for demonstration, should be removed */
+                    }
+
+                    /* Clear floats after the columns */
+                    section:after {
+                        content: "";
+                        display: table;
+                        clear: both;
+                    }
+
+                    /* Style the footer */
+                    footer {
+                        background-color: #777;
+                        padding: 10px;
+                        text-align: center;
+                        color: white;
+                    }
+
+                    /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+                    @media (max-width: 600px) {
+                        nav, article {
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
+                </style>
+
+            </section>
+        </div>
+
+        {% endblock %}
+
+    </div>
+</div>

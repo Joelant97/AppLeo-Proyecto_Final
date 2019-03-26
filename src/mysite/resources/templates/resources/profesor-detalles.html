@@ -1,0 +1,40 @@
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <div class="navbar-bg"></div>
+        {% extends 'resources/base.html' %}
+        {% block title %}Detalles del Profesor{% endblock %}
+        {% block estudiantes_active %}active{% endblock %}   <!-- Sino funciona prueba con: evaluacions_active-->
+
+        {% block body %}
+            <div class="main-content">
+                <section class="section">
+
+                    <div class="container-fluid songs-container" xmlns="http://www.w3.org/1999/html">
+
+                        <div class="row">
+                            <h1>Perfil del Profesor Registrado:</h1>
+
+                            <div class="form-group row">
+                                <label for="direccion" class="col-sm-3 col-form-label">Dirección: </label>
+                                <div class="col-sm-9">
+                                    <output type="text" class="form-control" name="direccion"
+                                            id="evaluacion_tipo"></output>
+                                </div>
+                            </div>
+
+                            <label for="out1">Fluidez Lectora : </label>
+                            <output id="out1">{{ evaluacion.fluidez_lectora }} PPM</output>
+
+
+                        </div>
+
+                    </div>
+
+
+                </section>
+            </div>
+
+        {% endblock %}
+
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <div class="navbar-bg"></div>
+        {% extends 'resources/base.html' %}
+        {% block title %}Agregar un Estudiante{% endblock %}
+        {% block estudiantes_active %}active{% endblock %}
+
+
+        {% block body %}
+        <div class="main-content">
+            <section class="section">
+                <div class="section-header">
+                    <h1>Datos del estudiante</h1>
+
+                </div>
+                <div class="main-contentcontainer-fluid">
+                    <div class="row">
+
+                        <div class="col-sm-12 col-md-7">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+
+                                    <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        {% include 'resources/form-template.html' %}
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-5 col-sm-15">
+                                                <button type="submit" class="btn btn-success">Enviar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+        {% endblock %}
+    </div>
+</div>

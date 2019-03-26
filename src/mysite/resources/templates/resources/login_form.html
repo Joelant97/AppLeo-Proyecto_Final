@@ -1,0 +1,72 @@
+<!--{% load crispy_forms_tags %}-->
+<!--<!DOCTYPE html> -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}AppLeo{% endblock %}</title>
+    <!-- Carga la ruta a tus archivos estáticos -->
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'resources/style.css' %}"/>
+    <!--General CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'resources/js/modules/bootstrap/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'resources/js/modules/fontawesome/css/all.min.css' %}"/>
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'resources/js/modules/jqvmap/dist/jqvmap.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'resources/js/modules/summernote/summernote-bs4.css' %}"/>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'resources/js/modules/owlcarousel2/dist/assets/owl.carousel.min.css' %}"/>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'resources/js/modules/owlcarousel2/dist/assets/owl.theme.default.min.css' %}"/>
+    <!--Template CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'resources/css/style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'resources/css/components.css' %}"/>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>-->
+    <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <script src="{% static 'resources/js/modules/jquery.min.js' %}"></script>
+
+    <script src="{% static 'resources/js/main.js' %}"></script>
+</head>
+
+
+<nav class="navbar navbar-expand-lg main-navbar">
+    <ul class="navbar-nav mr-3">
+        <form class="form-inline mr-auto" >
+            <div class="container-fluid">
+                <!-- Header -->
+                <div class="navbar-header">
+                    <a class="section-header" href="#"><h1>AppLeo</h1></a>
+                </div>
+            </div>
+        </form>
+    </ul>
+
+</nav>
+
+
+<body>
+<div class="main-content">
+    <section class="section">
+
+        <div class='col-sm-6 col-sm-offset-3'>
+            <h1>Login</h1>
+            <hr/>
+
+            <form action="" method="post" action="{% url 'user_login' %}" enctype="multipart/form-data">{% csrf_token %}
+                <!-- {% crispy form %}  -->
+                {% include 'resources/form-template.html' %}
+                <a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a><br/>
+                <a href="{% url 'registrar' %}" class="btn btn-default">Registrarse</a>
+                <button type="submit" class="btn btn-default">Login</button>
+                <!-- <input type="submit" class="btn btn-default" value="{{ title }}"/> -->
+            </form>
+        </div>
+
+    </section>
+</div>
+
+</body>
+</html>
+
+
