@@ -18,3 +18,4 @@ class EvaluacionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Evaluacion
         fields = ('id', 'fluidez_lectora', 'tipo_lectura', 'evaluacion_tipo', 'es_favorito')
+

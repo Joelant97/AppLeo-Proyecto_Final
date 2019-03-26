@@ -28,7 +28,6 @@
                 <section class="section">
                     <div class="section-header">
                         <h1>Evaluación</h1>
-
                     </div>
                     <div class="row">
 
@@ -39,6 +38,89 @@
                                     <br><br>
                                     {% include 'resources/form-template-evaluar.html' %}
                                     <br><br>
+
+                                    <div class="form-group row">
+                                        <label for="texto_a_leer" class="col-sm-3 col-form-label">Texo a leer</label>
+                                        <div class="col-sm-9">
+
+                                            <textarea id="texto_a_leer"
+                                                      placeholder="¡Buenos dias!, Pedro ¿Cuál es tu banda favorita?"
+                                                      name="texto_a_leer"
+                                                      class="form-control" style="height: 220px"></textarea>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group mb-0 row">
+{#                                        <label for="estudiante" class="col-sm-3 col-form-label">Estudiante: </label>#}
+                                        <div class="col-sm-9">
+
+
+                                            <input id="(?P<pk>[0-9]+)" name="estudiante" hidden>
+{#                                            <select class="form-control" required name="estudiante" id="estudiante"#}
+{#                                                    style="height: 2.7em">#}
+{#                                                <option value="" selected>Seleccione</option>#}
+{#                                                {% for estudiante in all_estudiantes %}#}
+{#                                                    <option value="{{ estudiante.id }}">{{ estudiante.nombres }}</option>#}
+{#                                                {% endfor %}#}
+{#                                            </select>#}
+
+                                        </div>
+                                    </div>
+
+                                    <br>
+                                    <br>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Favorito</label>
+                                        <div class="col-sm-9">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="gridCheck1"
+                                                       name="es_favorito">
+                                                <label class="form-check-label" for="gridCheck1">
+                                                    &nbsp; &nbsp; &nbsp; Es favorito ?
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="evaluacion_tipo" class="col-sm-3 col-form-label">Evaluación
+                                            tipo: </label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="evaluacion_tipo"
+                                                   id="evaluacion_tipo"
+                                                   placeholder="Tipo">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="fluidez_lectora" class="col-sm-3 col-form-label">Fluidez
+                                            lectora: (ud.PPM) </label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="fluidez_lectora"
+                                                   id="fluidez_lectora"
+                                                   placeholder="Fluidez">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="tipo_lectura" class="col-sm-3 col-form-label">Tipo lectura: </label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="tipo_lectura"
+                                                   id="tipo_lectura"
+                                                   placeholder="Tipo lectura">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="comentario" class="col-sm-3 col-form-label">Comentario</label>
+                                        <div class="col-sm-9">
+                                            <textarea id="comentario" name="comentario" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+
+>>>>>>> origin/master
 
                                     <div class="col-sm-offset-5 col-sm-15">
                                         <button type="submit" class="btn btn-primary"
@@ -162,18 +244,19 @@
                                 //tPPM = " ppm";
 
                                 //alert (numeroCaracteres + tC +"\n" + numeroPalabras + tP);
+
                                 document.getElementById('id_fluidez_lectora').value = calcTipo(numeroPalabras, contador_s)
 
                                 //Imprimir el tipo de evaluacion -->(recuerda borrar esto mas adelante).
                                 var tEval = $('#id_evaluacion_tipo');
                                 tEval.val("Fluidez");
 
-
                                 //nos da los ppm sin unidad en la variable tipo.
                                 var tipo = calcTipo(numeroPalabras, contador_s);
 
                                 //Imprimir el tipo de lectura que es, en palabras.
                                 var tLect = $('#id_tipo_lectura');
+
                                 if (tipo >= 112) {
                                     tLect.val("MUY RAPIDA");   //Recuerda cambiar estas condiciones,
                                 }                              //los casos son muy rapidos para la lectura
