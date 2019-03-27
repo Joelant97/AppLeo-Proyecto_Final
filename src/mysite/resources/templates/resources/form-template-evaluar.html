@@ -11,7 +11,39 @@
     <label for="id_estudiante" class="col-sm-3 col-form-label">Estudiante: </label>
     <div class="col-sm-9">{{ form.estudiante }}</div>
 
+    <br><br>
+    <label for="id_es_favorito" class="col-sm-3 col-form-label">Es favorito ? </label>
+    <div class="col-sm-9">{{ form.es_favorito }}</div>
 
+    <br><br>
+    <label for="id_evaluacion_tipo" class="col-sm-3 col-form-label">Evaluación tipo: </label>
+    <div class="col-sm-9">
+        <input type="text" class="form-control" name="evaluacion_tipo"
+               id="id_evaluacion_tipo"
+               placeholder="Tipo de evaluación">
+    </div>
+
+    <br><br><br>
+    <label for="id_fluidez_lectora" class="col-sm-3 col-form-label">Fluidez lectora: (ud.PPM) </label>
+    <div class="col-sm-9">
+        <input type="text" class="form-control" name="fluidez_lectora"
+               id="id_fluidez_lectora"
+               placeholder="Cantidad de Palabras Por Minuto (PPM)">
+    </div>
+
+    <br><br>
+    <label for="id_tipo_lectura" class="col-sm-3 col-form-label">Tipo lectura: </label>
+    <div class="col-sm-9">
+        <input type="text" class="form-control" name="tipo_lectura"
+               id="id_tipo_lectura"
+               placeholder="Tipo de lectura">
+    </div>
+
+    <br><br><br><br>
+    <label for="id_comentario" class="col-sm-3 col-form-label">Comentario</label>
+    <div class="col-sm-9">
+        <textarea id="id_comentario" name="comentario"></textarea>
+    </div>
 
 </div>
 
@@ -21,12 +53,3 @@
     </div>
     <label class="control-label col-sm-5">{{ field.label_tag }}</label>
 </div>
-
-
-
-<div class="col-sm-9">{{ form.es_favorito }}</div>
-<div class="col-sm-9">{{ form.evaluacion_tipo }}</div>
-<div class="col-sm-9">{{ form.fluidez_lectora }}</div>
-<div class="col-sm-9">{{ form.tipo_lectura }}</div>
-<div class="col-sm-9">{{ form.comentario }}</div>
-
