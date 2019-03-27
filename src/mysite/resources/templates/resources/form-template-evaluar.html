@@ -3,21 +3,23 @@
     <div class="col-sm-9">
 
         <textarea id="id_texto_a_leer"
-{#                  placeholder="{{ id_texto_a_leer.default }}"#}
+{#                  placeholder="{{ id_texto_a_leer.default }}"  Prueba con form.texto_a_leer#}
                   name="texto_a_leer"
                   class="form-control" style="width: 320px; height: 220px;"></textarea>
 
     </div>
 </div>
 
-
 <div class="form-group">
     <div class="col-sm-offset-3 col-sm-20">
         <span class="text-danger small">{{ field.errors }}</span>
     </div>
     <label class="control-label col-sm-5">{{ field.label_tag }}</label>
+</div>
 
-    <div class="col-sm-9">{{ form.estudiante }}</div>
+<div class="form-group">
+    <label for="id_estudiante" class="col-sm-3 col-form-label">Estudiante: </label>
+    <div class="col-sm-20">{{ form.estudiante }}</div>
 </div>
 
 <div class="col-sm-9">{{ form.es_favorito }}</div>
