@@ -71,3 +71,15 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+textarea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    font-size: 14px;
+    padding: 10px 15px;
+
+    height: 130px;
+    width: 100%;
+}
