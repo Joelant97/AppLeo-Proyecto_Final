@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404, render_to_response
 from django.views import generic
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView, View
 from django.core.urlresolvers import reverse_lazy
 from .models import Estudiante, Profesor
 
@@ -19,6 +19,8 @@ from .models import Evaluacion
 from .serializers import EstudianteSerializer
 from .serializers import EvaluacionSerializer
 # from .models import EvaluacionForm
+#from django.views import View
+from django.shortcuts import render
 
 
 class RegistrarView(CreateView):
@@ -192,6 +194,32 @@ class UpdateEstudiante(UpdateView):
 class DeleteEstudiante(DeleteView):
     model = Estudiante
     success_url = reverse_lazy('resources:index')
+
+
+''' Vista para las Graficas de Rest: (Libreria: Chart.js): '''
+
+
+class ChartData(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        data = {
+            "labels": ["MUY RAPIDA", "RAPIDA", "MEDIANA", "LENTA MEDIANA", "LENTA", "MUY LENTA"],
+            "data": [112, 100, 88, 76, 64, 63],
+        }
+
+        return Response(data)
+
+''' Esta vista tambien se usa para la grafica: '''
+
+
+class BaseGraphicPageView(View):
+    template_name = "resources/charts.html"
+
+    def get(self, request, *args, **kwargs):
+        return render(request, 'resources/charts.html')
+
 
 
 # Manejo de RestFull(Listar o crear uno nuevo del model para el Serv.Rest):

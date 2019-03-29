@@ -1,0 +1,39 @@
+{% extends 'resources/base-grafica.html' %}
+
+<script>
+    {% block jquery %}
+        var endpoint = '/api/chart/data'
+
+        $.ajax({
+            method: "GET",
+            url: endpoint,
+            data: {
+                labels: data.labels,
+            datasets: [{
+                label: 'Resultados por Tipo Lectura',
+                data: data.data
+            }
+            ]}
+
+         });
+
+
+
+    {% endblock %}
+</script>
+
+
+{#$.ajax({#}
+{#method: "GET",#}
+{#url: endpoint,#}
+{#data: {#}
+{#labels: data.labels,#}
+{##}
+{#datasets: [{#}
+{#label: 'Votes per day',#}
+{#data: data.data,#}
+{##}
+{#error: function(error_data){#}
+{#console.log(error_data)#}
+{#}#}
+{#})#}

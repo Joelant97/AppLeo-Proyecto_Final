@@ -3,6 +3,7 @@ from django.conf.urls import url
 from . import views
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import logout_then_login
+from .views import BaseGraphicPageView, ChartData
 
 
 app_name = 'resources'
@@ -44,7 +45,14 @@ urlpatterns = [
     # /resources/estudiante/2/delete
     url(r'evaluacion/delete/(?P<eva_id>[\d]+)/$', login_required(views.DeleteEvaluacion), name='evaluacion-delete'),
 
+    url(r'grafica/', login_required(views.BaseGraphicPageView.as_view()), name='base-grafica'),
+
+    # api/chart/data/ --> Ruta para generar la grafica.
+    url(r'api/chart/data/', login_required(views.ChartData.as_view()), name='evaluacion-grafica'),
+
     url(r'logout/', logout_then_login, name='logout'),
+
+    #views.ChartData.as_view()
 
 
 ]
