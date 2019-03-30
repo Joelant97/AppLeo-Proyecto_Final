@@ -19,8 +19,13 @@ from .models import Evaluacion
 from .serializers import EstudianteSerializer
 from .serializers import EvaluacionSerializer
 # from .models import EvaluacionForm
-#from django.views import View
 from django.shortcuts import render
+from django.http import JsonResponse
+from rest_framework.response import Response
+from django.contrib.auth import get_user_model
+
+
+
 
 
 class RegistrarView(CreateView):
@@ -196,30 +201,44 @@ class DeleteEstudiante(DeleteView):
     success_url = reverse_lazy('resources:index')
 
 
-''' Vista para las Graficas de Rest: (Libreria: Chart.js): '''
+''' 
+    VistaS para las Graficas de Rest: (Libreria: Chart.js): a traves del JSON 
+'''
 
 
+class BaseGraphicPageView(View):
+
+    def get(self, request, *args, **kwargs):
+        return render(request, 'resources/charts.html', {"customers": 10})
+
+
+def get_data(request, *args, **kwargs):
+    data = {
+        "data": 100,
+        "customers": 10,
+    }
+    return JsonResponse(data)    # HTTP response
+
+
+User = get_user_model()
 class ChartData(APIView):
     authentication_classes = []
     permission_classes = []
 
+    ''' Usar esto en caso de que quieras sacar los usuarios a traves del JSON '''
+    # def get(self, request, format=None):
+    #     usernames = [user.username for user in User.objects.all()]
+    #     return Response(usernames)
+
     def get(self, request, format=None):
+        qs_count = User.objects.all().count()
+        labels = ['Users', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']
+        default_items = [qs_count, 1234, 1233, 32, 12, 2]
         data = {
-            "labels": ["MUY RAPIDA", "RAPIDA", "MEDIANA", "LENTA MEDIANA", "LENTA", "MUY LENTA"],
-            "data": [112, 100, 88, 76, 64, 63],
+            "labels": labels,
+            "default": default_items,
         }
-
         return Response(data)
-
-''' Esta vista tambien se usa para la grafica: '''
-
-
-class BaseGraphicPageView(View):
-    template_name = "resources/charts.html"
-
-    def get(self, request, *args, **kwargs):
-        return render(request, 'resources/charts.html')
-
 
 
 # Manejo de RestFull(Listar o crear uno nuevo del model para el Serv.Rest):
