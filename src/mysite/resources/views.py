@@ -207,14 +207,13 @@ class DeleteEstudiante(DeleteView):
 
 
 class BaseGraphicPageView(View):
-
     def get(self, request, *args, **kwargs):
         return render(request, 'resources/charts.html', {"customers": 10})
 
 
 def get_data(request, *args, **kwargs):
     data = {
-        "data": 100,
+        "datos": 100,
         "customers": 10,
     }
     return JsonResponse(data)    # HTTP response
@@ -231,12 +230,11 @@ class ChartData(APIView):
     #     return Response(usernames)
 
     def get(self, request, format=None):
-        qs_count = User.objects.all().count()
-        labels = ['Users', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']
-        default_items = [qs_count, 1234, 1233, 32, 12, 2]
         data = {
-            "labels": labels,
-            "default": default_items,
+            "datos": 100,
+            "customers": 10,
+            "users": User.objects.all().count(),
+
         }
         return Response(data)
 
