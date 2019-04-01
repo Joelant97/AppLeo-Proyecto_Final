@@ -43,13 +43,8 @@ urlpatterns = [
     # /resources/estudiante/2/delete
     url(r'evaluacion/delete/(?P<eva_id>[\d]+)/$', login_required(views.DeleteEvaluacion), name='evaluacion-delete'),
 
-    url(r'appleo/', login_required(views.BaseGraphicPageView.as_view()), name='base-grafica'),
-
-    # api/data/
-    url(r'appleo/api/data/', login_required(views.get_data), name='api-data'),
-
     # api/chart/data/ --> Ruta para generar la grafica.
-    url(r'appleo/api/chart/data/', login_required(views.ChartData.as_view())),
+    url(r'appleo/api/chart/data/', login_required(views.chart)),
 
     url(r'logout/', logout_then_login, name='logout'),
 

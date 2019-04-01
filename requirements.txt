@@ -18,4 +18,4 @@ virtualenv==16.0.0
 django-phone-field==1.7.0
 #django-phonenumber-field==2.2.0
 reverse==0.1.0
-
+enum34==1.1.6

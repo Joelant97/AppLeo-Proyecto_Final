@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, render_to_response
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, View
 from django.core.urlresolvers import reverse_lazy
-from .models import Estudiante, Profesor
+from .models import Estudiante, Profesor, Revenue
 
 #from django.contrib.auth.models import User
 from .forms import RegistroForm
@@ -20,9 +20,8 @@ from .serializers import EstudianteSerializer
 from .serializers import EvaluacionSerializer
 # from .models import EvaluacionForm
 from django.shortcuts import render
-from django.http import JsonResponse
 from rest_framework.response import Response
-from django.contrib.auth import get_user_model
+from .fusioncharts import FusionCharts
 
 
 
@@ -202,41 +201,35 @@ class DeleteEstudiante(DeleteView):
 
 
 ''' 
-    VistaS para las Graficas de Rest: (Libreria: Chart.js): a traves del JSON 
+    Vistas para las Graficas (Libreria: FusionCharts)
 '''
 
 
-class BaseGraphicPageView(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'resources/charts.html', {"customers": 10})
-
-
-def get_data(request, *args, **kwargs):
-    data = {
-        "datos": 100,
-        "customers": 10,
+def chart(request):
+    dataSource= {}
+    dataSource['chart'] = {
+        "caption": "Monthly revenue for last year",
+        "subCaption": "Harry's SuperMart",
+        "xAxisName": "Month",
+        "yAxisName": "Revenues (In USD)",
+        "numberPrefix": "$",
+        "theme": "zune"
     }
-    return JsonResponse(data)    # HTTP response
 
+    # The data for the chart should be in an array where each element of the array is a JSON object
+    # having the `label` and `value` as key value pair.
 
-User = get_user_model()
-class ChartData(APIView):
-    authentication_classes = []
-    permission_classes = []
+    dataSource['data'] = []
+    # Iterate through the data in `Revenue` model and insert in to the `dataSource['data']` list.
+    for key in Revenue.objects.all():
+        data = {}
+        data['label'] = key.Month
+        data['value'] = key.MonthlyRevenue
+        dataSource['data'].append(data)
 
-    ''' Usar esto en caso de que quieras sacar los usuarios a traves del JSON '''
-    # def get(self, request, format=None):
-    #     usernames = [user.username for user in User.objects.all()]
-    #     return Response(usernames)
-
-    def get(self, request, format=None):
-        data = {
-            "datos": 100,
-            "customers": 10,
-            "users": User.objects.all().count(),
-
-        }
-        return Response(data)
+    # Create an object for the Column 2D chart using the FusionCharts class constructor
+    column2D = FusionCharts("column2D", "ex1", "600", "350", "chart-1", "json", dataSource)
+    return render(request, 'resources/bar-chart.html', {'output': column2D.render()})
 
 
 # Manejo de RestFull(Listar o crear uno nuevo del model para el Serv.Rest):

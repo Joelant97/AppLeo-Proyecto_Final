@@ -9,6 +9,16 @@ from phone_field import PhoneField
 # Crea tus Modelos aqui.
 
 
+
+#Modelo de Prueba para las graficas:
+class Revenue(models.Model):
+    MonthlyRevenue = models.CharField(max_length=50)
+    Month = models.CharField(max_length=50)
+
+    def __unicode__(self):
+        return u'%s %s' % (self.MonthlyRevenue, self.Month)
+
+
 class Profesor(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     direccion = models.CharField(max_length=250, blank=True)
