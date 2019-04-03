@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, render_to_response
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, View
 from django.core.urlresolvers import reverse_lazy
-from .models import Estudiante, Profesor, Revenue
+from .models import Estudiante, Profesor
 
 #from django.contrib.auth.models import User
 from .forms import RegistroForm
@@ -208,11 +208,11 @@ class DeleteEstudiante(DeleteView):
 def chart(request):
     dataSource= {}
     dataSource['chart'] = {
-        "caption": "Monthly revenue for last year",
-        "subCaption": "Harry's SuperMart",
-        "xAxisName": "Month",
-        "yAxisName": "Revenues (In USD)",
-        "numberPrefix": "$",
+        "caption": "Velocidad de la lectura,",
+        "subCaption": "evaluada segun su tipo",
+        "xAxisName": "Tipo Lectura",
+        "yAxisName": "Velocidad Lectora (En PPM)",
+        "numberPrefix": "ppm",
         "theme": "zune"
     }
 
@@ -221,10 +221,10 @@ def chart(request):
 
     dataSource['data'] = []
     # Iterate through the data in `Revenue` model and insert in to the `dataSource['data']` list.
-    for key in Revenue.objects.all():
+    for key in Evaluacion.objects.all():
         data = {}
-        data['label'] = key.Month
-        data['value'] = key.MonthlyRevenue
+        data['label'] = key.tipo_lectura
+        data['value'] = key.fluidez_lectora
         dataSource['data'].append(data)
 
     # Create an object for the Column 2D chart using the FusionCharts class constructor

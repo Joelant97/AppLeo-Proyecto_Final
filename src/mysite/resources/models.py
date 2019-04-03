@@ -10,15 +10,6 @@ from phone_field import PhoneField
 
 
 
-#Modelo de Prueba para las graficas:
-class Revenue(models.Model):
-    MonthlyRevenue = models.CharField(max_length=50)
-    Month = models.CharField(max_length=50)
-
-    def __unicode__(self):
-        return u'%s %s' % (self.MonthlyRevenue, self.Month)
-
-
 class Profesor(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     direccion = models.CharField(max_length=250, blank=True)
@@ -78,6 +69,10 @@ class Evaluacion(models.Model):
     tipo_lectura = models.CharField(max_length=250, default='')  # Tipos: LENTA, MUY LENTA, RAPIDA, etc.S
     es_favorito = models.BooleanField(default=False)
     comentario = models.CharField(max_length=100, blank=True)
+
+    #Los datos a imprimir en la graficas:
+    def __unicode__(self):
+        return u'%s %s' % (self.fluidez_lectora, self.tipo_lectura)
 
     def get_absolute_url(self):
         return reverse('resources:detalles-evaluacion', kwargs={'pk': self.pk})

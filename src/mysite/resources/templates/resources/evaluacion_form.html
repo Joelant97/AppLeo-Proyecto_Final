@@ -97,33 +97,33 @@
 
                         <script>
 
-                            artyom.addCommands([
-                                {
-                                    indexes: ["buenos días", 'pregunté', 'cuál es tu banda favorita', 'Cuál es tu banda favorita'],
-                                    action: function (i) {
-                                        salidaValue = $('#salida').val();
-                                        if (i == 0) {
-                                            $('#salida').val(salidaValue + '¡Buenos días!,');
-                                        }
-                                        if (i == 1) {
-                                            $('#salida').val(salidaValue + 'pregunté:');
-                                        }
-                                        if (i == 2) {
-                                            $('#salida').val(salidaValue + '¿Cuál es tu banda favorita?');
-                                        }
-
-                                        if (i == 3) {
-                                            $('#salida').val(salidaValue + '¿Cuál es tu banda favorita?');
-                                        }
-                                    }
-                                },
-                                {
-                                    indexes: ['limpiar'],
-                                    action: function () {
-                                        $('#salida').val('');
-                                    }
-                                }
-                            ]);
+                            // artyom.addCommands([
+                            //     {
+                            //         indexes: ["buenos días", 'pregunté', 'cuál es tu banda favorita', 'Cuál es tu banda favorita'],
+                            //         action: function (i) {
+                            //             salidaValue = $('#salida').val();
+                            //             if (i == 0) {
+                            //                 $('#salida').val(salidaValue + '¡Buenos días!,');
+                            //             }
+                            //             if (i == 1) {
+                            //                 $('#salida').val(salidaValue + 'pregunté:');
+                            //             }
+                            //             if (i == 2) {
+                            //                 $('#salida').val(salidaValue + '¿Cuál es tu banda favorita?');
+                            //             }
+                            //
+                            //             if (i == 3) {
+                            //                 $('#salida').val(salidaValue + '¿Cuál es tu banda favorita?');
+                            //             }
+                            //         }
+                            //     },
+                            //     {
+                            //         indexes: ['limpiar'],
+                            //         action: function () {
+                            //             $('#salida').val('');
+                            //         }
+                            //     }
+                            // ]);
 
                             // $(document).ready(function() {
 
@@ -202,10 +202,10 @@
                             }
 
                             //Funcion retornar ppm.
-                            {#function calcPPM(valor1, valor2, unidad) {#}
-                            {#    var PPM#}
-                            {#    PPM = valor1 / valor2 * 60#}
-                            {#    return PPM + unidad#}
+                            // function calcPPM(valor1, valor2, unidad)
+                            //     var PPM
+                            //     PPM = valor1 / valor2 * 60
+                            //     return PPM + unidad
 
 
                             var cronometro;
@@ -231,13 +231,13 @@
                             }
 
                             // Escribir lo que escucha.
-                            artyom.redirectRecognizedTextOutput(function (text, isFinal) {
-                                var texto = $('#salida');
-                                nuevaSalida = texto + " " + text;
-                                if (isFinal) {
-                                    texto.val(nuevaSalida);
-                                }
-                            });
+                                artyom.redirectRecognizedTextOutput(function(text,isFinal){
+                                    var texto = $('#salida');
+                                    if (isFinal) {
+                                        texto.val(text);
+                                    }else{
+                                    }
+                                });
 
 
                             //inicializamos la libreria Artyom
