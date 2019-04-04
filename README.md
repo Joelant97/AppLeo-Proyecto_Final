@@ -17,3 +17,5 @@ Manejo de RestFul:
 Base de Datos: 
 -Sqllite 3
 
+Manejo de Graficos: 
+FusionCharts v3.13.4
