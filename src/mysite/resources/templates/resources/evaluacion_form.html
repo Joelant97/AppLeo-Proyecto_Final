@@ -170,24 +170,17 @@
 
                                 //Imprimir el tipo de lectura que es, en palabras.
                                 var tLect = $('#id_tipo_lectura');
-
-                                if (tipo >= 112) {
-                                    tLect.val("MUY RAPIDA");   //Recuerda cambiar estas condiciones,
-                                }                              //los casos son muy rapidos para la lectura
-                                if (tipo >= 100 && tipo <= 111) {  //de niños de las edades que evaluas.
-                                    tLect.val("RAPIDA");
+                                if (tipo > 59) {
+                                    tLect.val("AVANZADO");   //Casos ya establecidos para niños.
                                 }
-                                if (tipo >= 88 && tipo <= 99) {
-                                    tLect.val("MEDIANA");
+                                if (tipo >= 35 && tipo <= 59) {
+                                    tLect.val("ESTÁNDAR");
                                 }
-                                if (tipo >= 76 && tipo <= 87) {
-                                    tLect.val("LENTA MEDIANA");
+                                if (tipo >= 15 && tipo <= 34) {
+                                    tLect.val("CERCA DEL ESTÁNDAR");
                                 }
-                                if (tipo >= 64 && tipo <= 75) {
-                                    tLect.val("LENTA");
-                                }
-                                if (tipo <= 63) {
-                                    tLect.val("MUY LENTA");
+                                if (tipo < 15) {
+                                    tLect.val("REQUIERE APOYO");
                                 }
 
 

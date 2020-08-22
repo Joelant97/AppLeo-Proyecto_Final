@@ -9,6 +9,7 @@ app_name = 'resources'
 urlpatterns = [
     # /
     url(r'^index/$', login_required(views.IndexView.as_view()), name='index'),
+    url(r'^reportes/$', login_required(views.ReportesView.as_view()), name='reportes'),
 
     #lectura/estudiante/
     #url(r'lectura/estudiante/$', login_required(views.LecturaEstudianteView.as_view()), name='estudiante-lectura'),

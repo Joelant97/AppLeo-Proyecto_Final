@@ -1,0 +1,129 @@
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <div class="navbar-bg"></div>
+
+        {% extends 'resources/base.html' %}
+        {% block estudiantes_active %}active{% endblock %}
+
+        {% block body %}
+
+        <div class="main-content">
+            <section class="section">
+                <div class="section-header">
+                    <h1>Reportes</h1>
+
+                </div>
+                <!--<div class="row">-->
+
+
+                <!--<div class="col-lg-3 col-md-6 col-sm-6 col-12">-->
+                <!--<div class="card card-statistic-1">-->
+                <!--<div class="card-icon bg-warning centro">-->
+                <!--<i class="far fa-file"></i>-->
+                <!--</div>-->
+                <!--<div class="card-wrap">-->
+                <!--<div class="card-header">-->
+                <!--<h4>Evaluaciones</h4>-->
+                <!--</div>-->
+                <!--<div class="card-body">-->
+                <!--{{ all_evaluaciones|length }}-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+
+                <!--</div>-->
+            </section>
+
+            <!--<div class="col-lg-3 col-md-6 col-sm-6 col-12">-->
+
+            <div id="categorias" class="d-flex align-items-stretch" style="width:100%; height:50%;"></div>
+            <!--</div>-->
+
+        </div>
+
+
+        <script>
+
+            var categorias;
+            $(document).ready(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: "/evaluaciones/",
+                    success: function (response, textStatus) {
+                        var evaluaciones = [], ejeX = [];
+                        response.forEach(function (uno) {
+                            evaluaciones.push({
+                                name: uno['tipo_lectura'],
+                                value: parseInt(uno['fluidez_lectora'])
+                            });
+
+                            ejeX.push(uno['tipo_lectura']);
+                        });
+
+                        console.log(evaluaciones);
+                        crearGraficoCategorias(evaluaciones, ejeX);
+                    }
+                });
+                window.addEventListener('resize', function (event) {
+                    categorias.resize();
+                });
+            });
+
+            function crearGraficoCategorias(data, ejeX) {
+                var option = {
+                    title: {
+                        text: 'Evaluaciones'
+                    },
+                    legend: {
+                        show:true,
+                        data: ejeX
+                    },
+                    toolbox: {
+                        show: true,
+                        orient: 'vertical',
+                        left: 'right',
+                        top: 'center',
+                        // feature: {
+                        //     mark: {show: true},
+                        //     dataView: {show: true, readOnly: false},
+                        //     magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+                        //     restore: {show: true},
+                        //     saveAsImage: {show: true}
+                        // }
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'shadow'
+                        }
+                    }, xAxis: [
+                        {
+                            type: 'category',
+                            axisTick: {show: false},
+                            data: ejeX
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value'
+                        }
+                    ],
+                    series: [{
+                        data: data,
+                        barWidth: '30%',
+                        type: 'bar'
+                    }]
+                };
+                categorias = echarts.init(document.getElementById("categorias"));
+                categorias.setOption(option);
+            }
+        </script>
+
+
+        {% endblock %}
+    </div>
+
+
+</div>
+

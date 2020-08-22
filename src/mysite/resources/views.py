@@ -153,6 +153,27 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Estudiante.objects.all()
 
+class ReportesView(generic.ListView):
+    template_name = 'resources/reportes.html'
+
+    context_object_name = 'all_evaluaciones'
+    slug_field = 'evaluacion'
+    slug_url_kwarg = 'evaluacion'
+
+    def get_queryset(self):
+        return Evaluacion.objects.all()
+
+    # context_object_name = 'all_estudiantes'
+    #
+    # def get_context_data(self, **kwargs):
+    #     context = super(IndexView, self).get_context_data(**kwargs)
+    #     context.update({
+    #         'all_evaluaciones': Evaluacion.objects.all(),
+    #     })
+    #     return context
+    #
+    # def get_queryset(self):
+    #     return Estudiante.objects.all()
 
 class DetailViewEvaluacion(generic.DetailView):
     model = Evaluacion

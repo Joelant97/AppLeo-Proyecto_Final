@@ -24,6 +24,7 @@
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>-->
     <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
     <script src="{% static 'resources/js/modules/jquery.min.js' %}"></script>
+    <script src="{% static 'resources/js/echarts.min.js' %}"></script>
 
     <script src="{% static 'resources/js/main.js' %}"></script>
 
@@ -319,6 +320,12 @@
             <li class="{% if "/evaluacion/add" in request.path %}active{% endif %}">
                 <a class="nav-link" href="{% url 'resources:realizar-evaluacion' %}">
                     <i class="fas fa-file-signature "></i> <span>Realizar evaluación</span></a>
+            </li>
+
+            <li class="menu-header">Reportes</li>
+            <li class="{% if "/reportes" in request.path %}active{% endif %}">
+            <a class="nav-link" href="{% url 'resources:reportes' %}">
+                <i class="fas fa-file-signature "></i> <span>Reportes</span></a>
             </li>
 
         <li class="{% if "/listado/estudiantes" in request.path %}active{% endif %}">
