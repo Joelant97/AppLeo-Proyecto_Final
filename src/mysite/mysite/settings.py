@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 from django.core.urlresolvers import reverse_lazy
+from rest_framework import *
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -118,3 +119,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'appleord21@gmail.com'
 EMAIL_HOST_PASSWORD = 'ANtonio21'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# REST_FRAMEWORK = {
+#     'DATETIME_FORMAT': '%H%M%S%f',
+# }

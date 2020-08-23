@@ -15,7 +15,11 @@ class EstudianteSerializer(serializers.ModelSerializer):
 
 class EvaluacionSerializer(serializers.ModelSerializer):
 
+    estudiante = EstudianteSerializer()
     class Meta:
         model = Evaluacion
-        fields = ('id', 'fluidez_lectora', 'tipo_lectura', 'evaluacion_tipo', 'es_favorito')
+        fields = ('id', 'fluidez_lectora', 'tipo_lectura', 'evaluacion_tipo', 'es_favorito', 'fecha', 'estudiante')
+        # read_only_fields = ('type','timestamp')
+
+    # fields = '__all__'
 

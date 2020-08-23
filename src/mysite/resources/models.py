@@ -2,6 +2,8 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from phone_field import PhoneField
+from datetime import datetime
+
 #from django.dispatch import receiver
 #from django.db.models.signals import post_save
 #from phonenumber_field.modelfields import PhoneNumberField
@@ -69,16 +71,17 @@ class Evaluacion(models.Model):
     tipo_lectura = models.CharField(max_length=250, default='')  # Tipos: LENTA, MUY LENTA, RAPIDA, etc.S
     es_favorito = models.BooleanField(default=False)
     comentario = models.CharField(max_length=100, blank=True)
+    fecha = models.DateTimeField(default=datetime.now, blank=False)
 
     #Los datos a imprimir en la graficas:
     def __unicode__(self):
-        return u'%s %s' % (self.fluidez_lectora, self.tipo_lectura)
+        return u'%s %s %s' % (self.fluidez_lectora, self.tipo_lectura, self.fecha)
 
     def get_absolute_url(self):
         return reverse('resources:detalles-evaluacion', kwargs={'pk': self.pk})
 
     def __str__(self):
-        return self.fluidez_lectora + ' - ' + self.tipo_lectura
+        return self.fluidez_lectora + ' - ' + self.tipo_lectura + ' - ' + self.fecha
 
 
 class Fluidez(models.Model):

@@ -11,33 +11,17 @@
             <section class="section">
                 <div class="section-header">
                     <h1>Reportes</h1>
-
                 </div>
-                <!--<div class="row">-->
+                <div class="section-body">
+                    <div class="row">
+                        <div id="categorias" style="width:100%;height: 400px;"></div>
+                    </div>
+                </div>
 
-
-                <!--<div class="col-lg-3 col-md-6 col-sm-6 col-12">-->
-                <!--<div class="card card-statistic-1">-->
-                <!--<div class="card-icon bg-warning centro">-->
-                <!--<i class="far fa-file"></i>-->
-                <!--</div>-->
-                <!--<div class="card-wrap">-->
-                <!--<div class="card-header">-->
-                <!--<h4>Evaluaciones</h4>-->
-                <!--</div>-->
-                <!--<div class="card-body">-->
-                <!--{{ all_evaluaciones|length }}-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</div>-->
-
-                <!--</div>-->
             </section>
 
             <!--<div class="col-lg-3 col-md-6 col-sm-6 col-12">-->
 
-            <div id="categorias" class="d-flex align-items-stretch" style="width:100%; height:50%;"></div>
             <!--</div>-->
 
         </div>
@@ -51,18 +35,47 @@
                     type: 'GET',
                     url: "/evaluaciones/",
                     success: function (response, textStatus) {
-                        var evaluaciones = [], ejeX = [];
+                        var ejeY = [], ejeX = [], leyenda = [], series = [];
+
                         response.forEach(function (uno) {
-                            evaluaciones.push({
-                                name: uno['tipo_lectura'],
-                                value: parseInt(uno['fluidez_lectora'])
-                            });
 
-                            ejeX.push(uno['tipo_lectura']);
+                            var serieActual = series.find(x => x.name === uno['tipo_lectura']);
+                            var milliseconds = new Date(uno['fecha']).getTime();
+                            var fluidez = parseInt(uno['fluidez_lectora']);
+                            if (serieActual !== undefined) {
+
+                                serieActual.data.push([milliseconds, fluidez]);
+                            } else {
+
+                                series.push({
+                                    // estudiante: uno['estudiante']['nombres'],
+                                    // estudiante_id: uno['estudiante']['id'],
+                                    type: 'bar',
+                                    // barGap:'0%',
+                                    // barWidth: '100%',
+                                    // barCategoryGap: '-10%',
+
+                                    name: uno['tipo_lectura'],
+                                    data: [[milliseconds, fluidez]]
+                                });
+                            }
+
+                            if(!leyenda.includes(uno['tipo_lectura'])){
+                                leyenda.push(uno['tipo_lectura']);
+                            }
+
+                            ejeY.push(fluidez);
+                            console.log(milliseconds);
+                            if(!ejeX.includes(milliseconds)) {
+                                ejeX.push(milliseconds);
+                            }
                         });
+                        console.log('hora actual', moment());
+                        console.log(series, 'leyenda', leyenda);
+                        console.log(ejeX);
 
-                        console.log(evaluaciones);
-                        crearGraficoCategorias(evaluaciones, ejeX);
+
+                        crearGraficoCategorias(series, ejeX, ejeY, leyenda);
                     }
                 });
                 window.addEventListener('resize', function (event) {
@@ -70,50 +83,69 @@
                 });
             });
 
-            function crearGraficoCategorias(data, ejeX) {
+            function transformSeries(series) {
+                return [];
+            }
+
+            function crearGraficoCategorias(data, ejeX, ejeY, leyenda) {
                 var option = {
                     title: {
                         text: 'Evaluaciones'
                     },
                     legend: {
-                        show:true,
-                        data: ejeX
-                    },
-                    toolbox: {
-                        show: true,
-                        orient: 'vertical',
-                        left: 'right',
-                        top: 'center',
-                        // feature: {
-                        //     mark: {show: true},
-                        //     dataView: {show: true, readOnly: false},
-                        //     magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
-                        //     restore: {show: true},
-                        //     saveAsImage: {show: true}
-                        // }
+                        data: leyenda
                     },
                     tooltip: {
                         trigger: 'axis',
                         axisPointer: {
-                            type: 'shadow'
-                        }
-                    }, xAxis: [
+                            type: 'shadow',
+                            animation: false
+                        },
+                        // formatter: function (params) {
+                        //     var colorSpan = color => '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:' + color + '"></span>';
+                        //     var rez = '<p>' + moment(params[0].axisValue).format('MM - DD - YYYY') + '</p>';
+                        //     //console.log(params); //quite useful for debug
+                        //     params.forEach(item => {
+                        //         // console.log(item); //quite useful for debug
+                        //         let xx = colorSpan(item.color) + ' ' + item.seriesName + ': ' + item.value[1] + '<br> Operador: ' + item.value[2] + '<br> Turno: ' + item.value[3];
+                        //     rez += xx;
+                        // });
+                        //
+                        //     return rez;
+                        //
+                        // }
+                        // axisPointer: {
+                        //     type: 'cross',
+                        //     animation: false,
+                        //     label: {
+                        //         backgroundColor: '#505765'
+                        //     }
+                        // }
+                    },
+
+                    xAxis: {
+                        type: 'time',
+                        name: 'Día',
+                        // nameLocation: 'center',
+                        // axisLabel: {
+                        //     formatter: function (value) {
+                        //         return echarts.format.formatTime('yyyy-MM-dd', value);
+                        //         // And other formatter tool (e.g. moment) can be used here.
+                        //     }
+                        // },
+                        data: ejeX
+
+
+                    },
+                    yAxis:
                         {
-                            type: 'category',
-                            axisTick: {show: false},
-                            data: ejeX
+                            type: 'value',
+                            boundaryGap: [0, '100%'],
+
+
                         }
-                    ],
-                    yAxis: [
-                        {
-                            type: 'value'
-                        }
-                    ],
-                    series: [{
-                        data: data,
-                        barWidth: '30%',
-                        type: 'bar'
-                    }]
+                    ,
+                    series: data
                 };
                 categorias = echarts.init(document.getElementById("categorias"));
                 categorias.setOption(option);

@@ -116,7 +116,7 @@ class RealizarEvaluacionVista(CreateView):
     success_url = "/estudiante/{estudiante_id}"  # Esto es para direcionar hacia los detalles del estudiante
     # luego de registrar la evaluacion que se le ha realizo.
     fields = ['estudiante', 'es_favorito', 'evaluacion_tipo', 'fluidez_lectora', 'tipo_lectura', 'comentario',
-              'texto_a_leer']
+              'texto_a_leer', 'fecha']
 
     # def get_context_data(self, **kwargs):
     #     context = super(CreateView, self).get_context_data(**kwargs)
