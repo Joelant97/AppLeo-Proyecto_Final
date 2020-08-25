@@ -62,6 +62,11 @@ class Estudiante(models.Model):
     def __str__(self):
         return self.nombres + ' - ' + self.apellidos
 
+class Lectura(models.Model):
+    titulo = models.CharField(max_length=250)
+    texto = models.CharField(max_length=1500)
+
+
 #Realizar Evaluaciones:
 class Evaluacion(models.Model):
     estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)
@@ -72,6 +77,7 @@ class Evaluacion(models.Model):
     es_favorito = models.BooleanField(default=False)
     comentario = models.CharField(max_length=100, blank=True)
     fecha = models.DateTimeField(default=datetime.now, blank=False)
+    lectura = models.ForeignKey(Lectura, on_delete=models.CASCADE, blank=True, default='')
 
     #Los datos a imprimir en la graficas:
     def __unicode__(self):
@@ -84,10 +90,30 @@ class Evaluacion(models.Model):
         return self.fluidez_lectora + ' - ' + self.tipo_lectura + ' - ' + self.fecha
 
 
+
+
+
+#Las preguntas se usan para implementar Cloze.
+
+class Pregunta(models.Model):
+    lectura = models.ForeignKey(Lectura, on_delete=models.CASCADE, blank=True, default='')
+    nombre_p1 = models.CharField(max_length=150, blank=True)
+    enunciado_p1 = models.CharField(max_length=512, blank=True)
+    nombre_p2 = models.CharField(max_length=150, blank=True)
+    enunciado_p2 = models.CharField(max_length=512, blank=True)
+    nombre_p3 = models.CharField(max_length=150, blank=True)
+    enunciado_p3 = models.CharField(max_length=512, blank=True)
+    nombre_p4 = models.CharField(max_length=150, blank=True)
+    enunciado_p4 = models.CharField(max_length=512, blank=True)
+    nombre_p5 = models.CharField(max_length=150, blank=True)
+    enunciado_p5 = models.CharField(max_length=512, blank=True)
+
+
+
 class Fluidez(models.Model):
     evaluacion = models.ForeignKey(Evaluacion, on_delete=models.CASCADE)
     ppm = models.CharField(max_length=8)
-    tipo_lectura = models.CharField(max_length=250)  # Tipos: LENTA, MUY LENTA, RAPIDA, etc.S
+    tipo_lectura = models.CharField(max_length=250)
 
 
 class Comprension(models.Model):

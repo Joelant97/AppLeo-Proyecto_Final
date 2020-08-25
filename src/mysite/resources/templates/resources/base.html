@@ -5,22 +5,25 @@
     <title>{% block title %}AppLeo{% endblock %}</title>
     <!-- Carga la ruta a tus archivos estáticos -->
     {% load staticfiles %}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="{% static 'resources/style.css' %}"/>
-    <!--General CSS-->
-    <link rel="stylesheet" type="text/css" href="{% static 'resources/js/modules/bootstrap/css/bootstrap.min.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'resources/js/modules/fontawesome/css/all.min.css' %}"/>
-    <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="{% static 'resources/js/modules/jqvmap/dist/jqvmap.min.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'resources/js/modules/summernote/summernote-bs4.css' %}"/>
-    <link rel="stylesheet" type="text/css"
-          href="{% static 'resources/js/modules/owlcarousel2/dist/assets/owl.carousel.min.css' %}"/>
-    <link rel="stylesheet" type="text/css"
-          href="{% static 'resources/js/modules/owlcarousel2/dist/assets/owl.theme.default.min.css' %}"/>
-    <!--Template CSS-->
-    <link rel="stylesheet" type="text/css" href="{% static 'resources/css/style.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'resources/css/components.css' %}"/>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <!--<link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>-->
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'resources/style.css' %}"/>-->
+    <!--&lt;!&ndash;General CSS&ndash;&gt;-->
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'resources/js/modules/bootstrap/css/bootstrap.min.css' %}"/>-->
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'resources/js/modules/fontawesome/css/all.min.css' %}"/>-->
+    <!--&lt;!&ndash;CSS&ndash;&gt;-->
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'resources/js/modules/jqvmap/dist/jqvmap.min.css' %}"/>-->
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'resources/js/modules/summernote/summernote-bs4.css' %}"/>-->
+    <!--<link rel="stylesheet" type="text/css"-->
+          <!--href="{% static 'resources/js/modules/owlcarousel2/dist/assets/owl.carousel.min.css' %}"/>-->
+    <!--<link rel="stylesheet" type="text/css"-->
+          <!--href="{% static 'resources/js/modules/owlcarousel2/dist/assets/owl.theme.default.min.css' %}"/>-->
+    <!--&lt;!&ndash;Template CSS&ndash;&gt;-->
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'resources/css/style.css' %}"/>-->
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'resources/css/components.css' %}"/>-->
+
+
+
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>-->
     <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
     <script src="{% static 'resources/js/modules/jquery.min.js' %}"></script>
@@ -29,321 +32,169 @@
 
     <script src="{% static 'resources/js/main.js' %}"></script>
 
+
+    <!-- Jean Front-End-->
+    <link rel="stylesheet" href="{% static 'resources/assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="{% static 'resources/assets/fonts/fontawesome-all.min.css' %}">
+
 </head>
-<body>
+<!--<body>-->
 
-<nav class="navbar navbar-expand-lg main-navbar">
-    <ul class="navbar-nav mr-3">
-        <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg" style=""><i class="fas fa-bars"></i></a>
-        </li>
-        <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i
-                class="fas fa-search"></i></a></li>
-    </ul>
-    <form class="form-inline mr-auto" role="search" method="get" action="{% url 'resources:estudiante-buscar' %}">
-        <div class="form-group">
-            <input type="text" class="form-control" name="nombres" required value="">
-        </div>
-        <button type="submit" class="btn btn-default">Buscar</button>
-
-        <script>
-            $(document).ready(function(){
-
-                $("#q").on('change', function () {
-
-                    buscar();
-                })
-
-            });
-
-
-            function buscar() {
-
-                $.ajax({
-                    type: 'POST',
-                    data: $('#form').serialize(),
-                    url: "/estudiante/busqueda",
-                    success: function (res) {
-
-                        console.log(res);
-
-                    }
-
-                });
-
-
-            }
-        </script>
-{#        <ul class="navbar-nav mr-3">#}
-{#            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg" style=""><i class="fas fa-bars"></i></a>#}
-{#            </li>#}
-{#            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i#}
-{#                    class="fas fa-search"></i></a></li>#}
-{#        </ul>#}
-{#        <div class="search-element">#}
-{#            <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250"#}
-{#                   style="width: 250px;">#}
-{#            <button class="btn" type="submit"><i class="fas fa-search"></i></button>#}
-{#            <div class="search-backdrop"></div>#}
-{#            <div class="search-result">#}
-{#                <div class="search-header">#}
-{#                    Histories#}
-{#                </div>#}
-{#                <div class="search-item">#}
-{#                    <a href="#">How to hack NASA using CSS</a>#}
-{#                    <a href="#" class="search-close"><i class="fas fa-times"></i></a>#}
-{#                </div>#}
-{#                <div class="search-item">#}
-{#                    <a href="#">Kodinger.com</a>#}
-{#                    <a href="#" class="search-close"><i class="fas fa-times"></i></a>#}
-{#                </div>#}
-{#                <div class="search-item">#}
-{#                    <a href="#">#Stisla</a>#}
-{#                    <a href="#" class="search-close" style=""><i class="fas fa-times"></i></a>#}
-{#                </div>#}
-{#                <div class="search-header">#}
-{#                    Result#}
-{#                </div>#}
-{#                <div class="search-item">#}
-{#                    <a href="#">#}
-{#                        <img class="mr-3 rounded" width="30" src="assets/img/products/product-3-50.png" alt="product">#}
-{#                        oPhone S9 Limited Edition#}
-{#                    </a>#}
-{#                </div>#}
-{#                <div class="search-item">#}
-{#                    <a href="#">#}
-{#                        <img class="mr-3 rounded" width="30" src="assets/img/products/product-2-50.png" alt="product">#}
-{#                        Drone X2 New Gen-7#}
-{#                    </a>#}
-{#                </div>#}
-{#                <div class="search-item">#}
-{#                    <a href="#">#}
-{#                        <img class="mr-3 rounded" width="30" src="assets/img/products/product-1-50.png" alt="product">#}
-{#                        Headphone Blitz#}
-{#                    </a>#}
-{#                </div>#}
-{#                <div class="search-header">#}
-{#                    Projects#}
-{#                </div>#}
-{#                <div class="search-item">#}
-{#                    <a href="#">#}
-{#                        <div class="search-icon bg-danger text-white mr-3">#}
-{#                            <i class="fas fa-code"></i>#}
-{#                        </div>#}
-{#                        Stisla Admin Template#}
-{#                    </a>#}
-{#                </div>#}
-{#                <div class="search-item">#}
-{#                    <a href="#">#}
-{#                        <div class="search-icon bg-primary text-white mr-3">#}
-{#                            <i class="fas fa-laptop"></i>#}
-{#                        </div>#}
-{#                        Create a new Homepage Design#}
-{#                    </a>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-    </form>
-    <ul class="navbar-nav navbar-right">
-        <!--<li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle beep"><i class="far fa-envelope"></i></a>-->
-        <!--<div class="dropdown-menu dropdown-list dropdown-menu-right">-->
-        <!--<div class="dropdown-header">Messages-->
-        <!--<div class="float-right">-->
-        <!--<a href="#">Mark All As Read</a>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--<div class="dropdown-list-content dropdown-list-message">-->
-        <!--<a href="#" class="dropdown-item dropdown-item-unread">-->
-        <!--<div class="dropdown-item-avatar">-->
-        <!--<img alt="image" src="assets/img/avatar/avatar-1.png" class="rounded-circle">-->
-        <!--<div class="is-online"></div>-->
-        <!--</div>-->
-        <!--<div class="dropdown-item-desc">-->
-        <!--<b>Kusnaedi</b>-->
-        <!--<p>Hello, Bro!</p>-->
-        <!--<div class="time">10 Hours Ago</div>-->
-        <!--</div>-->
-        <!--</a>-->
-        <!--<a href="#" class="dropdown-item dropdown-item-unread">-->
-        <!--<div class="dropdown-item-avatar">-->
-        <!--<img alt="image" src="assets/img/avatar/avatar-2.png" class="rounded-circle">-->
-        <!--</div>-->
-        <!--<div class="dropdown-item-desc">-->
-        <!--<b>Dedik Sugiharto</b>-->
-        <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>-->
-        <!--<div class="time">12 Hours Ago</div>-->
-        <!--</div>-->
-        <!--</a>-->
-        <!--<a href="#" class="dropdown-item dropdown-item-unread">-->
-        <!--<div class="dropdown-item-avatar">-->
-        <!--<img alt="image" src="assets/img/avatar/avatar-3.png" class="rounded-circle">-->
-        <!--<div class="is-online"></div>-->
-        <!--</div>-->
-        <!--<div class="dropdown-item-desc">-->
-        <!--<b>Agung Ardiansyah</b>-->
-        <!--<p>Sunt in culpa qui officia deserunt mollit anim id est laborum.</p>-->
-        <!--<div class="time">12 Hours Ago</div>-->
-        <!--</div>-->
-        <!--</a>-->
-        <!--<a href="#" class="dropdown-item">-->
-        <!--<div class="dropdown-item-avatar">-->
-        <!--<img alt="image" src="assets/img/avatar/avatar-4.png" class="rounded-circle">-->
-        <!--</div>-->
-        <!--<div class="dropdown-item-desc">-->
-        <!--<b>Ardian Rahardiansyah</b>-->
-        <!--<p>Duis aute irure dolor in reprehenderit in voluptate velit ess</p>-->
-        <!--<div class="time">16 Hours Ago</div>-->
-        <!--</div>-->
-        <!--</a>-->
-        <!--<a href="#" class="dropdown-item">-->
-        <!--<div class="dropdown-item-avatar">-->
-        <!--<img alt="image" src="assets/img/avatar/avatar-5.png" class="rounded-circle">-->
-        <!--</div>-->
-        <!--<div class="dropdown-item-desc">-->
-        <!--<b>Alfa Zulkarnain</b>-->
-        <!--<p>Exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>-->
-        <!--<div class="time">Yesterday</div>-->
-        <!--</div>-->
-        <!--</a>-->
-        <!--</div>-->
-        <!--<div class="dropdown-footer text-center">-->
-        <!--<a href="#">View All <i class="fas fa-chevron-right"></i></a>-->
-        <!--</div>-->
-        <!--</div>-->
+<!--<nav class="navbar navbar-expand-lg main-navbar">-->
+    <!--<ul class="navbar-nav mr-3">-->
+        <!--<li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg" style=""><i class="fas fa-bars"></i></a>-->
         <!--</li>-->
-        <!--<li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>-->
-        <!--<div class="dropdown-menu dropdown-list dropdown-menu-right">-->
-        <!--<div class="dropdown-header">Notifications-->
-        <!--<div class="float-right">-->
-        <!--<a href="#">Mark All As Read</a>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--<div class="dropdown-list-content dropdown-list-icons">-->
-        <!--<a href="#" class="dropdown-item dropdown-item-unread">-->
-        <!--<div class="dropdown-item-icon bg-primary text-white">-->
-        <!--<i class="fas fa-code"></i>-->
-        <!--</div>-->
-        <!--<div class="dropdown-item-desc">-->
-        <!--Template update is available now!-->
-        <!--<div class="time text-primary">2 Min Ago</div>-->
-        <!--</div>-->
-        <!--</a>-->
-        <!--<a href="#" class="dropdown-item">-->
-        <!--<div class="dropdown-item-icon bg-info text-white">-->
-        <!--<i class="far fa-user"></i>-->
-        <!--</div>-->
-        <!--<div class="dropdown-item-desc">-->
-        <!--<b>You</b> and <b>Dedik Sugiharto</b> are now friends-->
-        <!--<div class="time">10 Hours Ago</div>-->
-        <!--</div>-->
-        <!--</a>-->
-        <!--<a href="#" class="dropdown-item">-->
-        <!--<div class="dropdown-item-icon bg-success text-white">-->
-        <!--<i class="fas fa-check"></i>-->
-        <!--</div>-->
-        <!--<div class="dropdown-item-desc">-->
-        <!--<b>Kusnaedi</b> has moved task <b>Fix bug header</b> to <b>Done</b>-->
-        <!--<div class="time">12 Hours Ago</div>-->
-        <!--</div>-->
-        <!--</a>-->
-        <!--<a href="#" class="dropdown-item">-->
-        <!--<div class="dropdown-item-icon bg-danger text-white">-->
-        <!--<i class="fas fa-exclamation-triangle"></i>-->
-        <!--</div>-->
-        <!--<div class="dropdown-item-desc">-->
-        <!--Low disk space. Let's clean it!-->
-        <!--<div class="time">17 Hours Ago</div>-->
-        <!--</div>-->
-        <!--</a>-->
-        <!--<a href="#" class="dropdown-item">-->
-        <!--<div class="dropdown-item-icon bg-info text-white">-->
-        <!--<i class="fas fa-bell"></i>-->
-        <!--</div>-->
-        <!--<div class="dropdown-item-desc">-->
-        <!--Welcome to Stisla template!-->
-        <!--<div class="time">Yesterday</div>-->
-        <!--</div>-->
-        <!--</a>-->
-        <!--</div>-->
-        <!--<div class="dropdown-footer text-center">-->
-        <!--<a href="#">View All <i class="fas fa-chevron-right"></i></a>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</li>-->
-        <li class="dropdown"><a href="#" data-toggle="dropdown"
-                                class="nav-link dropdown-toggle nav-link-lg nav-link-user" style=""
-                                data-vivaldi-spatnav-clickable="1" aria-expanded="false">
-{#            <img alt="image" src="assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">#}
-            {% if user.is_authenticated %}
-                <div class="d-sm-none d-lg-inline-block">Hola, {{ user.first_name }}</div>
-            {% else %}
-                <div class="d-sm-none d-lg-inline-block">Regístrese o inicie sesión si desea</div>
-            {% endif %}
+        <!--<li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i-->
+                <!--class="fas fa-search"></i></a></li>-->
+    <!--</ul>-->
 
-        </a>
-            <div class="dropdown-menu dropdown-menu-right">
-{#                <div class="dropdown-title">Logeado 5 min atras</div>#}
-{#                <a href="{% url 'resources:profesor-perfil' %}" class="dropdown-item has-icon">#}
-{#                    <i class="far fa-user"></i> Perfil#}
-{#                </a>#}
-                <a href="features-activities.html" class="dropdown-item has-icon">
-                    <i class="fas fa-bolt"></i> Activities
-                </a>
-                <a href="features-settings.html" class="dropdown-item has-icon">
-                    <i class="fas fa-cog"></i> Settings
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="{% url 'resources:logout' %}" class="dropdown-item has-icon text-danger">
-                    <i class="fas fa-sign-out-alt"></i> Cerrar sesi&oacute;n
-                </a>
-            </div>
-        </li>
-    </ul>
-</nav>
-
-<div class="main-sidebar sidebar-style-2">
-    <aside id="sidebar-wrapper">
-        <div class="sidebar-brand">
-            <a href="{% url 'resources:index' %}">App Leo</a>
-        </div>
-        <div class="sidebar-brand sidebar-brand-sm">
-            <a href="{% url 'resources:index' %}">AL</a>
-        </div>
-        <ul class="sidebar-menu">
+<!--</nav>-->
 
 
-            <li class="{% if "/index" in request.path %}active{% endif %}">
-                <a class="nav-link" href="{% url 'resources:index' %}">
-                    <i class="fas fa-home"></i> <span>Inicio</span></a>
-            </li>
+<body id="page-top">
+<!--Side bar-->
+<div id="wrapper">
+    <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+        <div class="container-fluid d-flex flex-column p-0">
+            <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                <div class="sidebar-brand-icon rotate-n-15"></div>
+                <div class="sidebar-brand-text mx-3"><a href="{% url 'resources:index' %}">App Leo</a></div>
+            </a>
 
+            <hr class="sidebar-divider my-0">
+            <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'resources:index' %}"><i class="fas fa-home"></i> <span>Inicio</span></a></li>
+                <li class="menu-header">Estudiantes</li>
+                <li class="{% if "/evaluacion/add" in request.path %}active{% endif %}"><a class="nav-link" href="{% url 'resources:realizar-evaluacion' %}">
+                <i class="fas fa-file-signature "></i> <span>Realizar evaluación</span></a></li>
 
-            <li class="menu-header">Estudiantes</li>
-            <li class="{% if "/evaluacion/add" in request.path %}active{% endif %}">
-                <a class="nav-link" href="{% url 'resources:realizar-evaluacion' %}">
-                    <i class="fas fa-file-signature "></i> <span>Realizar evaluación</span></a>
-            </li>
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="lecturas.html"><i class="fas fa-book"></i><span>Lecturas</span></a></li>
 
-            <li class="menu-header">Reportes</li>
-            <li class="{% if "/reportes" in request.path %}active{% endif %}">
-            <a class="nav-link" href="{% url 'resources:reportes' %}">
-                <i class="fas fa-file-signature "></i> <span>Reportes</span></a>
-            </li>
+                <li class="menu-header">Reportes</li>
+                <li class="{% if "/reportes" in request.path %}active{% endif %}">
+                <a class="nav-link" href="{% url 'resources:reportes' %}">
+                    <i class="fas fa-file-signature "></i> <span>Reportes</span></a>
+                </li>
 
-        <li class="{% if "/listado/estudiantes" in request.path %}active{% endif %}">
+                <li class="{% if "/listado/estudiantes" in request.path %}active{% endif %}">
                 <a class="nav-link" href="{% url 'resources:listado-estudiantes' %}">
                     <i class="fas fa-users "></i> <span>Listado estudiantes</span></a>
-            </li>
-        </ul>
+                </li>
 
-        <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-            <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                <i class="fas fa-rocket"></i> Documentation
-            </a>
+            </ul>
+            <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
         </div>
-    </aside>
-</div>
-{% block body %}
-{% endblock %}
+
+        <!--Nav bar-->
+    </nav>
+    <div class="d-flex flex-column" id="content-wrapper">
+        <div id="content">
+            <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                    <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" role="search" method="get" action="{% url 'resources:estudiante-buscar' %}">
+                        <div class="input-group">
+                            <input type="text" class="bg-light form-control border-0 small" id="q" aria-controls="dataTable" placeholder="Buscar" name="nombres" required>
+                            <div class="input-group-append"><button class="btn btn-primary py-0" type="submit"><i class="fas fa-search"></i></button></div>
+
+                        </div>
+
+                        <script>
+                            $(document).ready(function(){
+
+                                $("#q").on('change', function () {
+
+                                    buscar();
+                                })
+
+                            });
+
+
+                            function buscar() {
+
+                                $.ajax({
+                                    type: 'POST',
+                                    data: $('#form').serialize(),
+                                    url: "/estudiante/busqueda",
+                                    success: function (res) {
+
+                                        console.log(res);
+
+                                    }
+
+                                });
+
+
+                            }
+                        </script>
+                    </form>
+                    <ul class="nav navbar-nav flex-nowrap ml-auto">
+                        <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-search"></i></a>
+                            <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" role="menu" aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto navbar-search w-100">
+                                    <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for ...">
+                                        <div class="input-group-append"><button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></button></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        </li>
+
+
+                        <div class="d-none d-sm-block topbar-divider"></div>
+                        <li class="nav-item dropdown no-arrow" role="presentation">
+                            {% if user.is_authenticated %}
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">Hola, {{ user.first_name }}</span><img class="border rounded-circle img-profile" src="{% static 'resources/assets/img/avatars/profe2.png' %}"></a></div>
+                            {% else %}
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">Regístrese o inicie sesión si desea</span><img class="border rounded-circle img-profile" src="{% static 'resources/assets/img/avatars/profe2.png' %}"></a></div>
+                             {% endif %}
+                                <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
+                                        <div class="dropdown-divider"></div><a class="dropdown-item" role="presentation" href="{% url 'resources:logout' %}"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Cerrar sesi&oacute;n</a></div>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </nav>
+            {% block body %}
+            {% endblock %}
+
+            <!--<div class="container-fluid">-->
+                <!--<div class="card shadow">-->
+                    <!--<div class="card-header py-3">-->
+                        <!--<p class="text-primary m-0 font-weight-bold">Inicio</p>-->
+                    <!--</div>-->
+
+                    <!--<div class="card-body">-->
+
+                    <!--</div>-->
+
+
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+
+
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+
+
+<footer class="bg-white sticky-footer">
+    <div class="container my-auto">
+        <div class="text-center my-auto copyright"><span>Copyright © APP LEO 2020</span></div>
+    </div>
+</footer>
+
+
+
+<!-- jean Frontend -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/chart.min.js"></script>
+<script src="assets/js/bs-init.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+<script src="assets/js/theme.js"></script>
+
 
 <script src="{% static 'resources/js/modules/popper.js' %}"></script>
 <script src="{% static 'resources/js/modules/tooltip.js' %}"></script>
@@ -357,5 +208,8 @@
 <script src="{% static 'resources/js/scripts.js' %}"></script>
 <script src="{% static 'resources/js/custom.js' %}"></script>
 
+
+
 </body>
+
 </html>
