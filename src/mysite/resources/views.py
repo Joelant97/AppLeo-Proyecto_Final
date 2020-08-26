@@ -16,6 +16,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 # from rest_framework import status
 from .models import Evaluacion
+from .models import Lectura
 from .serializers import EstudianteSerializer
 from .serializers import EvaluacionSerializer
 # from .models import EvaluacionForm
@@ -210,6 +211,24 @@ class CrearEstudiante(CreateView):
         # Call super-class form validation behaviour
         return super(CrearEstudiante, self).form_valid(form)
 
+class CrearLectura(CreateView):
+    model = Lectura
+    success_url = "listado/lecturas/"
+
+    template_name = "resources/lectura_form.html"
+
+    fields = ['id', 'titulo', 'texto']
+
+# /lecturas lista
+class ListLecturas(generic.ListView):
+    template_name = 'resources/lecturas.html'
+    context_object_name = 'all_lecturas'
+    slug_field = 'lectura'
+    slug_url_kwarg = 'lectura'
+
+    def get_queryset(self):
+        return Lectura.objects.all()
+
 
 class UpdateEstudiante(UpdateView):
     model = Estudiante
@@ -219,6 +238,15 @@ class UpdateEstudiante(UpdateView):
 class DeleteEstudiante(DeleteView):
     model = Estudiante
     success_url = reverse_lazy('resources:index')
+
+class UpdateLectura(UpdateView):
+    model = Lectura
+    fields = ['id', 'titulo', 'texto']
+
+
+class DeleteLectura(DeleteView):
+    model = Lectura
+    success_url = reverse_lazy('resources:listado-lecturas')
 
 
 ''' 

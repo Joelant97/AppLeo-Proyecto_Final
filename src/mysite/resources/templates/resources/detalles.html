@@ -18,26 +18,27 @@
 
                         <!-- Izquierda Estudiante Info -->
                         <div class="col-sm-4 col-md-3">
-                            <div class="panel panel-default">
-                                <div class="panel-body">
+
+                            <div class="card-wrap">
+                                <div class="card-header">
                                     <a href="{% url 'resources:detalles' estudiante.id %}">
                                         {% if estudiante.foto %}
-                                        <img src="{{ estudiante.foto.url }}" class="img-responsive">
+                                        <img src="{{ estudiante.foto.url }}" class="img-responsive" style="width: 150px;">
                                         {% else %}
                                         <h3>No hay imagen para mostrar</h3>
                                         {% endif %}
                                     </a>
-                                    <h1>{{ estudiante.nombres }}</h1>
-                                    <h2>{{ estudiante.apellidos }}
-                                        <small>
-                                        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: {{ estudiante.id }} </label>
-                                        </small>
-                                    </h2>
-
-                                    <a href="{% url 'resources:estudiante-update' estudiante.id %}" class="btn btn-primary btn-sm"
-                                       role="button">Editar</a>
                                 </div>
+                                <div class="card-body">
+                                    <h4>{{ estudiante.nombres }} {{ estudiante.apellidos }}</h4>
+                                    <small>
+                                        <label>ID:{{ estudiante.id }} </label>
+                                    </small>
+                                </div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'resources:estudiante-update' estudiante.id %}" class="btn btn-primary btn-sm"
+                                   role="button">Editar</a>
                             </div>
+
                         </div>
 
                         <!-- Derecha Evaluacion Info -->
@@ -45,9 +46,10 @@
 
                             <ul class="nav nav-pills" style="margin-bottom: 10px;">
                                 <li role="presentation" class="active"><a
-                                        href="{% url 'resources:detalles' estudiante.id %}">Ver todo</a></li>
-                                <li role="presentation"><a href="{% url 'resources:realizar-evaluacion' estudiante.id %}">Agregar nueva Evaluación</a></li>
+                                        href="{% url 'resources:detalles' estudiante.id %}">Ver todo</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <li role="presentation"><a href="{% url 'resources:realizar-evaluacion' estudiante.id %}">Agregar Evaluación</a></li>
                             </ul>
+                            <!--&nbsp;-->
 
                             <div class="panel panel-default">
                                 <div class="panel-body">

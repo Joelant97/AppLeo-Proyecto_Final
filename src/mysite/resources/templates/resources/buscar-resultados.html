@@ -9,7 +9,7 @@
         {% load staticfiles %}
 
             <div class="main-content">
-                <section class="section">
+                <section style="padding-left: 2cm" class="section">
                     <div class="section-header">
                         <h1>Resultados de la Búsqueda:</h1>
                     </div>
@@ -22,9 +22,14 @@
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                                     <article class="article">
                                         <div class="article-header">
-                                            <div class="article-image" data-background="{% static 'resources/images/registered_user-512.png' %}"
-                                                 style="background-image: url(&quot;assets/img/news/img08.jpg&quot;);">
+                                            <div class="card-header">
+                                                <!--<img src="{{ estudiante.foto.url }}" class="img-responsive" style="width: 150px;">-->
+                                                <img class="img-responsive" style="width: 110px;" src="{% static 'resources/images/registered_user-512.png' %}">
                                             </div>
+
+                                            <!--<div class="article-image" data-background="{% static 'resources/images/registered_user-512.png' %}"-->
+                                                 <!--style="background-image: url(&quot;assets/img/news/img08.jpg&quot;);">-->
+                                            <!--</div>-->
                                             <div class="article-title">
                                                 <h2>
                                                     <a href="{% url 'resources:detalles' item.id %}">{{ item.nombres }} {{ item.apellidos }}</a>

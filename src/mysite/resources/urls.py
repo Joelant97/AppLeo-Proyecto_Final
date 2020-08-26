@@ -29,6 +29,18 @@ urlpatterns = [
     # /resources/estudiante/add/
     url(r'estudiante/add/$', login_required(views.CrearEstudiante.as_view()), name='estudiante-add'),
 
+    # /resources/lectura/add/
+    url(r'lectura/add/$', login_required(views.CrearLectura.as_view()), name='lectura-add'),
+
+    # /resources/listado/lecturas/
+    url(r'listado/lecturas/$', login_required(views.ListLecturas.as_view()), name='listado-lecturas'),
+
+    # /resources/lectura/update/2/
+    url(r'lectura/update/(?P<pk>[0-9]+)/$', login_required(views.UpdateLectura.as_view()), name='lectura-update'),
+
+    # /resources/lectura/2/delete
+    url(r'lectura/(?P<pk>[0-9]+)/delete/$', login_required(views.DeleteLectura.as_view()), name='lectura-delete'),
+
     # /resources/estudiante/update/2/
     url(r'estudiante/update/(?P<pk>[0-9]+)/$', login_required(views.UpdateEstudiante.as_view()), name='estudiante-update'),
 

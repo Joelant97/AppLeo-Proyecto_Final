@@ -1,0 +1,75 @@
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <div class="navbar-bg"></div>
+
+        {% extends 'resources/base.html' %}
+        {% block estudiantes_active %}active{% endblock %}
+
+        {% block body %}
+
+            <div style="padding-left: 3cm" class="main-content">
+                <section class="card-wrap">
+                    <div class="card-header">
+                        <h1>Lista de Lecturas</h1>
+                        <div class="section-header-breadcrumb">
+                            <a href="{% url 'resources:lectura-add' user.id %}">
+                                <button type="button" class="btn btn-success">
+                                    <span class="glyphicon glyphicon-plus"></span>&nbsp; Agregar una
+                                    Lectura
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Lecturas -->
+                    <div class="card-body">
+                        <div class="row">
+
+                            {% for lectura in all_lecturas %}
+                                <div style="padding-left: 2cm" class="main-content">
+                                    <article class="card-warp">
+                                        <div class="card-header">
+                                            <h3>
+                                                {{ lectura.titulo }}
+                                            </h3>
+
+                                            <div class="card-body">
+                                                <h4>
+                                                    <a href="{% url 'resources:lectura-update' lectura.id %}" class="btn btn-primary btn-sm"
+                                                       role="button">Editar</a>
+                                                </h4>
+
+                                                <form action="{% url 'resources:lectura-delete' lectura.id %}"
+                                                      method="post"
+                                                      style="display: inline;"
+                                                      onclick="return confirm('¿Seguro que desea eliminar la Lectura?');">
+                                                    {% csrf_token %}
+                                                    <input type="hidden" name="lectura_id"
+                                                           value="{{ lectura.id }}"/>
+                                                    <button type="submit"
+                                                            class="btn btn-danger"><span
+                                                            class="glyphicon glyphicon-trash"></span> Eliminar
+                                                    </button>
+                                                </form>
+                                            </div>
+
+
+                                        </div>
+
+                                    </article>
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+
+        {% endblock %}
+    </div>
+
+</div>
+

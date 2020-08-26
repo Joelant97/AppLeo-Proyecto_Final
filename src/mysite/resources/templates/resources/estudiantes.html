@@ -7,9 +7,9 @@
 
         {% block body %}
 
-            <div class="main-content">
-                <section class="section">
-                    <div class="section-header">
+            <div style="padding-left: 3cm" class="main-content">
+                <section class="card-wrap">
+                    <div class="card-header">
                         <h1>Listado de Estudiantes</h1>
                         <div class="section-header-breadcrumb">
                             <a href="{% url 'resources:estudiante-add' user.id %}">
@@ -22,32 +22,36 @@
                     </div>
 
                     <!-- Estudiantes -->
-                    <div class="section-body">
+                    <div class="card-body">
                         <div class="row">
 
                             {% for estudiante in all_estudiantes %}
-                                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                                <div class="col-sm-3" style="font-size: small">
                                     <article class="article">
                                         <div class="article-header">
-                                            <div class="article-image" data-background="{{ estudiante.foto.url }}"
-                                                 style="background-image: url(&quot;assets/img/news/img08.jpg&quot;);">
-                                            </div>
+                                            <a href="{% url 'resources:detalles' estudiante.id %}">
+                                                {% if estudiante.foto %}
+                                                <img src="{{ estudiante.foto.url }}" class="img-responsive" style="width: 150px;">
+                                                {% else %}
+                                                <h3>No hay imagen para mostrar</h3>
+                                                {% endif %}
+                                            </a>
                                             <div class="article-title">
-                                                <h2>
+                                                <h4>
                                                     <a href="{% url 'resources:detalles' estudiante.id %}">{{ estudiante.nombres }} {{ estudiante.apellidos }}</a>
-                                                </h2>
+                                                </h4>
                                             </div>
                                         </div>
                                         <div class="article-details">
                                             <div class="article-title">
-                                                <h2>
+                                                <h5>
                                                     {% if estudiante.evaluacion_set.last %}
                                                         <a href="{% url 'resources:detalles-evaluacion' estudiante.evaluacion_set.last.id %}">&Uacute;ltima
                                                             evaluaci&oacute;n</a>
                                                      {% else %}
                                                         <span>No tiene evaluaciones</span>
                                                     {% endif %}
-                                                </h2>
+                                                </h5>
                                             </div>
                                             <p>{{ estudiante.evaluacion_set.last.comentario }}</p>
                                             <div class="article-cta">

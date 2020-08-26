@@ -1,0 +1,24 @@
+<div id="app">
+    <div class="main-wrapper main-wrapper-1 p-3">
+        <div class="navbar-bg"></div>
+        {% extends 'resources/base.html' %}
+        {% block title %}Cargar Lectura{% endblock %}
+        {% block lecturas_active %}active{% endblock %}
+
+        {% block body %}
+
+        <form  style="padding-left: 2cm" class="col-12" action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% include 'resources/form-template-lectura.html' %}
+            <div style="padding-left: 2cm" class="col-sm-offset-5 col-sm-15">
+                <button type="submit" class="btn btn-primary"
+                        onclick="return confirm('¿Desea guardar la Lectura?');">Guardar
+                </button>
+            </div>
+        </form>
+
+        {% endblock %}
+
+
+    </div>
+</div>

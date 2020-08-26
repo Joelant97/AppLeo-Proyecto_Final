@@ -1,0 +1,63 @@
+{% load staticfiles %}
+<!--<link rel="stylesheet" type="text/css" href="{% static 'resources/style.css' %}"/>-->
+
+
+<div style="padding-left: 2cm" class="form-group">
+    <div class="col-sm-15">
+        <label for="id_titulo" class="col-sm-offset-3 col-sm-10">Titulo</label>
+        <input type="text" id="id_titulo" name="titulo">
+
+    </div>
+
+    <br>
+    <label for="id_texto" class="col-sm-offset-3 col-sm-10">Texto: </label>
+    <div class="col-sm-15">
+        <textarea cols="40" rows="10" style="border: solid; border-color: black " id="id_texto" name="texto"></textarea>
+    </div>
+
+</div>
+
+
+
+<div class="form-group">
+    <div class="col-sm-offset-3 col-sm-20">
+        <span class="text-danger small">{{ field.errors }}</span>
+    </div>
+    <label class="control-label col-sm-5">{{ field.label_tag }}</label>
+</div>
+
+<div style="padding-left: 2cm" class="form-group">
+    <div class="col-sm-offset-5 col-sm-15">
+        <input type="file" id="file" class="btn btn-success" title="Cargar"/>
+    </div>
+</div>
+
+<br>
+
+<script>
+    function readTextFile(file, callback, encoding) {
+        var reader = new FileReader();
+        reader.addEventListener('load', function (e) {
+            callback(this.result);
+        });
+        if (encoding) reader.readAsText(file, encoding);
+        else reader.readAsText(file);
+    }
+
+    function fileChosen(input, output) {
+        if (input.files && input.files[0]) {
+            readTextFile(
+                input.files[0],
+                function (str) {
+                    output.value = str;
+                }
+            );
+        }
+    }
+
+    $('#file').on('change', function () {
+        fileChosen(this, document.getElementById('id_texto'));
+    });
+</script>
+
+

@@ -34,6 +34,7 @@
 
 
     <!-- Jean Front-End-->
+
     <link rel="stylesheet" href="{% static 'resources/assets/bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="{% static 'resources/assets/fonts/fontawesome-all.min.css' %}">
@@ -56,20 +57,29 @@
 <!--Side bar-->
 <div id="wrapper">
     <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
-        <div class="container-fluid d-flex flex-column p-0">
+        <div class="container-fluid d-flex flex-column p-3">
             <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
-                <div class="sidebar-brand-icon rotate-n-15"></div>
                 <div class="sidebar-brand-text mx-3"><a href="{% url 'resources:index' %}">App Leo</a></div>
             </a>
 
-            <hr class="sidebar-divider my-0">
+            <!--<hr class="sidebar-divider my-0">-->
             <ul class="nav navbar-nav text-light" id="accordionSidebar">
                 <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'resources:index' %}"><i class="fas fa-home"></i> <span>Inicio</span></a></li>
-                <li class="menu-header">Estudiantes</li>
-                <li class="{% if "/evaluacion/add" in request.path %}active{% endif %}"><a class="nav-link" href="{% url 'resources:realizar-evaluacion' %}">
+
+                <li class="menu-header">Evaluaciones</li>
+                <li class="{% if "/evaluacion/add" in request.path %}active{% endif %}">
+                <a class="nav-link" href="{% url 'resources:realizar-evaluacion' %}">
                 <i class="fas fa-file-signature "></i> <span>Realizar evaluación</span></a></li>
 
-                <li class="nav-item" role="presentation"><a class="nav-link active" href="lecturas.html"><i class="fas fa-book"></i><span>Lecturas</span></a></li>
+                <li class="menu-header">Lecturas</li>
+                <li class="{% if "lectura/add" in request.path %}active{% endif %}">
+                <a class="nav-link" href="{% url 'resources:lectura-add' %}">
+                <i class="fas fa-file-archive "></i> <span>Cargar Lectura</span></a></li>
+
+                <li class="{% if "/listado/lecturas" in request.path %}active{% endif %}">
+                <a class="nav-link" href="{% url 'resources:listado-lecturas' %}">
+                    <i class="fas fa-file "></i> <span>Listado Lecturas</span></a>
+                </li>
 
                 <li class="menu-header">Reportes</li>
                 <li class="{% if "/reportes" in request.path %}active{% endif %}">
@@ -188,12 +198,12 @@
 
 
 <!-- jean Frontend -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/js/chart.min.js"></script>
-<script src="assets/js/bs-init.js"></script>
+<script src="{% static 'resources/assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'resources/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'resources/assets/js/chart.min.js' %}"></script>
+<script src="{% static 'resources/assets/js/bs-init.js' %}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-<script src="assets/js/theme.js"></script>
+<script src="{% static 'resources/assets/js/theme.js' %}"></script>
 
 
 <script src="{% static 'resources/js/modules/popper.js' %}"></script>
